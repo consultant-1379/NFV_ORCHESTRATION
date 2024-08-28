@@ -1,0 +1,7 @@
+{
+  "tenantName" : "${tenantName}",
+  "vdc" : {
+    "id" : "${vdc}"
+  },
+  "ovfPackage" : { }
+}

@@ -1,0 +1,7 @@
+*.classes
+target/*
+tmp/*
+.settings/*
+.project
+.classpath
+node_modules/*

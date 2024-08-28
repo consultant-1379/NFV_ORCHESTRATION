@@ -1,0 +1,97 @@
+   {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfcxKDatVrPMf_V24kiGsckW-K5obNF81FtA.*AAJTSQACMDEAAlNLABQtNDM1Mzc2Mjc4NDA1NjExNzQ4NQ..*"
+       },
+       "data":
+       {
+           "vm":
+           {
+               "createReqNumber": "2493059",
+               "vimZone":
+               {
+                   "name": "vEPC04",
+                   "type": "OPENSTACK"
+               },
+               "vimObjectId": "388686ff-95eb-4fd5-b9ad-05ff3a2a74f2",
+               "hostId": "d899cdc7b64867df3eaeb466b71fc115c052bdbd43d6e889150500bf",
+               "adminPassword": "TUsjwvb6PDGG",
+               "lastModifiedBy": "oss",
+               "bootSource":
+               {
+                   "imageName": "MME-Drop5-FS-1.11"
+               },
+               "vmhdName": "MME-FS",
+               "vdc":
+               {
+                   "id": "VDC-3070",
+                   "name": "MME01-VDC"
+               },
+               "vapp":
+               {
+                   "id": "VAPP-3077",
+                   "name": "MME01"
+               },
+               "id": "VM-3078",
+               "name": "MME-FS-1.11-VM",
+               "provisioningStatus": "ACTIVE",
+               "tenantName": "lmioss",
+               "operationalStatus": "ACTIVE",
+               "vmVnics":
+               [
+                   {
+                       "macAddress": "fa:16:3e:cf:4d:d6",
+                       "internalIpAddress":
+                       [
+                           "30.30.8.2"
+                       ],
+                       "vimObjectId": "ccaeb2b4-aa3c-4299-ac95-435ac1db5288",
+                       "type": "standard",
+                       "vn":
+                       {
+                           "id": "VN-3072",
+                           "name": "MME-Internal-VN"
+                       },
+                       "id": "VNIC-VM-3085",
+                       "name": "MME-Internal-VNIC"
+                   },
+                   {
+                       "macAddress": "fa:16:3e:8b:b8:9e",
+                       "internalIpAddress":
+                       [
+                           "30.30.13.2"
+                       ],
+                       "vimObjectId": "258d48be-f0cf-4bdd-9f58-d6c725708088",
+                       "type": "standard",
+                       "vn":
+                       {
+                           "id": "VN-3073",
+                           "name": "MME-Internal-2-VN"
+                       },
+                       "id": "VNIC-VM-3086",
+                       "name": "MME-Internal-2-VNIC"
+                   },
+                   {
+                       "macAddress": "fa:16:3e:c6:1b:59",
+                       "internalIpAddress":
+                       [
+                           "30.30.20.2"
+                       ],
+                       "vimObjectId": "3c24c9bc-b41a-4994-8610-e4d01596aeb7",
+                       "externalIpAddress": "10.51.216.52",
+                       "externalIpAddressVimObjectId": "4f7f9358-c7f5-475f-bf34-4ed4c1fa7d28",
+                       "type": "standard",
+                       "vn":
+                       {
+                           "id": "VN-3074",
+                           "name": "MME-Admin-VN"
+                       },
+                       "id": "VNIC-VM-3087",
+                       "name": "MME-Admin-VNIC"
+                   }
+               ]
+           }
+       }
+    }
+

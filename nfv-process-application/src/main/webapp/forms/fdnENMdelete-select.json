@@ -1,0 +1,20 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+             
+            { "controlGroup": { "name": "FDN Name", "label": "FDN To Delete", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "enmFDN", "readonly": false},
+                     "initialValue": { "source": "instance" }}
+                ]}},
+                    
+              { "controlGroup": { "name": "DeleteConfirm", "label": "Confirm Remove", "type": "check", 
+                "controls": [
+                    { "variable": { "type": "boolean", "name": "YesRemove", "readonly": false}, 
+                      "initialValue": { "source": "local", "value": false } }
+                ]}}                  
+        ]
+}

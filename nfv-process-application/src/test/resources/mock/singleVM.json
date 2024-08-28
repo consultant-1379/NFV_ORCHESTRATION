@@ -1,0 +1,52 @@
+{
+	"status": {
+		"reqStatus": "SUCCESS",
+		"credentials": "AQIC5wM2LY4Sfcz08COMSp2DqqoDDjl-vN22inb-bHE_2uE.*AAJTSQACMDEAAlNLABQtNTQzOTI0ODAxNjg1OTc5MDY4OQ..*"
+	},
+	"data": {
+		"vm": {
+			"createReqNumber": "2600994",
+			"vimZone": {
+				"name": "vEPC02",
+				"type": "OPENSTACK"
+			},
+			"vimObjectId": "d351e55b-e79f-47ae-90f7-81d2b10f381a",
+			"hostId": "9110fae87d9b3b8b511e882f89702a4e1b9cbd9ea5cc1a62522d7393",
+			"adminPassword": "Jo8c9MEXyBqB",
+			"lastModifiedBy": "ecmadmin",
+			"imageName": "EPG-NFS",
+			"vmhdName": "EPG-NFS",
+			"vdc": {
+				"id": "VDC-3616",
+				"name": "EPG-VDC"
+			},
+			"id": "VM-10872",
+			"name": "epg-nfs-vm",
+			"provisioningStatus": "ACTIVE",
+			"tenantName": "lmioss",
+			"operationalStatus": "ACTIVE",
+			"vmVnics": [{
+				"macAddress": "fa:16:3e:f6:51:15",
+				"privateIpAddress": "10.10.21.2",
+				"vimObjectId": "74c1bcc6-a70b-4f34-937c-f36dca092a88",
+				"vn": {
+					"id": "VN-10869",
+					"name": "EPG-NFS-VN"
+				},
+				"id": "VNIC-VM-10873",
+				"name": "EPG-NFS-NFS-VNIC"
+			},
+			{
+				"macAddress": "fa:16:3e:85:2e:f9",
+				"privateIpAddress": "10.70.249.130",
+				"vimObjectId": "42341c3c-10a0-41c0-b386-7267d8c013c4",
+				"vn": {
+					"id": "VN-10871",
+					"name": "EPG-Public-VN"
+				},
+				"id": "VNIC-VM-10875",
+				"name": "EPG-NFS-Public-VNIC"
+			}]
+		}
+	}
+}

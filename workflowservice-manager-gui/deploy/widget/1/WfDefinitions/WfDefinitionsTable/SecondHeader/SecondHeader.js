@@ -1,0 +1,3 @@
+/* Copyright (c) Ericsson 2015 */
+
+define("widget/WfDefinitions/WfDefinitionsTable/SecondHeader/SecondHeader",["jscore/core","./Plugin","tablelib/HeaderCell","tablelib/Row"],function(e,n,t,l){function a(){var e=new l({table:this.getTable()});e.onRowReady({cellTypeProp:"secondHeaderCellType",fallbackCellType:t,valueExp:function(e,n){return""}}),e.attachTo(this.getTable().getElement().find("thead"))}return n.extend({injections:{after:{onViewReady:a}}})});

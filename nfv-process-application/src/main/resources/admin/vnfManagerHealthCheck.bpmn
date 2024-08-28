@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:fox="http://www.camunda.com/fox" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_8RKmUDz6EeWYcsAkGnXrJQ" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="vnfm_healthcheck" name="VNFM Health Check" isExecutable="true">
+    <bpmn2:parallelGateway id="ParallelGateway_1__prg__p10">
+      <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="ParallelGateway_1__prg__p10" targetRef="ScriptTask_1__prg__p50"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="ParallelGateway_1__prg__p10" targetRef="ScriptTask_2__prg__p50"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="ParallelGateway_1__prg__p10" targetRef="ScriptTask_3__prg__p50"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_" name="" sourceRef="ParallelGateway_1__prg__p10" targetRef="ScriptTask_4__prg__p50"/>
+    <bpmn2:scriptTask id="ScriptTask_4__prg__p50" name="OSS HealthCheck" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger("script");
+execution.setVariable("ossSuccess", false);
+
+try {
+	com.ericsson.oss.nfe.poc.utils.SecureShellConnectionUtil conn = null;
+	String user = com.ericsson.oss.nfe.poc.core.AppConfigLoader.einstance.getProperty("oss.ssh.username");
+	String pass = com.ericsson.oss.nfe.poc.core.AppConfigLoader.einstance.getProperty("oss.ssh.password");
+	String host = com.ericsson.oss.nfe.poc.core.AppConfigLoader.einstance.getProperty("oss.ssh.host");
+	if(execution.getVariable("deploymentMode") == "remote")
+		host = com.ericsson.oss.nfe.poc.core.AppConfigLoader.einstance.getProperty("oss.ssh.host.remote");
+	String port = com.ericsson.oss.nfe.poc.core.AppConfigLoader.einstance.getProperty("oss.ssh.port");
+	
+	conn = new com.ericsson.oss.nfe.poc.utils.SecureShellConnectionUtil(user, pass, host, port.toInteger());
+	String response = conn.sendCommand("pwd");
+
+	if (conn.isConnected() && response != null) 
+		execution.setVariable("ossSuccess", true);
+		
+} catch (Exception e) {
+	println "Error Occured - "+ e.getMessage();
+}
+
+LOGGER.info("OSS Health check Success -- " + execution.getVariable("ossSuccess"))]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:scriptTask id="ScriptTask_2__prg__p50" name="ECM HealthCheck" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger("script");
+execution.setVariable("ecmSuccess", false);
+
+try {
+	String url = com.ericsson.oss.nfe.poc.core.AppConfigLoader.einstance.getProperty("GET_VIM_URL");
+	String response = new com.ericsson.oss.nfe.poc.utils.ECMRESTUtil().doGETRequest(url);
+	
+	if (response != null && response.contains("vimZones")) 
+		execution.setVariable("ecmSuccess", true);
+
+} catch (Exception e) {
+	println "Error Occured - "+ e.getMessage();
+}
+
+LOGGER.info("ECM Health check Success -- " + execution.getVariable("ecmSuccess"))
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:scriptTask id="ScriptTask_1__prg__p50" name="VFD HealthCheck" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger("script");
+execution.setVariable("vfdSuccess", false);
+
+try {
+	String url = com.ericsson.oss.nfe.poc.core.AppConfigLoader.einstance.getProperty("GET_VFD_BASE_URL") + "/epg";
+	String response = new com.ericsson.oss.nfe.poc.utils.RESTUtil().doGETRequest(url, null);
+	
+	if (response != null && response.contains("apps")) 
+		execution.setVariable("vfdSuccess", true);
+	
+} catch (Exception e) {
+	println "Error Occured - "+ e.getMessage();
+}
+
+LOGGER.info("VFD Health check Success -- " + execution.getVariable("vfdSuccess"))]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1__prg__p70" name="VFD Success?" default="SequenceFlow_17">
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_16</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_17</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" name="" sourceRef="ScriptTask_1__prg__p50" targetRef="ExclusiveGateway_1__prg__p70"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_2__prg__p70" name="ECM Success?" default="SequenceFlow_21">
+      <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_18</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_21</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" name="" sourceRef="ScriptTask_2__prg__p50" targetRef="ExclusiveGateway_2__prg__p70"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_3__prg__p70" name="OSS Success?" default="SequenceFlow_22">
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_19</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_22</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" name="" sourceRef="ScriptTask_4__prg__p50" targetRef="ExclusiveGateway_3__prg__p70"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_16" name="Yes" sourceRef="ExclusiveGateway_1__prg__p70" targetRef="ExclusiveGateway_5__prg__p90">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('vfdSuccess') != null && execution.getVariable('vfdSuccess')}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_17" name="" sourceRef="ExclusiveGateway_1__prg__p70" targetRef="EndEvent_3__prg__p100__err"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_18" name="Yes" sourceRef="ExclusiveGateway_2__prg__p70" targetRef="ExclusiveGateway_5__prg__p90">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('ecmSuccess') != null && execution.getVariable('ecmSuccess')}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_19" name="Yes" sourceRef="ExclusiveGateway_3__prg__p70" targetRef="ExclusiveGateway_5__prg__p90">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('ossSuccess') != null && execution.getVariable('ossSuccess')}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_21" name="" sourceRef="ExclusiveGateway_2__prg__p70" targetRef="EndEvent_7__prg__p100__err"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_22" name="" sourceRef="ExclusiveGateway_3__prg__p70" targetRef="EndEvent_8__prg__p100__err"/>
+    <bpmn2:scriptTask id="ScriptTask_3__prg__p50" name="Extreme Switch (x670) HealthCheck" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger("script");
+execution.setVariable("x670Success", false);
+
+try {
+	String endpointURL = com.ericsson.oss.nfe.poc.core.AppConfigLoader.einstance.getProperty("extreme.soapurl");
+	String xmlAuthRequest = com.ericsson.oss.nfe.poc.utils.FileUtils.loadStreamAsString(
+							com.ericsson.oss.nfe.poc.utils.FileUtils	.loadFileFromAppConfig("extremeauth.xml"));
+	String soapResponse = new com.ericsson.oss.nfe.poc.utils.SOAPUtil().doPOSTRequest(xmlAuthRequest, endpointURL, null);
+	String sessionId = com.ericsson.oss.nfe.poc.utils.SOAPUtil.extractXPath(
+								"/SOAP-ENV:Envelope/SOAP-ENV:Body/com:openSessionReply/session/sessionId",
+								soapResponse);
+
+	if(sessionId != null)
+		execution.setVariable("x670Success", true);
+
+} catch (Exception e) {
+	println "Error Occured - "+ e.getMessage();
+}
+
+LOGGER.info("Extreme Switch Health check Success -- " + execution.getVariable("x670Success"))]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" name="" sourceRef="ScriptTask_3__prg__p50" targetRef="ExclusiveGateway_4__prg__p70"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_4__prg__p70" name="x670 Success?" default="SequenceFlow_23">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_23</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_20" name="Yes" sourceRef="ExclusiveGateway_4__prg__p70" targetRef="ExclusiveGateway_5__prg__p90">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('x670Success') != null && execution.getVariable('x670Success')}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_23" name="" sourceRef="ExclusiveGateway_4__prg__p70" targetRef="EndEvent_9__prg__p100__err"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_5__prg__p90">
+      <bpmn2:incoming>SequenceFlow_16</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_19</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_18</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:endEvent id="EndEvent_3__prg__p100__err" name="Error">
+      <bpmn2:incoming>SequenceFlow_17</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:endEvent id="EndEvent_7__prg__p100__err" name="Error">
+      <bpmn2:incoming>SequenceFlow_21</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:endEvent id="EndEvent_9__prg__p100__err" name="Error">
+      <bpmn2:incoming>SequenceFlow_23</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:endEvent id="EndEvent_8__prg__p100__err" name="Error">
+      <bpmn2:incoming>SequenceFlow_22</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:startEvent id="StartEvent_1__prg__p0" camunda:formKey="embedded:app:json:model1:forms/vnfm_input.json" name="Start">
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:scriptTask id="ScriptTask_1" camunda:async="true" name="Start HC" scriptFormat="groovy">
+      <bpmn2:extensionElements>
+        <fox:failedJobRetryTimeCycle>R1/PT1S</fox:failedJobRetryTimeCycle>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_11</bpmn2:outgoing>
+      <bpmn2:script>println ' starting healthcheck !!'</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="StartEvent_1__prg__p0" targetRef="ScriptTask_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_11" name="" sourceRef="ScriptTask_1" targetRef="ParallelGateway_1__prg__p10"/>
+    <bpmn2:endEvent id="EndEvent_2__prg__p100" name="End">
+      <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:scriptTask id="ScriptTask_2__prg__95" name="End HC" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+      <bpmn2:script>println ' ------------------ done healthcheck ---------------------------'</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_12" name="" sourceRef="ExclusiveGateway_5__prg__p90" targetRef="ScriptTask_2__prg__95"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_13" name="" sourceRef="ScriptTask_2__prg__95" targetRef="EndEvent_2__prg__p100"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="vnfm_healthcheck">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_16" bpmnElement="StartEvent_1__prg__p0">
+        <dc:Bounds height="36.0" width="36.0" x="12.0" y="300.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="34.0" x="13.0" y="341.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ParallelGateway_2" bpmnElement="ParallelGateway_1__prg__p10">
+        <dc:Bounds height="50.0" width="50.0" x="210.0" y="293.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_145" bpmnElement="ScriptTask_1__prg__p50">
+        <dc:Bounds height="80.0" width="100.0" x="336.0" y="96.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ParallelGateway_2" targetElement="_BPMNShape_ScriptTask_145">
+        <di:waypoint xsi:type="dc:Point" x="235.0" y="293.0"/>
+        <di:waypoint xsi:type="dc:Point" x="235.0" y="136.0"/>
+        <di:waypoint xsi:type="dc:Point" x="336.0" y="136.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="232.0" y="268.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_146" bpmnElement="ScriptTask_2__prg__p50">
+        <dc:Bounds height="80.0" width="100.0" x="336.0" y="214.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ParallelGateway_2" targetElement="_BPMNShape_ScriptTask_146">
+        <di:waypoint xsi:type="dc:Point" x="260.0" y="318.0"/>
+        <di:waypoint xsi:type="dc:Point" x="298.0" y="318.0"/>
+        <di:waypoint xsi:type="dc:Point" x="298.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="336.0" y="254.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="282.0" y="318.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_147" bpmnElement="ScriptTask_3__prg__p50">
+        <dc:Bounds height="80.0" width="100.0" x="336.0" y="468.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_5" sourceElement="_BPMNShape_ParallelGateway_2" targetElement="_BPMNShape_ScriptTask_147">
+        <di:waypoint xsi:type="dc:Point" x="235.0" y="343.0"/>
+        <di:waypoint xsi:type="dc:Point" x="235.0" y="508.0"/>
+        <di:waypoint xsi:type="dc:Point" x="336.0" y="508.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="232.0" y="418.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_148" bpmnElement="ScriptTask_4__prg__p50">
+        <dc:Bounds height="80.0" width="100.0" x="336.0" y="341.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_" sourceElement="_BPMNShape_ParallelGateway_2" targetElement="_BPMNShape_ScriptTask_148">
+        <di:waypoint xsi:type="dc:Point" x="260.0" y="318.0"/>
+        <di:waypoint xsi:type="dc:Point" x="298.0" y="318.0"/>
+        <di:waypoint xsi:type="dc:Point" x="298.0" y="381.0"/>
+        <di:waypoint xsi:type="dc:Point" x="336.0" y="381.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="295.0" y="338.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_53" bpmnElement="ExclusiveGateway_1__prg__p70" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="486.0" y="111.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="94.0" x="528.0" y="111.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="SequenceFlow_7" sourceElement="_BPMNShape_ScriptTask_145" targetElement="_BPMNShape_ExclusiveGateway_53">
+        <di:waypoint xsi:type="dc:Point" x="436.0" y="136.0"/>
+        <di:waypoint xsi:type="dc:Point" x="486.0" y="136.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_54" bpmnElement="ExclusiveGateway_2__prg__p70" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="486.0" y="229.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="97.0" x="527.0" y="229.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_8" sourceElement="_BPMNShape_ScriptTask_146" targetElement="_BPMNShape_ExclusiveGateway_54">
+        <di:waypoint xsi:type="dc:Point" x="436.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="486.0" y="254.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_55" bpmnElement="ExclusiveGateway_3__prg__p70" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="486.0" y="356.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="96.0" x="535.0" y="356.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_9" sourceElement="_BPMNShape_ScriptTask_148" targetElement="_BPMNShape_ExclusiveGateway_55">
+        <di:waypoint xsi:type="dc:Point" x="436.0" y="381.0"/>
+        <di:waypoint xsi:type="dc:Point" x="486.0" y="381.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_56" bpmnElement="ExclusiveGateway_4__prg__p70" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="486.0" y="483.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="96.0" x="535.0" y="482.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_10" sourceElement="_BPMNShape_ScriptTask_147" targetElement="_BPMNShape_ExclusiveGateway_56">
+        <di:waypoint xsi:type="dc:Point" x="436.0" y="508.0"/>
+        <di:waypoint xsi:type="dc:Point" x="486.0" y="508.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="458.0" y="508.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_76" bpmnElement="EndEvent_2__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="1056.0" y="300.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="29.0" x="1060.0" y="341.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="SequenceFlow_16" sourceElement="_BPMNShape_ExclusiveGateway_53" targetElement="_BPMNShape_ExclusiveGateway_57">
+        <di:waypoint xsi:type="dc:Point" x="536.0" y="136.0"/>
+        <di:waypoint xsi:type="dc:Point" x="757.0" y="136.0"/>
+        <di:waypoint xsi:type="dc:Point" x="757.0" y="292.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="29.0" x="600.0" y="136.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_77" bpmnElement="EndEvent_3__prg__p100__err">
+        <dc:Bounds height="36.0" width="36.0" x="494.0" y="50.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="34.0" x="527.0" y="76.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_17" bpmnElement="SequenceFlow_17" sourceElement="_BPMNShape_ExclusiveGateway_53" targetElement="_BPMNShape_EndEvent_77">
+        <di:waypoint xsi:type="dc:Point" x="511.0" y="111.0"/>
+        <di:waypoint xsi:type="dc:Point" x="512.0" y="86.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="508.0" y="104.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_18" bpmnElement="SequenceFlow_18" sourceElement="_BPMNShape_ExclusiveGateway_54" targetElement="_BPMNShape_ExclusiveGateway_57">
+        <di:waypoint xsi:type="dc:Point" x="536.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="682.0" y="254.0"/>
+        <di:waypoint xsi:type="dc:Point" x="682.0" y="317.0"/>
+        <di:waypoint xsi:type="dc:Point" x="732.0" y="317.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="29.0" x="600.0" y="254.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_19" bpmnElement="SequenceFlow_19" sourceElement="_BPMNShape_ExclusiveGateway_55" targetElement="_BPMNShape_ExclusiveGateway_57">
+        <di:waypoint xsi:type="dc:Point" x="536.0" y="381.0"/>
+        <di:waypoint xsi:type="dc:Point" x="682.0" y="381.0"/>
+        <di:waypoint xsi:type="dc:Point" x="682.0" y="317.0"/>
+        <di:waypoint xsi:type="dc:Point" x="732.0" y="317.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="29.0" x="600.0" y="381.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_20" sourceElement="_BPMNShape_ExclusiveGateway_56" targetElement="_BPMNShape_ExclusiveGateway_57">
+        <di:waypoint xsi:type="dc:Point" x="536.0" y="508.0"/>
+        <di:waypoint xsi:type="dc:Point" x="757.0" y="508.0"/>
+        <di:waypoint xsi:type="dc:Point" x="757.0" y="342.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="29.0" x="600.0" y="508.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_81" bpmnElement="EndEvent_7__prg__p100__err">
+        <dc:Bounds height="36.0" width="36.0" x="494.0" y="168.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="34.0" x="527.0" y="194.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_21" bpmnElement="SequenceFlow_21" sourceElement="_BPMNShape_ExclusiveGateway_54" targetElement="_BPMNShape_EndEvent_81">
+        <di:waypoint xsi:type="dc:Point" x="511.0" y="229.0"/>
+        <di:waypoint xsi:type="dc:Point" x="512.0" y="204.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="508.0" y="226.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_82" bpmnElement="EndEvent_8__prg__p100__err">
+        <dc:Bounds height="36.0" width="36.0" x="493.0" y="433.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="34.0" x="527.0" y="420.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_22" bpmnElement="SequenceFlow_22" sourceElement="_BPMNShape_ExclusiveGateway_55" targetElement="_BPMNShape_EndEvent_82">
+        <di:waypoint xsi:type="dc:Point" x="511.0" y="406.0"/>
+        <di:waypoint xsi:type="dc:Point" x="511.0" y="433.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="508.0" y="410.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_83" bpmnElement="EndEvent_9__prg__p100__err">
+        <dc:Bounds height="36.0" width="36.0" x="494.0" y="564.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="34.0" x="527.0" y="552.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="SequenceFlow_23" sourceElement="_BPMNShape_ExclusiveGateway_56" targetElement="_BPMNShape_EndEvent_83">
+        <di:waypoint xsi:type="dc:Point" x="511.0" y="533.0"/>
+        <di:waypoint xsi:type="dc:Point" x="512.0" y="564.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="508.0" y="534.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_57" bpmnElement="ExclusiveGateway_5__prg__p90" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="732.0" y="292.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="757.0" y="347.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_149" bpmnElement="ScriptTask_1">
+        <dc:Bounds height="80.0" width="100.0" x="98.0" y="278.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_StartEvent_16" targetElement="_BPMNShape_ScriptTask_149">
+        <di:waypoint xsi:type="dc:Point" x="48.0" y="318.0"/>
+        <di:waypoint xsi:type="dc:Point" x="98.0" y="318.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="SequenceFlow_11" sourceElement="_BPMNShape_ScriptTask_149" targetElement="_BPMNShape_ParallelGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="198.0" y="318.0"/>
+        <di:waypoint xsi:type="dc:Point" x="210.0" y="318.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_150" bpmnElement="ScriptTask_2__prg__95">
+        <dc:Bounds height="80.0" width="100.0" x="832.0" y="277.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="SequenceFlow_12" sourceElement="_BPMNShape_ExclusiveGateway_57" targetElement="_BPMNShape_ScriptTask_150">
+        <di:waypoint xsi:type="dc:Point" x="782.0" y="317.0"/>
+        <di:waypoint xsi:type="dc:Point" x="832.0" y="317.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_14" bpmnElement="SequenceFlow_13" sourceElement="_BPMNShape_ScriptTask_150" targetElement="_BPMNShape_EndEvent_76">
+        <di:waypoint xsi:type="dc:Point" x="932.0" y="317.0"/>
+        <di:waypoint xsi:type="dc:Point" x="994.0" y="317.0"/>
+        <di:waypoint xsi:type="dc:Point" x="994.0" y="318.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1056.0" y="318.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

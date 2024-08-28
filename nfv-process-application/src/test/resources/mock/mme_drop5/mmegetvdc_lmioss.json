@@ -1,0 +1,19 @@
+{
+	"status": {
+		"reqStatus": "SUCCESS",
+		"credentials": "AQIC5wM2LY4Sfcxf1Wf3udXm2HAkGlmSTdSOOO6Fle7WpS4.*AAJTSQACMDEAAlNLABQtODQ0MDAyNTQ5MzYwODIwMjEyNw..*"
+	},
+	"data": {
+		"vdcs": [{
+			"description": "Created by NFE Automation application",
+			"vimZone": {
+				"name": "vEPC02",
+				"type": "OPENSTACK"
+			},
+			"id": "VDC-10627",
+            "name": "MME-VDC-D5",
+			"provisioningStatus": "ACTIVE",
+			"tenantName": "lmioss"
+		}]
+	}
+}

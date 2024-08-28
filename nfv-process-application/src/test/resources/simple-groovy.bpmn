@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_4HakUOwJEeSp8phhT8JmYQ" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="simple-groovy" name="SimpleGroovy" isExecutable="true">
+    <bpmn2:startEvent id="StartEvent_1" name="start">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:scriptTask id="ScriptTask_1" name="Test Groovy Script Block" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def sshCommandOut =execution.getVariable('sshoutPut');
+def ipAddressRangeInput = execution.getVariable('ipAddressRange');
+def matcher = ipAddressRangeInput =~ /(.+)\((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,3})\)/
+if(matcher.matches())
+{
+	//println"------------matcher----------------"+matcher[0]
+	def ipAddressRange = matcher[0][2]
+        execution.setVariable('ipAddressRange',matcher[0][2])
+	execution.setVariable('epg-mgmt-IP',com.ericsson.oss.nfe.poc.utils.IPRangeUtil.getAddedIpValue(matcher[0][2], 9))
+	execution.setVariable('networkplan-id',matcher[0][1])
+}
+
+def ecmhost = 'http://viggs-ecm.com'
+if(ecmhost!=null && ecmhost.contains('http://'))
+	ecmhost= ecmhost.replaceAll('http://','');
+
+//println"------------ecmhost after----------------"+ecmhost
+//println"------------Tokens----------------"+sshCommandOut .split("\\r?\\n");
+
+def vnName=execution.getVariable('MME-ADMIN-VN-NAME') 
+
+ 
+//println('vnName to extract 1 --------------------------------'+vnName);
+
+vnName=(vnName==null?'Admin':vnName);
+
+println('vnName to extract2 --------------------------------'+vnName);
+
+//def line1 = sshCommandOut .split("\\r?\\n")[0]
+//if(line1.contains('Generating configs for'))
+//{
+	//println"================ folder Name============="+line1.substring(line1.indexOf('for')+4)
+//}]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent_1" targetRef="ScriptTask_1"/>
+    <bpmn2:endEvent id="EndEvent_1" name="end">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:scriptTask id="ScriptTask_2" name="Log and CLose" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[println "-------------------------- All Done, Now finishing ------------------------------- vars :"
+//+execution.getVariables()]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="ScriptTask_2" targetRef="EndEvent_1"/>
+    <bpmn2:scriptTask id="ScriptTask_3" name="Templating Test" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[//def text = 'configure iproute delete  ${pre}${base+32} == 10.70.242.160 255.255.255.248 ${base+4}==10.70.242.132 '
+def text = execution.getVariable('templateString');
+ 
+def prefixArry = com.ericsson.oss.nfe.poc.utils.IPRangeUtil.getBasePrefix('10.70.235.128/25');
+def binding = ["prefix":prefixArry[0]+'.', "base":prefixArry[1].toInteger()]
+//def binding = ["prefix":"10.70.245.", "base":0]
+
+def engine = new groovy.text.SimpleTemplateEngine()
+def template = engine.createTemplate(text).make(binding)
+
+println template.toString()]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="ScriptTask_1" targetRef="ScriptTask_3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="ScriptTask_3" targetRef="ScriptTask_2"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="simple-groovy">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_8" bpmnElement="StartEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="127.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_120" bpmnElement="ScriptTask_1">
+        <dc:Bounds height="80.0" width="100.0" x="213.0" y="222.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_8" targetElement="_BPMNShape_ScriptTask_120">
+        <di:waypoint xsi:type="dc:Point" x="163.0" y="262.0"/>
+        <di:waypoint xsi:type="dc:Point" x="213.0" y="262.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_121" bpmnElement="ScriptTask_2">
+        <dc:Bounds height="80.0" width="100.0" x="539.0" y="222.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_41" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="699.0" y="244.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="27.0" x="704.0" y="285.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ScriptTask_121" targetElement="_BPMNShape_EndEvent_41">
+        <di:waypoint xsi:type="dc:Point" x="639.0" y="262.0"/>
+        <di:waypoint xsi:type="dc:Point" x="699.0" y="262.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="661.0" y="262.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_143" bpmnElement="ScriptTask_3">
+        <dc:Bounds height="80.0" width="100.0" x="363.0" y="222.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_ScriptTask_120" targetElement="_BPMNShape_ScriptTask_143">
+        <di:waypoint xsi:type="dc:Point" x="313.0" y="262.0"/>
+        <di:waypoint xsi:type="dc:Point" x="363.0" y="262.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_5" sourceElement="_BPMNShape_ScriptTask_143" targetElement="_BPMNShape_ScriptTask_121">
+        <di:waypoint xsi:type="dc:Point" x="463.0" y="262.0"/>
+        <di:waypoint xsi:type="dc:Point" x="539.0" y="262.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

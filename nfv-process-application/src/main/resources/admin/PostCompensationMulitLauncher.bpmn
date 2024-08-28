@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:ext="http://org.eclipse.bpmn2/ext" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_MTw1EKFcEeSAiN0TKNqfQg" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="PostCompensationMultiLauncher" name="Post Compensation Multi Launcher" isExecutable="true">
+    <bpmn2:startEvent id="StartEvent__prg__p1" camunda:formKey="embedded:app:json:model1:forms/postcompensation/compensationLauncherstartform.json" name="Start">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:scriptTask id="StartingPostCompensationLauncher__prg__p10" name="Starting Post Compensation Launcher" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[println '---------Starting Post Compensation Multi Launcher ----------'
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent__prg__p1" targetRef="StartingPostCompensationLauncher__prg__p10"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1__prg__p15" name="Skip Launcher?" default="SequenceFlow_3">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_11</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="StartingPostCompensationLauncher__prg__p10" targetRef="ExclusiveGateway_1__prg__p15"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="Yes" sourceRef="ExclusiveGateway_1__prg__p15" targetRef="EndEvent__prg__p100"/>
+    <bpmn2:endEvent id="EndEvent__prg__p100" name="End">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_21</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_22</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_23</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="ExclusiveGateway_1__prg__p15" targetRef="ChooseLauncherType__prg__p20">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('launcherType') != null && execution.getVariable('launcherType') == 'AskLater'}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:userTask id="ChooseLauncherType__prg__p20" camunda:formKey="embedded:app:json:model1:forms/postcompensation/compensationLauncherstartform.json" name="Choose Launcher Type">
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" name="" sourceRef="ChooseLauncherType__prg__p20" targetRef="ExclusiveGateway_1__prg__p15"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" name="" sourceRef="ExclusiveGateway_1__prg__p15" targetRef="BuildAlarmMonitorURL__prg__p25">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('launcherType') != null && execution.getVariable('launcherType') == 'AlarmViewer' }]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" name="" sourceRef="ExclusiveGateway_1__prg__p15" targetRef="BuildLogViewerURL__prg__p26">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('launcherType') != null && execution.getVariable('launcherType') == 'LogViewer' }]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" name="" sourceRef="ExclusiveGateway_1__prg__p15" targetRef="BuildECMURL__prg__p27">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('launcherType') != null && execution.getVariable('launcherType') == 'ECM' }]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_11" name="" sourceRef="ExclusiveGateway_1__prg__p15" targetRef="BuildGoogleMapsURL__prg__p28">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('launcherType') != null && execution.getVariable('launcherType') == 'GoogleMaps' }]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:userTask id="ApplicationLaunchLogViewer__prg__p51" camunda:formKey="embedded:app:json:model1:forms/postcompensation/postcompensationlogviewerform.json" name="Log Viewer">
+      <bpmn2:incoming>SequenceFlow_17</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_21</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="ApplicationLaunchECM__prg__p52" camunda:formKey="embedded:app:json:model1:forms/postcompensation/postcompensationECMform.json" name="ECM">
+      <bpmn2:incoming>SequenceFlow_18</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_22</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="ApplicationLaunchAlarmMonitor__prg__p50" camunda:formKey="embedded:app:json:model1:forms/postcompensation/postcompensationalarmmonitorform.json" name="Alarm Monitor">
+      <bpmn2:incoming>SequenceFlow_16</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:scriptTask id="BuildAlarmMonitorURL__prg__p25" name="Build Alarm Monitor URL" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_16</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def collectionId='281475193725308'
+def ENMlink='<a href="https://apache.vts.com/#alarmviewer?collections='+collectionId+'" target="_blank">ENM Alarm Monitoring</a><br><br>'
+println 'Link to alarm monitoring set to: '+ENMlink
+execution.setVariable('AlarmViewerLink',ENMlink);]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_16" name="" sourceRef="BuildAlarmMonitorURL__prg__p25" targetRef="ApplicationLaunchAlarmMonitor__prg__p50"/>
+    <bpmn2:scriptTask id="BuildLogViewerURL__prg__p26" name="Build Log Viewer URL" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_17</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def ENMlink='<a href="https://apache.vts.com/#logviewer" target="_blank">ENM Log Viewer</a><br><br>'
+println 'Link to log viewer set to: '+ENMlink
+execution.setVariable('LogViewerLink',ENMlink);
+
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_17" name="" sourceRef="BuildLogViewerURL__prg__p26" targetRef="ApplicationLaunchLogViewer__prg__p51"/>
+    <bpmn2:scriptTask id="BuildECMURL__prg__p27" name="Build ECM URL" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_18</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def ECMlink='<a href="http://ecmapp.domain.com/selfcareGui/login?tenant=ECM" target="_blank">ECM</a><br><br>'
+println 'Link to ECM set to: '+ECMlink
+execution.setVariable('ECMLink',ECMlink);
+
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_18" name="" sourceRef="BuildECMURL__prg__p27" targetRef="ApplicationLaunchECM__prg__p52"/>
+    <bpmn2:scriptTask id="BuildGoogleMapsURL__prg__p28" name="Build Google Maps URL" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_19</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def mapsLink='<a href="https://www.google.com/maps/@53.4655027,-7.8410087,10z" target="_blank">Map</a><br><br>'
+println 'Link to Map set to: '+mapsLink
+execution.setVariable('MapsLink',mapsLink);
+
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_19" name="" sourceRef="BuildGoogleMapsURL__prg__p28" targetRef="ApplicationLaunchMap__prg__p53"/>
+    <bpmn2:userTask id="ApplicationLaunchMap__prg__p53" camunda:formKey="embedded:app:json:model1:forms/postcompensation/postcompensationmapform.json" name="Map">
+      <bpmn2:incoming>SequenceFlow_19</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_23</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_20" name="" sourceRef="ApplicationLaunchAlarmMonitor__prg__p50" targetRef="EndEvent__prg__p100"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_21" name="" sourceRef="ApplicationLaunchLogViewer__prg__p51" targetRef="EndEvent__prg__p100"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_22" name="" sourceRef="ApplicationLaunchECM__prg__p52" targetRef="EndEvent__prg__p100"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_23" name="" sourceRef="ApplicationLaunchMap__prg__p53" targetRef="EndEvent__prg__p100"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="ExclusiveGateway_1__prg__p15" targetRef="BuildCustomURL__prg__p29">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable('launcherType') != null && execution.getVariable('launcherType') == 'CustomURL' }]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:scriptTask id="BuildCustomURL__prg__p29" name="Build Custom URL" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def launcherURL=execution.getVariable('launcherURL')
+def urlLink=''
+if (launcherURL==null || launcherURL.trim()=='') { 
+	def customerURL=com.ericsson.oss.nfe.poc.core.AppConfigLoader.getProperty("CUSTOMER_URL")
+	def customerName=com.ericsson.oss.nfe.poc.core.AppConfigLoader.getProperty("CUSTOMER_NAME")
+	urlLink='<a href="http://'+customerURL +'" target="_blank">'+customerName +'</a><br><br>' }
+else if(launcherURL.contains('://')) { urlLink='<a  href="'+launcherURL+'" target="_blank">Custom URL</a><br><br>' }
+else {  urlLink='<a href="http://'+launcherURL+'" target="_blank">Custom URL</a><br><br>' }
+println 'Link to custom URL set to: '+urlLink
+execution.setVariable('CustomURLLink',urlLink);]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="BuildCustomURL__prg__p29" targetRef="ApplicationLaunchCustomURL__prg__p54"/>
+    <bpmn2:userTask id="ApplicationLaunchCustomURL__prg__p54" camunda:formKey="embedded:app:json:model1:forms/postcompensation/postcompensationcustomURLform.json" name="Custom URL">
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_12" name="" sourceRef="ApplicationLaunchCustomURL__prg__p54" targetRef="EndEvent__prg__p100"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="PostCompensationLauncher">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_22" bpmnElement="StartEvent__prg__p1">
+        <dc:Bounds height="36.0" width="36.0" x="42.0" y="336.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_97" bpmnElement="StartingPostCompensationLauncher__prg__p10">
+        <dc:Bounds height="80.0" width="100.0" x="128.0" y="314.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_22" targetElement="_BPMNShape_ScriptTask_97">
+        <di:waypoint xsi:type="dc:Point" x="78.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="128.0" y="354.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_35" bpmnElement="ExclusiveGateway_1__prg__p15" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="278.0" y="329.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ScriptTask_97" targetElement="_BPMNShape_ExclusiveGateway_35">
+        <di:waypoint xsi:type="dc:Point" x="228.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="278.0" y="354.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_59" bpmnElement="EndEvent__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="1248.0" y="336.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="1266.0" y="377.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ExclusiveGateway_35" targetElement="_BPMNShape_EndEvent_59">
+        <di:waypoint xsi:type="dc:Point" x="303.0" y="329.0"/>
+        <di:waypoint xsi:type="dc:Point" x="303.0" y="172.0"/>
+        <di:waypoint xsi:type="dc:Point" x="772.0" y="172.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1265.0" y="172.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1266.0" y="336.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="300.0" y="304.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_17" bpmnElement="ChooseLauncherType__prg__p20">
+        <dc:Bounds height="80.0" width="100.0" x="254.0" y="444.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_6" sourceElement="_BPMNShape_ExclusiveGateway_35" targetElement="_BPMNShape_UserTask_17">
+        <di:waypoint xsi:type="dc:Point" x="278.0" y="372.0"/>
+        <di:waypoint xsi:type="dc:Point" x="238.0" y="400.0"/>
+        <di:waypoint xsi:type="dc:Point" x="273.0" y="444.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="301.0" y="412.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="SequenceFlow_7" sourceElement="_BPMNShape_UserTask_17" targetElement="_BPMNShape_ExclusiveGateway_35">
+        <di:waypoint xsi:type="dc:Point" x="304.0" y="444.0"/>
+        <di:waypoint xsi:type="dc:Point" x="303.0" y="379.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="301.0" y="412.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_8" sourceElement="_BPMNShape_ExclusiveGateway_35" targetElement="_BPMNShape_ScriptTask_98">
+        <di:waypoint xsi:type="dc:Point" x="328.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="432.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="432.0" y="256.0"/>
+        <di:waypoint xsi:type="dc:Point" x="509.0" y="256.0"/>
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="256.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="429.0" y="303.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_9" sourceElement="_BPMNShape_ExclusiveGateway_35" targetElement="_BPMNShape_ScriptTask_99">
+        <di:waypoint xsi:type="dc:Point" x="328.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="354.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="431.0" y="354.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_10" sourceElement="_BPMNShape_ExclusiveGateway_35" targetElement="_BPMNShape_ScriptTask_100">
+        <di:waypoint xsi:type="dc:Point" x="328.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="435.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="435.0" y="472.0"/>
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="472.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="432.0" y="413.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="SequenceFlow_11" sourceElement="_BPMNShape_ExclusiveGateway_35" targetElement="_BPMNShape_ScriptTask_101">
+        <di:waypoint xsi:type="dc:Point" x="328.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="436.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="436.0" y="571.0"/>
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="572.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="433.0" y="465.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_18" bpmnElement="ApplicationLaunchLogViewer__prg__p51">
+        <dc:Bounds height="80.0" width="100.0" x="690.0" y="314.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_19" bpmnElement="ApplicationLaunchECM__prg__p52">
+        <dc:Bounds height="80.0" width="100.0" x="690.0" y="432.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_20" bpmnElement="ApplicationLaunchAlarmMonitor__prg__p50">
+        <dc:Bounds height="80.0" width="100.0" x="690.0" y="216.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_21" bpmnElement="ApplicationLaunchMap__prg__p53">
+        <dc:Bounds height="80.0" width="100.0" x="690.0" y="532.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_98" bpmnElement="BuildAlarmMonitorURL__prg__p25">
+        <dc:Bounds height="80.0" width="100.0" x="530.0" y="216.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="SequenceFlow_16" sourceElement="_BPMNShape_ScriptTask_98" targetElement="_BPMNShape_UserTask_20">
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="256.0"/>
+        <di:waypoint xsi:type="dc:Point" x="690.0" y="256.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_99" bpmnElement="BuildLogViewerURL__prg__p26">
+        <dc:Bounds height="80.0" width="100.0" x="530.0" y="314.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_17" bpmnElement="SequenceFlow_17" sourceElement="_BPMNShape_ScriptTask_99" targetElement="_BPMNShape_UserTask_18">
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="690.0" y="354.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="646.0" y="354.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_100" bpmnElement="BuildECMURL__prg__p27">
+        <dc:Bounds height="80.0" width="100.0" x="530.0" y="432.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_18" bpmnElement="SequenceFlow_18" sourceElement="_BPMNShape_ScriptTask_100" targetElement="_BPMNShape_UserTask_19">
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="472.0"/>
+        <di:waypoint xsi:type="dc:Point" x="690.0" y="472.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_101" bpmnElement="BuildGoogleMapsURL__prg__p28">
+        <dc:Bounds height="80.0" width="100.0" x="530.0" y="532.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_19" bpmnElement="SequenceFlow_19" sourceElement="_BPMNShape_ScriptTask_101" targetElement="_BPMNShape_UserTask_21">
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="572.0"/>
+        <di:waypoint xsi:type="dc:Point" x="690.0" y="572.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="661.0" y="572.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_20" sourceElement="_BPMNShape_UserTask_20" targetElement="_BPMNShape_EndEvent_59">
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="256.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1019.0" y="256.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1019.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1248.0" y="354.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_21" bpmnElement="SequenceFlow_21" sourceElement="_BPMNShape_UserTask_18" targetElement="_BPMNShape_EndEvent_59">
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1248.0" y="354.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_22" bpmnElement="SequenceFlow_22" sourceElement="_BPMNShape_UserTask_19" targetElement="_BPMNShape_EndEvent_59">
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="472.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1019.0" y="472.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1019.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1248.0" y="354.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="SequenceFlow_23" sourceElement="_BPMNShape_UserTask_21" targetElement="_BPMNShape_EndEvent_59">
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="572.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1019.0" y="572.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1019.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1248.0" y="354.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_102" bpmnElement="BuildCustomURL__prg__p29">
+        <dc:Bounds height="80.0" width="100.0" x="530.0" y="636.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_ExclusiveGateway_35" targetElement="_BPMNShape_ScriptTask_102">
+        <di:waypoint xsi:type="dc:Point" x="328.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="434.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="434.0" y="676.0"/>
+        <di:waypoint xsi:type="dc:Point" x="530.0" y="676.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="439.0" y="371.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_22" bpmnElement="ApplicationLaunchCustomURL__prg__p54">
+        <dc:Bounds height="80.0" width="100.0" x="690.0" y="636.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_5" sourceElement="_BPMNShape_ScriptTask_102" targetElement="_BPMNShape_UserTask_22">
+        <di:waypoint xsi:type="dc:Point" x="630.0" y="676.0"/>
+        <di:waypoint xsi:type="dc:Point" x="690.0" y="676.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="652.0" y="676.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="SequenceFlow_12" sourceElement="_BPMNShape_UserTask_22" targetElement="_BPMNShape_EndEvent_59">
+        <di:waypoint xsi:type="dc:Point" x="790.0" y="676.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1019.0" y="676.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1019.0" y="354.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1248.0" y="354.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

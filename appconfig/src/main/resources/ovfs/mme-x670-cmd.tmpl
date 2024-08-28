@@ -1,0 +1,8 @@
+configure iproute delete ${prefix}${base+32} 255.255.255.248 ${prefix}${base+4};
+configure iproute delete ${prefix}${base+24} 255.255.255.248 ${prefix}${base+4};
+configure iproute delete ${prefix}${base+16} 255.255.255.248 ${prefix}${base+3};
+configure iproute delete ${prefix}${base+8} 255.255.255.248 ${prefix}${base+3};
+configure iproute add ${prefix}${base+32} 255.255.255.248 ${prefix}${base+4};
+configure iproute add ${prefix}${base+24} 255.255.255.248 ${prefix}${base+4};
+configure iproute add ${prefix}${base+16} 255.255.255.248 ${prefix}${base+3};
+configure iproute add ${prefix}${base+8} 255.255.255.248 ${prefix}${base+3};

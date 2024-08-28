@@ -1,0 +1,15 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [{ "controlGroup": { "name": "MO_Name", "label": "MO_Name", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "MO_Name", "readonly": false, "required": true}}
+                ]}},
+				{ "controlGroup": { "name": "Event PO ID", "label": "Event PO ID", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "eventPoIdAsString", "readonly": false, "required": true}}
+                ]}}
+        ]
+}

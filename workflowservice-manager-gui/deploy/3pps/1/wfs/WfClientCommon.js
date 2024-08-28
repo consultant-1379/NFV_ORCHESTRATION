@@ -1,0 +1,3 @@
+/* Copyright (c) Ericsson 2015 */
+
+define("3pps/wfs/WfClientCommon",[],function(e){var e={};return e.extractFormInfo=function(e){var r=e.split(":");if(5!=r.length&&4!=r.length)throw new Error("Invalid form key: "+e+", only "+r.length+" parts");if(5==r.length){if("embedded"!=r[0]&&"app"!=r[1])throw new Error("Invalid form key: "+e+", missing expected prefix: embedded:app");var n={format:r[2],modelType:r[3],path:r[4]};return n}if(4==r.length){if("embedded"!=r[0]&&"app"!=r[1])throw new Error("Invalid form key: "+e+", missing expected prefix: embedded:app");var n={format:r[2],path:r[3]};return n}},e});

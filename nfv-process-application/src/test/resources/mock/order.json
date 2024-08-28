@@ -1,0 +1,64 @@
+{
+	"orderItems": [{
+		"orderItemId": "0",
+		"createVdc": {
+			"description": "Created by NFE Automation application",
+			"vimZoneName": "vEPC02",
+			"name": "EPG-VDC"
+		}
+	},
+	{
+		"orderItemId": "1",
+		"createVn": {
+			"vdc": {
+				"orderItemRef": "0"
+			},
+			"enabled": "true",
+			"dhcpEnabled": "true",
+			"ipVersion": "IPv4",
+			"name": "EPG-Payload-VN",
+			"cidrSize": "24"
+		}
+	},
+	{
+		"orderItemId": "2",
+		"createVn": {
+			"vdc": {
+				"orderItemRef": "0"
+			},
+			"enabled": "true",
+			"dhcpEnabled": "true",
+			"ipVersion": "IPv4",
+			"name": "EPG-NFS-VN",
+			"cidrSize": "24"
+		}
+	},
+	{
+		"orderItemId": "3",
+		"createVn": {
+			"vdc": {
+				"orderItemRef": "0"
+			},
+			"enabled": "true",
+			"dhcpEnabled": "true",
+			"ipVersion": "IPv4",
+			"name": "EPG-Backplane-VN",
+			"cidrSize": "24"
+		}
+	},
+	{
+		"orderItemId": "4",
+		"createVn": {
+			"ipAddressRange": "10.70.249.128/25",
+			"vdc": {
+				"orderItemRef": "0"
+			},
+			"enabled": "true",
+			"dhcpEnabled": "true",
+			"description": "EPG Public VN",
+			"ipVersion": "IPv4",
+			"name": "EPG-Public-VN"
+		}
+	}],
+	"tenantName": "lmioss"
+}

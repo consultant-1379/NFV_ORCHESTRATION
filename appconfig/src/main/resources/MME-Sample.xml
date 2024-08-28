@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Model SYSTEM "/opt/ericsson/arne/etc/arne14_1.dtd">
+<Model version="1" importVersion="14.1">
+   <Create>
+     <!--  <SubNetwork userLabel="SGSNMME" networkType="WCDMA"> -->
+      <Site userLabel="Virtual">
+         <altitude string="0"/>
+         <location string="Montreal"/>
+         <longitude string="0"/>
+         <latitude string="0"/>
+         <worldTimeZoneId string="EST"/>
+         <freeText string="where the  bridge falls "/>
+         <datum string="wgs84"/>
+      </Site>
+         <ManagedElement sourceType="WPP">
+            <ManagedElementId string="SGSNMME14B01"/>
+            <primaryType type="SGSN"/>
+            <managedElementType types="Mme"/>
+            <associatedSite string="Site=Virtual"/>
+            <nodeVersion string="14B"/>
+            <platformVersion string=""/>
+            <swVersion string=""/>
+            <vendorName string="Ericsson"/>
+            <userDefinedState string="Active"/>
+            <managedServiceAvailability int="1"/>
+            <isManaged boolean="true"/>
+            <connectionStatus string="ON"/>
+            <Connectivity>
+               <DEFAULT>
+                  <emUrl url="http://10.29.129.1:8888"/>
+                  <ipAddress string="10.29.129.1"/>
+                  <oldIpAddress string=""/>
+                  <hostname string="SGSNMME14B01"/>
+                  <nodeSecurityState state="ON"/>
+                  <boardId string=""/>
+                  <Protocol number="0">
+                     <protocolType string="CORBA"/>
+                     <port int="4001"/>
+                     <protocolVersion string="v1.1"/>
+                     <securityName string=""/>
+                     <authenticationMethod string=""/>
+                     <encryptionMethod string=""/>
+                     <communityString string=""/>
+                     <context string=""/>
+                     <namingUrl string="http://10.29.129.1:80/cello/ior_files/nameroot.ior"/>
+                     <namingPort int="0"/>
+                     <notificationIRPAgentVersion string="3.2"/>
+                     <alarmIRPAgentVersion string="3.2"/>
+                     <notificationIRPNamingContext context="NOTIFICATION_IRP_VERSION_1_1"/>
+                     <alarmIRPNamingContext context="ALARM_IRP_VERSION_1_1"/>
+                  </Protocol>
+                  <Protocol number="1">
+                     <protocolType string="SFTP"/>
+                     <port int="22"/>
+                     <protocolVersion string=""/>
+                     <securityName string=""/>
+                     <authenticationMethod string=""/>
+                     <encryptionMethod string=""/>
+                     <communityString string=""/>
+                     <context string=""/>
+                     <namingUrl string=""/>
+                     <namingPort int=""/>
+                     <notificationIRPAgentVersion string=""/>
+                     <alarmIRPAgentVersion string=""/>
+                     <notificationIRPNamingContext context=""/>
+                     <alarmIRPNamingContext context=""/>
+                  </Protocol>
+                  <Protocol number="2">
+                     <protocolType string="SSH"/>
+                     <port int="22"/>
+                     <protocolVersion string=""/>
+                     <securityName string=""/>
+                     <authenticationMethod string=""/>
+                     <encryptionMethod string=""/>
+                     <communityString string=""/>
+                     <context string=""/>
+                     <namingUrl string=""/>
+                     <namingPort int=""/>
+                     <notificationIRPAgentVersion string=""/>
+                     <alarmIRPAgentVersion string=""/>
+                     <notificationIRPNamingContext context=""/>
+                     <alarmIRPNamingContext context=""/>
+                  </Protocol>
+                  <Protocol number="3">
+                     <protocolType string="Netconf"/>
+                     <port int="22"/>
+                     <protocolVersion string=""/>
+                     <securityName string=""/>
+                     <authenticationMethod string=""/>
+                     <encryptionMethod string=""/>
+                     <communityString string=""/>
+                     <context string=""/>
+                     <namingUrl string=""/>
+                     <namingPort int=""/>
+                     <notificationIRPAgentVersion string=""/>
+                     <alarmIRPAgentVersion string=""/>
+                     <notificationIRPNamingContext context=""/>
+                     <alarmIRPNamingContext context=""/>
+                  </Protocol>
+                  <Protocol number="4">
+                     <protocolType string="SNMP"/>
+                     <port int="161"/>
+                     <protocolVersion string="V2c"/>
+                     <securityName string=""/>
+                     <authenticationMethod string=""/>
+                     <encryptionMethod string=""/>
+                     <communityString string="public"/>
+                     <context string=""/>
+                     <namingUrl string=""/>
+                     <namingPort int=""/>
+                     <notificationIRPAgentVersion string=""/>
+                     <alarmIRPAgentVersion string=""/>
+                     <notificationIRPNamingContext context=""/>
+                     <alarmIRPNamingContext context=""/>
+                  </Protocol>
+                  <Browser>
+                     <browser string=""/>
+                     <browserURL string=""/>
+                     <bookname string=""/>
+                  </Browser>
+               </DEFAULT>
+            </Connectivity>
+            <Tss>
+               <Entry>
+                  <System string="SGSNMME14B01"/>
+                  <Type string="ROOT"/>
+                  <User string="SGSNMME14B01"/>
+                  <Password string="secret"/>
+               </Entry>
+               <Entry>
+                  <System string="SGSNMME14B01"/>
+                  <Type string="SECURE"/>
+                  <User string="SGSNMME14B01"/>
+                  <Password string="secret"/>
+               </Entry>
+               <Entry>
+                  <System string="SGSNMME14B01"/>
+                  <Type string="NORMAL"/>
+                  <User string="SGSNMME14B01"/>
+                  <Password string="secret"/>
+               </Entry>
+            </Tss>
+            <Relationship>
+               <AssociableNode TO_FDN="ManagementNode=ONRM" AssociationType="MgmtAssociation"/>
+            </Relationship>
+         </ManagedElement>
+<!--       </SubNetwork> -->
+   </Create>
+</Model>

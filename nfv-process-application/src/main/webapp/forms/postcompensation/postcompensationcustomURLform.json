@@ -1,0 +1,18 @@
+{
+	"modelType": "model1",
+	"submitText": "Acknowledge",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "CustomURLLink",
+			"label": "Custom URL link",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "CustomURLLink",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	}]
+}

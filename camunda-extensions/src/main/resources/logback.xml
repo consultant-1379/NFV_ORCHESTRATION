@@ -1,0 +1,33 @@
+<configuration debug="true">
+	<contextName>ecm-poc-workflowextn</contextName>
+	<property name="LOG_DIR" value="/home/evigkum/data/vigneshbk/apps/logs" />
+
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{DD/MM/YYYY-HH:mm:ss} %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${LOG_DIR}/camunda-extension.log</file>
+
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>5MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>%d %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="ERROR">
+		<appender-ref ref="STDOUT" />
+	</root> 
+
+	<logger name="com.ericsson.oss" level="debug" additivity="true">
+		<appender-ref ref="FILE" />
+	</logger>
+</configuration>

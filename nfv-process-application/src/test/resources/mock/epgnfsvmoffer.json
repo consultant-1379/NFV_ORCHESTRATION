@@ -1,0 +1,282 @@
+{
+  "status": {
+    "reqStatus": "SUCCESS",
+    "credentials": "AQIC5wM2LY4SfcyMd9ms3RzcEt85CPg7xiv7vCkC6P3w5Bc.*AAJTSQACMDEAAlNLABM3OTIyMDQ3ODMwNjA1NzI4NDYy*"
+  },
+  "data": {
+    "offer": {
+      "description": "epg nfs vm offer",
+      "vimZoneType": [
+        "ALL"
+      ],
+      "tenantName": "ALL",
+      "type": "vm",
+      "offerItems": [
+        {
+          "vm": {
+            "itemId": "ID-f6b7c418-9938-4654-8baf-b4a25e8c1345",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false
+              }
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "epg-nfs-vm"
+            },
+            "imageName": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NFS"
+            },
+            "vmhdName": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NFS"
+            },
+            "affinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "antiaffinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "personalities": [
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "metadata": [
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "parentItemRef": "TOP_LEVEL"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-4beb0599-105e-46f5-a976-1d4c4a87d493",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-NFS-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-f6b7c418-9938-4654-8baf-b4a25e8c1345"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NFS-NFS-VNIC"
+            },
+            "assignPublicIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "privateIpAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-f6b7c418-9938-4654-8baf-b4a25e8c1345"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-1767ae7c-838e-4eff-b374-ec90dee5e344",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Public-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-f6b7c418-9938-4654-8baf-b4a25e8c1345"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NFS-Public-VNIC"
+            },
+            "assignPublicIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "privateIpAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-f6b7c418-9938-4654-8baf-b4a25e8c1345"
+          }
+        }
+      ],
+      "name": "epgnfsvmoffer"
+    }
+  }
+}

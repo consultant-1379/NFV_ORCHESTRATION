@@ -1,0 +1,1 @@
+{"name":"tablelib","type":"library","version":"0.4.3","title":"Table Library","description":"The table library provides utilities for creating advanced tables for apps.","docs":"http://cifwk-oss.lmera.ericsson.se:8081/nexus/content/sites/tor/tablelib/0.4.3/","dependencies":{"jscore":"1.3.2","assets":"1.4.0"}}

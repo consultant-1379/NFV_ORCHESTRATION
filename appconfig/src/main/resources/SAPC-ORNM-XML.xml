@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Model SYSTEM "/opt/ericsson/arne/etc/arne15_0.dtd">
+<Model version="1" importVersion="15.0">
+   <Create>
+      <SubNetwork userLabel="SAPC" networkType="WCDMA">
+         <ManagedElement sourceType="TSP">
+            <ManagedElementId string="vSAPC-${VDC-NAME}"/>
+            <primaryType type="SAPC"/>
+            <managedElementType types=""/>
+            <associatedSite string="Site=MSSAPC14A05"/>
+            <nodeVersion string="14A"/>
+            <platformVersion string=""/>
+            <swVersion string=""/>
+            <vendorName string="Ericsson"/>
+            <userDefinedState string="Active"/>
+            <managedServiceAvailability int="1"/>
+            <isManaged boolean="true"/>
+            <connectionStatus string="ON"/>
+            <Connectivity>
+               <DEFAULT>
+                  <emUrl url="http://${SAPC_IP}:80/"/>
+                  <ipAddress string="${SAPC_IP}"/>
+                  <oldIpAddress string=""/>
+                  <hostname string="SAPC14A05"/>
+                  <nodeSecurityState state="ON"/>
+                  <boardId string=""/>
+                  <Protocol number="0">
+                     <protocolType string="SNMP"/>
+                     <port int="161"/>
+                     <protocolVersion string="v2+v3+v1"/>
+                     <securityName string="CORE-K-ST-SPAC-14Ax5_SAPC14A05"/>
+                     <authenticationMethod string="MD5"/>
+                     <encryptionMethod string="CBC-DES"/>
+                     <communityString string="public"/>
+                     <context string=""/>
+                     <namingUrl string=""/>
+                     <namingPort int=""/>
+                     <notificationIRPAgentVersion string=""/>
+                     <alarmIRPAgentVersion string=""/>
+                     <notificationIRPNamingContext context=""/>
+                     <alarmIRPNamingContext context=""/>
+                  </Protocol>
+                  <Protocol number="1">
+                     <protocolType string="SSH"/>
+                     <port int="22"/>
+                     <protocolVersion string=""/>
+                     <securityName string=""/>
+                     <authenticationMethod string=""/>
+                     <encryptionMethod string=""/>
+                     <communityString string=""/>
+                     <context string=""/>
+                     <namingUrl string=""/>
+                     <namingPort int=""/>
+                     <notificationIRPAgentVersion string=""/>
+                     <alarmIRPAgentVersion string=""/>
+                     <notificationIRPNamingContext context=""/>
+                     <alarmIRPNamingContext context=""/>
+                  </Protocol>
+                  <Protocol number="2">
+                     <protocolType string="SFTP"/>
+                     <port int="22"/>
+                     <protocolVersion string=""/>
+                     <securityName string=""/>
+                     <authenticationMethod string=""/>
+                     <encryptionMethod string=""/>
+                     <communityString string=""/>
+                     <context string=""/>
+                     <namingUrl string=""/>
+                     <namingPort int=""/>
+                     <notificationIRPAgentVersion string=""/>
+                     <alarmIRPAgentVersion string=""/>
+                     <notificationIRPNamingContext context=""/>
+                     <alarmIRPNamingContext context=""/>
+                  </Protocol>
+                  <Protocol number="3">
+                     <protocolType string="LDAPS"/>
+                     <port int="7423"/>
+                     <protocolVersion string=""/>
+                     <securityName string=""/>
+                     <authenticationMethod string=""/>
+                     <encryptionMethod string=""/>
+                     <communityString string=""/>
+                     <context string=""/>
+                     <namingUrl string=""/>
+                     <namingPort int=""/>
+                     <notificationIRPAgentVersion string=""/>
+                     <alarmIRPAgentVersion string=""/>
+                     <notificationIRPNamingContext context=""/>
+                     <alarmIRPNamingContext context=""/>
+                  </Protocol>
+                  <Browser>
+                     <browser string=""/>
+                     <browserURL string=""/>
+                     <bookname string=""/>
+                  </Browser>
+               </DEFAULT>
+            </Connectivity>
+            <Tss>
+               <Entry>
+                  <System string="SAPC14A05"/>
+                  <Type string="SECURE"/>
+                  <User string="SAPC14A05"/>
+                  <Password string="secret"/>
+               </Entry>
+               <Entry>
+                  <System string="SAPC14A05"/>
+                  <Type string="NORMAL"/>
+                  <User string="SAPC14A05"/>
+                  <Password string="secret"/>
+               </Entry>
+            </Tss>
+            <Relationship>
+               <AssociableNode TO_FDN="ManagementNode=ONRM" AssociationType="MgmtAssociation"/>
+            </Relationship>
+         </ManagedElement>
+      </SubNetwork>
+   </Create>
+</Model>

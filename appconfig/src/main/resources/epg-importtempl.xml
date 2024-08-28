@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Model SYSTEM "/opt/ericsson/arne/etc/arne15_0.dtd">
+<Model version="1" importVersion="15.0">
+   <Create>
+      <ManagedElement sourceType="M120">
+         <ManagedElementId string="vepgEvigkum"/>
+         <primaryType type="EPG"/>
+         <managedElementType types="Vinfra"/>
+         <associatedSite string="Site=ECM-SITE"/>
+         <nodeVersion string="12A"/>
+         <platformVersion string=""/>
+         <swVersion string=""/>
+         <vendorName string=""/>
+         <userDefinedState string=""/>
+         <managedServiceAvailability int="1"/>
+         <isManaged boolean="false"/>
+         <connectionStatus string="ON"/>
+         <ManagedFunction>
+            <functionType string="Vinfra"/>
+            <vimId string="${vAppId}"/>
+            <ecmHostName string="${ecmHostName}"/>
+            <ecmHostIpAddress string="${ecmHostName}"/>
+            <tenantId string="${tenantName}"/>
+            <tenantName string="${tenantName}"/>
+            <vAppId string="${vAppId}"/>
+            <vAppName string="EPG"/>
+         </ManagedFunction>
+         <Connectivity>
+            <DEFAULT>
+               <emUrl url="https://10.0.0.6"/>
+               <ipAddress string="10.0.0.6"/>
+               <oldIpAddress string=""/>
+               <hostname string=""/>
+               <nodeSecurityState state="ON"/>
+               <boardId string=""/>
+               <Browser>
+                  <browser string=""/>
+                  <browserURL string=""/>
+                  <bookname string=""/>
+               </Browser>
+            </DEFAULT>
+         </Connectivity>
+         <Tss>
+            <Entry>
+               <System string="vepgEvigkum"/>
+               <Type string="NORMAL"/>
+               <User string="lmioss"/>
+               <Password string="ossPass123"/>
+            </Entry>
+         </Tss>
+         <Relationship>
+            <AssociableNode TO_FDN="ManagementNode=ONRM" AssociationType="MgmtAssociation"/>
+         </Relationship>
+      </ManagedElement>
+   </Create>
+</Model>

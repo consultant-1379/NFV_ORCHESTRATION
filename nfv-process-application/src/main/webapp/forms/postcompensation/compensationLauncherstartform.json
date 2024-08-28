@@ -1,0 +1,18 @@
+
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+            { "controlGroup": { "name": "launcherType", "label": "Instance Type", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "launcherType", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["AlarmViewer", "LogViewer","ECM","GoogleMaps","AskLater","CustomURL","None"] } }
+                ]}},
+                { "controlGroup": { "name": "launcherURL", "label": "Specific URL for Compensation Launcher", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "launcherURL", "readonly": false, "required": false}}
+                ]}}
+        ]
+}

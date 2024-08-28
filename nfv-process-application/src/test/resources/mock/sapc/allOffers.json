@@ -1,0 +1,337 @@
+{
+  "status": {
+    "reqStatus": "SUCCESS",
+    "credentials": "AQIC5wM2LY4SfcwK7_uH_wOpEYVZPcPM54eL0h1urr0Xp8Y.*AAJTSQACMDEAAlNLABMxNDExMzA4MzA1OTEzMTk1OTE4*"
+  },
+  "data": {
+    "offers": [
+      {
+        "description": "vEPG Enterprise (vEPC PoC Drop B)",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vapp",
+        "name": "EPGEnterprisevAppOffer"
+      },
+      {
+        "description": "vEPG VDC (vEPC PoC Drop B)",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vdc",
+        "name": "EPGVDCOFFER"
+      },
+      {
+        "description": "vEPG (vEPC PoC Drop B)",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vapp",
+        "name": "EPGvAppOffer"
+      },
+      {
+        "description": "MME PoC Drop 2 VDC OFFER",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vdc",
+        "name": "MMEPOCDROP2VDCOFFER"
+      },
+      {
+        "description": "vMME VDC (vEPC PoC Drop B)",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vdc",
+        "name": "MMEPOCDROP4VDCOFFER"
+      },
+      {
+        "description": "MME PoC Drop 5 VDC OFFER",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vdc",
+        "name": "MMEPOCDROP5VDCOFFER"
+      },
+      {
+        "description": "MME PoC Drop 2 VM OFFER",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "MMEPoCDrop2VMOFFER"
+      },
+      {
+        "description": "MME PoC Drop 4 GP-2.5 VM OFFER",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "MMEPoCDrop4GP2.5VMOFFER"
+      },
+      {
+        "description": "MME PoC Drop 4 VM OFFER",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "MMEPoCDrop4VMOFFER"
+      },
+      {
+        "description": "vMME (vEPC PoC Drop B)",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vapp",
+        "name": "MMEPoCDrop4vAppOffer"
+      },
+      {
+        "description": "MME PoC Drop 5 GP-2.5 VM OFFER",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "MMEPoCDrop5GP2.5VMOFFER"
+      },
+      {
+        "description": "MME PoC Drop 5 GP-2.5 vApp Offer",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vapp",
+        "name": "MMEPoCDrop5GP25vAppOffer"
+      },
+      {
+        "description": "MME PoC Drop 5 VM OFFER",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "MMEPoCDrop5VMOFFER"
+      },
+      {
+        "description": "MME PoC Drop 5 vApp Offer",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vapp",
+        "name": "MMEPoCDrop5vAppOffer"
+      },
+      {
+        "description": "MME PoC Drop 2 GP-2.5 VM OFFER",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "MMEPocDrop2GP2.5VMOFFER"
+      },
+      {
+        "description": "Sample Standalone BSV Offer ",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "bsv",
+        "name": "SAMPLE_BSV_OFFER"
+      },
+      {
+        "description": "VAPP Offer with one or more VMs and corresponding VMVNICs",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vapp",
+        "name": "SAMPLE_VAPP_OFFER1"
+      },
+      {
+        "description": "Sample VDC Offer with One Network with VRF and External Network Connectivity.",
+        "vimZoneType": [
+          "CEE",
+          "OPENSTACK"
+        ],
+        "tenantName": "ALL",
+        "type": "vdc",
+        "name": "SAMPLE_VDC_OFFER1"
+      },
+      {
+        "description": "Sample Standalone VDC Offer",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vdc",
+        "name": "SAMPLE_VDC_OFFER2"
+      },
+      {
+        "description": "Sample VM Offer with One VNIC.",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "SAMPLE_VM_OFFER1"
+      },
+      {
+        "description": "Sample VM Offer with Two VNICs, One Public, One Private.",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "SAMPLE_VM_OFFER2"
+      },
+      {
+        "description": "Sample VM Offer with One VNIC and BSVs",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "SAMPLE_VM_OFFER3"
+      },
+      {
+        "description": "Sample VM Offer with VAPP Attachment.",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "SAMPLE_VM_OFFER4"
+      },
+      {
+        "description": "Sample VM Offer with multiple VMs with no defaults for Affinity AntiAffinity",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "SAMPLE_VM_OFFER5"
+      },
+      {
+        "description": "Sample VM Offer with sample defaults for Affinity/AntiAffinity",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "SAMPLE_VM_OFFER6"
+      },
+      {
+        "description": "Sample VN Offer ",
+        "vimZoneType": [
+          "CEE",
+          "OPENSTACK"
+        ],
+        "tenantName": "ALL",
+        "type": "vn",
+        "name": "SAMPLE_VN_OFFER1"
+      },
+      {
+        "description": "Sample VN Offer with VRF and External Connectivity.",
+        "vimZoneType": [
+          "CEE",
+          "OPENSTACK"
+        ],
+        "tenantName": "ALL",
+        "type": "vn",
+        "name": "SAMPLE_VN_OFFER2"
+      },
+      {
+        "description": "Sample VN Offer with VN",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vn",
+        "name": "SAMPLE_VN_OFFER3"
+      },
+      {
+        "description": "epg cp vm offer",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "epgcpvmoffer"
+      },
+      {
+        "description": "epg lb vm offer",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "epglbvmoffer"
+      },
+      {
+        "description": "epg nfs vm offer",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "epgnfsvmoffer"
+      },
+      {
+        "description": "epg pp vm offer",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "epgppvmoffer"
+      },
+      {
+        "description": "epg vm offer",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vm",
+        "name": "epgvmoffer"
+      },
+      {
+        "description": "vSAPC (vEPC PoC Drop B) 4 VMs Expansion",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vapp",
+        "name": "vSAPCmtPA1Exp4vmsOffer"
+      },
+      {
+        "description": "vSAPC (vEPC PoC Drop B)",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vapp",
+        "name": "vSAPCmtPA1Offer"
+      },
+      {
+        "description": "vSAPC VDC (vEPC PoC Drop B)",
+        "vimZoneType": [
+          "ALL"
+        ],
+        "tenantName": "ALL",
+        "type": "vdc",
+        "name": "vSAPCmtPA1vDCOffer"
+      }
+    ]
+  }
+}

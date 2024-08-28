@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.extremenetworks.com/XMLSchema/xos/l2protocol"
+	xmlns:xos="urn:xapi" xmlns:vlan="http://www.extremenetworks.com/XMLSchema/xos/vlan"
+	xmlns:idmgr="http://www.extremenetworks.com/XMLSchema/xos/idmgr"
+	xmlns:ipfix="http://www.extremenetworks.com/XMLSchema/xos/ipfix"
+	xmlns:port="http://www.extremenetworks.com/XMLSchema/xos/port"
+	xmlns:fdb="http://www.extremenetworks.com/XMLSchema/xos/fdb" xmlns:ns2="http://www.extremenetworks.com/XMLSchema/xos/dhcp"
+	xmlns:ems="http://www.extremenetworks.com/XMLSchema/xos/ems" xmlns:aaa="http://www.extremenetworks.com/XMLSchema/xos/aaa"
+	xmlns:snmp="http://www.extremenetworks.com/XMLSchema/xos/snmp"
+	xmlns:system="http://www.extremenetworks.com/XMLSchema/xos/system"
+	xmlns:event="http://www.extremenetworks.com/XMLSchema/xos/event"
+	xmlns:ns4="urn:ietf:params:xml:ns:netconf:soap:1.0" xmlns:netb="urn:ietf:params:xml:ns:netconf:base:1.0"
+	xmlns:switch="http://www.extremenetworks.com/XMLSchema/xos/switch"
+	xmlns:com="http://www.extremenetworks.com/XMLSchema/xos/common"
+	xmlns:upm="http://www.extremenetworks.com/XMLSchema/xos/upm"
+	xmlns:xosacl="urn:xapi/l2protocol/acl" xmlns:xoscfg="urn:xapi/cfgmgmt/cfgmgr"
+	xmlns:xosfdb="urn:xapi/l2protocol/fdb" xmlns:xospol="urn:xapi/system/policy"
+	xmlns:xosvlan="urn:xapi/l2protocol/vlan">
+	<SOAP-ENV:Header>
+		<com:hdr>
+			<reqId>1</reqId>
+			<sessionId>21af0000000006</sessionId>
+		</com:hdr>
+		<event:eventHeader></event:eventHeader>
+	</SOAP-ENV:Header>
+	<SOAP-ENV:Body>
+		<xoscfg:execCliResponse>
+			<reply>VLAN1030 1030
+				------------------------------------------------- ANY 8 /8
+				VR-Default &#xA;</reply>
+		</xoscfg:execCliResponse>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+

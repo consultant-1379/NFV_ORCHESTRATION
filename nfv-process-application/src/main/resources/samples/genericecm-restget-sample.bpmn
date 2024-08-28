@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_uv8ucBwIEeWt3MsFExKrOA" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="genericecm-restget-sample" name="genericecm-restget-sample" isExecutable="false">
+    <bpmn2:extensionElements>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.AppConfigLoadListener" event="start"/>
+    </bpmn2:extensionElements>
+    <bpmn2:startEvent id="StartEvent__prg__p0" name="start">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:serviceTask id="ECMGet__prg__p60" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericECMRESTInvoker" name="ECM GET REST Call (getVimzones)">
+      <bpmn2:extensionElements>
+        <camunda:field name="requestString">
+          <camunda:string>--</camunda:string>
+        </camunda:field>
+        <camunda:field name="method">
+          <camunda:string>GET</camunda:string>
+        </camunda:field>
+        <camunda:field name="endpointURL">
+          <camunda:string>htpp://ecmpp.domain.com/ecm_service/vimzones</camunda:string>
+        </camunda:field>
+        <camunda:field name="outPutVariable">
+          <camunda:string>getVimzonesResp</camunda:string>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent__prg__p0" targetRef="ECMGet__prg__p60"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="ECMGet__prg__p60" targetRef="LogECM__prg__p90"/>
+    <bpmn2:endEvent id="EndEvent__prg__p100" name="end">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:scriptTask id="LogECM__prg__p90" name="Log ECM REST Output" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[println ' Get Vimzones Response :  \n'+execution.getVariable('getVimzonesResp');
+//Cleanup unwanted JSON responses from execution once used
+execution.removeVariable('getVimzonesResp'); ]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="LogECM__prg__p90" targetRef="EndEvent__prg__p100"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="genericecm-restget-sample">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_10" bpmnElement="StartEvent__prg__p0">
+        <dc:Bounds height="36.0" width="36.0" x="85.0" y="285.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_11" bpmnElement="ECMGet__prg__p60">
+        <dc:Bounds height="80.0" width="100.0" x="171.0" y="263.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_10" targetElement="_BPMNShape_ServiceTask_11">
+        <di:waypoint xsi:type="dc:Point" x="121.0" y="303.0"/>
+        <di:waypoint xsi:type="dc:Point" x="171.0" y="303.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_128" bpmnElement="LogECM__prg__p90">
+        <dc:Bounds height="80.0" width="100.0" x="344.0" y="263.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ServiceTask_11" targetElement="_BPMNShape_ScriptTask_128">
+        <di:waypoint xsi:type="dc:Point" x="271.0" y="303.0"/>
+        <di:waypoint xsi:type="dc:Point" x="344.0" y="303.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="293.0" y="303.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_71" bpmnElement="EndEvent__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="533.0" y="285.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="551.0" y="326.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ScriptTask_128" targetElement="_BPMNShape_EndEvent_71">
+        <di:waypoint xsi:type="dc:Point" x="444.0" y="303.0"/>
+        <di:waypoint xsi:type="dc:Point" x="533.0" y="303.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="466.0" y="303.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

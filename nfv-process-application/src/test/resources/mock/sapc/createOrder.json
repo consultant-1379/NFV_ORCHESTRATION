@@ -1,0 +1,12 @@
+{
+	"status": {
+		"reqStatus": "SUCCESS",
+    	"credentials": "AQIC5wM2LY4Sfcy1CtNQLAXSRL7SsiM997uor4v6gwhzxRI.*AAJTSQACMDEAAlNLABMyMjcyOTExODc3ODQ3MDczNDA4*"
+	},
+	"data": {
+		"order": {
+			"id": "2448259",
+			"tenantName": "lmioss"
+		}
+	}
+}

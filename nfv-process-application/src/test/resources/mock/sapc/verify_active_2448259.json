@@ -1,0 +1,19 @@
+   {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfcygzU2hD1tUe7SVedVLWVmVYI-jWLDy8Js.*AAJTSQACMDEAAlNLABMyOTgzMzIxMDM4MTg3OTkyOTIz*"
+       },
+       "data":
+       {
+           "order":
+           {
+               "creationDate": 1409321993000,
+               "completionDate": 1409322172000,
+               "userId": "oss",
+               "id": "2448259",
+               "tenantName": "lmioss",
+               "orderReqStatus": "COM"
+           }
+       }
+    }

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:fox="http://www.camunda.com/fox" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_6zG_QKxzEeSUU9dWvTxloQ" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="Process_1" name="OpenStackSnapshot" isExecutable="true">
+    <bpmn2:extensionElements>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.AppConfigLoadListener" event="start"/>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.ActivityEntryExitListener" event="start"/>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.ActivityEntryExitListener" event="end"/>
+    </bpmn2:extensionElements>
+    <bpmn2:scriptTask id="ScriptTask_5__prg__p27" camunda:async="true" name="Build request snapshot" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def serverhref= execution.getVariable('serverhref')
+
+def url = execution.getVariable('appConfigProps')['OPEN_STACK_SERVER']
+url = serverhref+ "/action" 
+def requestStr = execution.getVariable('appConfigProps')['CREATE_SNAPSHOT']
+requestStr  = "{\"createImage\": {\"name\": \"foo-image\",\"metadata\": {\"myvar\": \"foobar\"}}}"
+
+execution.setVariable('nwurl',   url)
+execution.setVariable('requestStr',   requestStr )]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:serviceTask id="ServiceTask_3__prg__p30" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericOpenStackRESTInvoker" name="Post Request SnapShot">
+      <bpmn2:extensionElements>
+        <camunda:field name="method">
+          <camunda:string>POST</camunda:string>
+        </camunda:field>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${nwurl}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="outPutVariable">
+          <camunda:string>snapshotoutput</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:expression>${requestStr}</camunda:expression>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="ScriptTask_5__prg__p27" targetRef="ServiceTask_3__prg__p30"/>
+    <bpmn2:scriptTask id="ScriptTask_6__prg__p35" name="Extract Snapshot Result" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger SCRIPTLOGGER = org.slf4j.LoggerFactory.getLogger("script");
+
+SCRIPTLOGGER.info(' doing nothing');
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="ServiceTask_3__prg__p30" targetRef="ScriptTask_6__prg__p35"/>
+    <bpmn2:scriptTask id="ScriptTask_7__prg__p45" camunda:async="true" name="Build GetFile Request" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger SCRIPTLOGGER = org.slf4j.LoggerFactory.getLogger("script");
+def url = execution.getVariable('appConfigProps')['OPEN_STACK_IMAGE']
+url  = url +"/v2/images?name=foo-image"                    // http://10.59.154.4:9292/v2/images?name=foo-image
+
+
+execution.setVariable("nwurl",url);
+SCRIPTLOGGER.info(' nwurl   ---> '+ url  );
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="ScriptTask_6__prg__p35" targetRef="ScriptTask_7__prg__p45"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" name="" sourceRef="ScriptTask_7__prg__p45" targetRef="ServiceTask_4__prg__p60"/>
+    <bpmn2:scriptTask id="ScriptTask_8__prg__p70" camunda:async="true" name="Check File Request" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger SCRIPTLOGGER = org.slf4j.LoggerFactory.getLogger("script");
+def respSTR = execution.getVariable('filejson')
+def slurper = new groovy.json.JsonSlurper()
+def respJson = slurper.parseText(respSTR)
+def image_state = respJson.images[0].image_state
+def image_file = respJson.images[0].file
+
+execution.setVariable("image_state",image_state );
+execution.setVariable("image_file",image_file);
+SCRIPTLOGGER.info(' image_state , image_file ---> '+ image_state + ' , ' + image_file );
+
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_2__prg" default="SequenceFlow_19">
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_11</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_19</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" name="" sourceRef="ScriptTask_8__prg__p70" targetRef="ExclusiveGateway_2__prg"/>
+    <bpmn2:scriptTask id="ScriptTask_9__prg__p85" camunda:async="true" name="Create FetchSnapShot request" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger SCRIPTLOGGER = org.slf4j.LoggerFactory.getLogger("script");
+
+def url = execution.getVariable('appConfigProps')['OPEN_STACK_IMAGE']
+def image_file = execution.getVariable('image_file')
+url  = url + image_file                     // http://10.59.154.4:9292/v2/images?name=foo-image
+
+execution.setVariable("nwurl",url);
+SCRIPTLOGGER.info(' nwurl   ---> '+ url  );
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_11" name="" sourceRef="ExclusiveGateway_2__prg" targetRef="ScriptTask_9__prg__p85">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable("image_state")!=null &&  execution.getVariable("image_state") == "available"}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:serviceTask id="ServiceTask_5__prg__p90" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericOpenStackRESTInvoker" name="Fetch Snapshot">
+      <bpmn2:extensionElements>
+        <camunda:field name="method">
+          <camunda:string>GET</camunda:string>
+        </camunda:field>
+        <camunda:field name="outPutVariable">
+          <camunda:string>local_image_filename</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:string>--</camunda:string>
+        </camunda:field>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${nwurl}</camunda:expression>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_12" name="" sourceRef="ScriptTask_9__prg__p85" targetRef="ServiceTask_5__prg__p90"/>
+    <bpmn2:scriptTask id="ScriptTask_10__prg__p99" camunda:async="true" name="Check Fetch Result" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger SCRIPTLOGGER = org.slf4j.LoggerFactory.getLogger("script");
+def respSTR = execution.getVariable('local_image_filename')
+def slurper = new groovy.json.JsonSlurper()
+def respJson = slurper.parseText(respSTR)
+def filename= respJson.filename
+
+
+execution.setVariable("filename",filename );
+
+SCRIPTLOGGER.info(' filename ---> '+filename);
+
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_13" name="" sourceRef="ServiceTask_5__prg__p90" targetRef="ScriptTask_10__prg__p99"/>
+    <bpmn2:endEvent id="EndEvent_1__prg__p100">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_19" name="" sourceRef="ExclusiveGateway_2__prg" targetRef="IntermediateCatchEvent_1__prg"/>
+    <bpmn2:intermediateCatchEvent id="IntermediateCatchEvent_1__prg" name="Pause ">
+      <bpmn2:extensionElements>
+        <fox:failedJobRetryTimeCycle>R10/PT15S</fox:failedJobRetryTimeCycle>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_19</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+      <bpmn2:timerEventDefinition id="TimerEventDefinition_1">
+        <bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression">PT10S</bpmn2:timeDuration>
+      </bpmn2:timerEventDefinition>
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_20" name="" sourceRef="IntermediateCatchEvent_1__prg" targetRef="ServiceTask_4__prg__p60"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1__prg" default="SequenceFlow_21">
+      <bpmn2:incoming>SequenceFlow_30</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_21</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_22</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_21" name="" sourceRef="ExclusiveGateway_1__prg" targetRef="UserTask_1__prg__p1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_22" name="" sourceRef="ExclusiveGateway_1__prg" targetRef="ScriptTask_13__prg__p5">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable("vmname")!=null &&  execution.getVariable("vmname") != "null"}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:userTask id="UserTask_1__prg__p1" camunda:formKey="embedded:app:json:model1:forms/vmname.json" name="Fetch Name">
+      <bpmn2:incoming>SequenceFlow_21</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_29</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:scriptTask id="ScriptTask_13__prg__p5" camunda:async="true" name="Create Auth Req" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_22</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_29</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_23</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def authStr = '{"auth": {"tenantName": "admin", "passwordCredentials": {"username": "admin", "password": "admin"}}}'
+def url = execution.getVariable('appConfigProps')['OPEN_STACK_AUTH']
+execution.setVariable("authReqStr",authStr)
+execution.setVariable('authURL',   url)]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_23" name="" sourceRef="ScriptTask_13__prg__p5" targetRef="ServiceTask_6__prg__p10"/>
+    <bpmn2:serviceTask id="ServiceTask_6__prg__p10" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericOpenStackRESTInvoker" name="Create Auth Token">
+      <bpmn2:extensionElements>
+        <camunda:field name="method">
+          <camunda:string>POST</camunda:string>
+        </camunda:field>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${authURL}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="outPutVariable">
+          <camunda:string>getNetworkResp</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:expression>${authReqStr}</camunda:expression>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_23</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_24</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_24" name="" sourceRef="ServiceTask_6__prg__p10" targetRef="ScriptTask_14__prg__p15"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_29" name="" sourceRef="UserTask_1__prg__p1" targetRef="ScriptTask_13__prg__p5"/>
+    <bpmn2:startEvent id="StartEvent_1" camunda:formKey="embedded:app:json:model1:forms/vmname.json" name="Start">
+      <bpmn2:outgoing>SequenceFlow_30</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_30" name="" sourceRef="StartEvent_1" targetRef="ExclusiveGateway_1__prg"/>
+    <bpmn2:scriptTask id="ScriptTask_14__prg__p15" name="Check Auth Token" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_24</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_31</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger SCRIPTLOGGER = org.slf4j.LoggerFactory.getLogger("script");
+def respSTR = execution.getVariable('getNetworkResp')
+def slurper = new groovy.json.JsonSlurper()
+def respJson = slurper.parseText(respSTR)
+def osauthToken = respJson.access.token.id
+def tenantId = respJson.access.token.tenant.id
+execution.setVariable("osauthToken",osauthToken);
+execution.setVariable("tenantId",tenantId );
+SCRIPTLOGGER.info(' Open stack auth token, tenantId  obtained is ---> '+osauthToken + ' , ' + tenantId  );
+
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:scriptTask id="ScriptTask_3__prg__p18" camunda:async="true" name="Build VM request" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_31</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger SCRIPTLOGGER = org.slf4j.LoggerFactory.getLogger("script");
+def tenantId= execution.getVariable('tenantId')
+def vmName= execution.getVariable('vmname')
+
+def url = execution.getVariable('appConfigProps')['OPEN_STACK_SERVER']
+url = url + "/v2/" + tenantId + "/servers?name=" + vmName 
+SCRIPTLOGGER.info(' url  ---> '+ url );
+
+
+execution.setVariable('nwUrl',   url)]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="ScriptTask_3__prg__p18" targetRef="ServiceTask_2__prg__p20"/>
+    <bpmn2:serviceTask id="ServiceTask_2__prg__p20" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericOpenStackRESTInvoker" name="Post get VM Request">
+      <bpmn2:extensionElements>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${nwUrl}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="outPutVariable">
+          <camunda:string>servernameid</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:string>--</camunda:string>
+        </camunda:field>
+        <camunda:field name="method">
+          <camunda:string>GET</camunda:string>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="ServiceTask_2__prg__p20" targetRef="ScriptTask_4__prg__p25"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_31" name="" sourceRef="ScriptTask_14__prg__p15" targetRef="ScriptTask_3__prg__p18"/>
+    <bpmn2:scriptTask id="ScriptTask_4__prg__p25" name="Extract VM Id" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger SCRIPTLOGGER = org.slf4j.LoggerFactory.getLogger("script");
+def respSTR = execution.getVariable('servernameid')
+SCRIPTLOGGER.info(' servernameid  respSTR ---> '+ respSTR  );
+def slurper = new groovy.json.JsonSlurper()
+def respJson = slurper.parseText(respSTR)
+def serverhref = respJson.servers[0].links[0].href
+
+execution.setVariable("serverhref",serverhref);
+SCRIPTLOGGER.info(' Server href  ---> '+serverhref );
+
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="ScriptTask_4__prg__p25" targetRef="ScriptTask_5__prg__p27"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" name="" sourceRef="ScriptTask_10__prg__p99" targetRef="EndEvent_1__prg__p100"/>
+    <bpmn2:serviceTask id="ServiceTask_4__prg__p60" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericOpenStackRESTInvoker" camunda:async="true" name="Post Get File Request">
+      <bpmn2:extensionElements>
+        <camunda:field name="method">
+          <camunda:string>GET</camunda:string>
+        </camunda:field>
+        <camunda:field name="outPutVariable">
+          <camunda:string>filejson</camunda:string>
+        </camunda:field>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${nwurl}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:string>--</camunda:string>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" name="" sourceRef="ServiceTask_4__prg__p60" targetRef="ScriptTask_8__prg__p70"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_17" bpmnElement="StartEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="0.0" y="321.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="44.0" x="0.0" y="293.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_44" bpmnElement="ExclusiveGateway_1__prg" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="72.0" y="313.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="252.0" y="368.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_102" bpmnElement="ScriptTask_3__prg__p18">
+        <dc:Bounds height="80.0" width="100.0" x="720.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_97" bpmnElement="ServiceTask_2__prg__p20">
+        <dc:Bounds height="80.0" width="100.0" x="900.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_ScriptTask_102" targetElement="_BPMNShape_ServiceTask_97">
+        <di:waypoint xsi:type="dc:Point" x="820.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="900.0" y="339.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="842.0" y="339.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_103" bpmnElement="ScriptTask_4__prg__p25">
+        <dc:Bounds height="80.0" width="100.0" x="1056.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ServiceTask_97" targetElement="_BPMNShape_ScriptTask_103">
+        <di:waypoint xsi:type="dc:Point" x="1000.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1056.0" y="339.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="1022.0" y="339.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_104" bpmnElement="ScriptTask_5__prg__p27">
+        <dc:Bounds height="80.0" width="100.0" x="1437.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ScriptTask_103" targetElement="_BPMNShape_ScriptTask_104">
+        <di:waypoint xsi:type="dc:Point" x="1156.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1437.0" y="339.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="1178.0" y="339.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_98" bpmnElement="ServiceTask_3__prg__p30">
+        <dc:Bounds height="80.0" width="100.0" x="1587.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_ScriptTask_104" targetElement="_BPMNShape_ServiceTask_98">
+        <di:waypoint xsi:type="dc:Point" x="1537.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1587.0" y="339.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_105" bpmnElement="ScriptTask_6__prg__p35">
+        <dc:Bounds height="80.0" width="100.0" x="1737.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_5" sourceElement="_BPMNShape_ServiceTask_98" targetElement="_BPMNShape_ScriptTask_105">
+        <di:waypoint xsi:type="dc:Point" x="1687.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1737.0" y="339.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_106" bpmnElement="ScriptTask_7__prg__p45">
+        <dc:Bounds height="80.0" width="100.0" x="1887.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_6" sourceElement="_BPMNShape_ScriptTask_105" targetElement="_BPMNShape_ScriptTask_106">
+        <di:waypoint xsi:type="dc:Point" x="1837.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1887.0" y="339.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_99" bpmnElement="ServiceTask_4__prg__p60">
+        <dc:Bounds height="80.0" width="100.0" x="2052.0" y="303.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="SequenceFlow_7" sourceElement="_BPMNShape_ScriptTask_106" targetElement="_BPMNShape_ServiceTask_99">
+        <di:waypoint xsi:type="dc:Point" x="1987.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2019.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2019.0" y="343.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2052.0" y="343.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="2009.0" y="339.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_107" bpmnElement="ScriptTask_8__prg__p70">
+        <dc:Bounds height="80.0" width="100.0" x="2187.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_8" sourceElement="_BPMNShape_ServiceTask_99" targetElement="_BPMNShape_ScriptTask_107">
+        <di:waypoint xsi:type="dc:Point" x="2152.0" y="343.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2169.0" y="343.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2169.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2187.0" y="339.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="2170.0" y="339.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_45" bpmnElement="ExclusiveGateway_2__prg" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="2337.0" y="314.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_9" sourceElement="_BPMNShape_ScriptTask_107" targetElement="_BPMNShape_ExclusiveGateway_45">
+        <di:waypoint xsi:type="dc:Point" x="2287.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2337.0" y="339.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_108" bpmnElement="ScriptTask_9__prg__p85">
+        <dc:Bounds height="80.0" width="100.0" x="2437.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="SequenceFlow_11" sourceElement="_BPMNShape_ExclusiveGateway_45" targetElement="_BPMNShape_ScriptTask_108">
+        <di:waypoint xsi:type="dc:Point" x="2387.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2437.0" y="339.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_100" bpmnElement="ServiceTask_5__prg__p90">
+        <dc:Bounds height="80.0" width="100.0" x="2587.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="SequenceFlow_12" sourceElement="_BPMNShape_ScriptTask_108" targetElement="_BPMNShape_ServiceTask_100">
+        <di:waypoint xsi:type="dc:Point" x="2537.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2587.0" y="339.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_109" bpmnElement="ScriptTask_10__prg__p99">
+        <dc:Bounds height="80.0" width="100.0" x="2737.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="SequenceFlow_13" sourceElement="_BPMNShape_ServiceTask_100" targetElement="_BPMNShape_ScriptTask_109">
+        <di:waypoint xsi:type="dc:Point" x="2687.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2737.0" y="339.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_59" bpmnElement="EndEvent_1__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="3138.0" y="326.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_IntermediateCatchEvent_12" bpmnElement="IntermediateCatchEvent_1__prg">
+        <dc:Bounds height="36.0" width="36.0" x="2187.0" y="468.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="2205.0" y="509.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_19" bpmnElement="SequenceFlow_19" sourceElement="_BPMNShape_ExclusiveGateway_45" targetElement="_BPMNShape_IntermediateCatchEvent_12">
+        <di:waypoint xsi:type="dc:Point" x="2362.0" y="364.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2362.0" y="486.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2223.0" y="486.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="2359.0" y="439.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_20" sourceElement="_BPMNShape_IntermediateCatchEvent_12" targetElement="_BPMNShape_ServiceTask_99">
+        <di:waypoint xsi:type="dc:Point" x="2187.0" y="486.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2162.0" y="486.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2102.0" y="486.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2102.0" y="383.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="2099.0" y="473.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_12" bpmnElement="UserTask_1__prg__p1">
+        <dc:Bounds height="80.0" width="100.0" x="96.0" y="461.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_21" bpmnElement="SequenceFlow_21" sourceElement="_BPMNShape_ExclusiveGateway_44" targetElement="_BPMNShape_UserTask_12">
+        <di:waypoint xsi:type="dc:Point" x="97.0" y="363.0"/>
+        <di:waypoint xsi:type="dc:Point" x="97.0" y="407.0"/>
+        <di:waypoint xsi:type="dc:Point" x="146.0" y="407.0"/>
+        <di:waypoint xsi:type="dc:Point" x="146.0" y="461.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="252.0" y="407.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_112" bpmnElement="ScriptTask_13__prg__p5">
+        <dc:Bounds height="80.0" width="100.0" x="195.0" y="300.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_22" bpmnElement="SequenceFlow_22" sourceElement="_BPMNShape_ExclusiveGateway_44" targetElement="_BPMNShape_ScriptTask_112">
+        <di:waypoint xsi:type="dc:Point" x="122.0" y="338.0"/>
+        <di:waypoint xsi:type="dc:Point" x="158.0" y="338.0"/>
+        <di:waypoint xsi:type="dc:Point" x="158.0" y="340.0"/>
+        <di:waypoint xsi:type="dc:Point" x="195.0" y="340.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="252.0" y="340.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_101" bpmnElement="ServiceTask_6__prg__p10">
+        <dc:Bounds height="80.0" width="100.0" x="348.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="SequenceFlow_23" sourceElement="_BPMNShape_ScriptTask_112" targetElement="_BPMNShape_ServiceTask_101">
+        <di:waypoint xsi:type="dc:Point" x="295.0" y="340.0"/>
+        <di:waypoint xsi:type="dc:Point" x="348.0" y="339.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="305.0" y="340.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_113" bpmnElement="ScriptTask_14__prg__p15">
+        <dc:Bounds height="80.0" width="100.0" x="528.0" y="299.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_24" bpmnElement="SequenceFlow_24" sourceElement="_BPMNShape_ServiceTask_101" targetElement="_BPMNShape_ScriptTask_113">
+        <di:waypoint xsi:type="dc:Point" x="448.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="528.0" y="339.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="453.0" y="339.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_29" bpmnElement="SequenceFlow_29" sourceElement="_BPMNShape_UserTask_12" targetElement="_BPMNShape_ScriptTask_112">
+        <di:waypoint xsi:type="dc:Point" x="146.0" y="461.0"/>
+        <di:waypoint xsi:type="dc:Point" x="146.0" y="421.0"/>
+        <di:waypoint xsi:type="dc:Point" x="245.0" y="421.0"/>
+        <di:waypoint xsi:type="dc:Point" x="245.0" y="380.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_30" bpmnElement="SequenceFlow_30" sourceElement="_BPMNShape_StartEvent_17" targetElement="_BPMNShape_ExclusiveGateway_44">
+        <di:waypoint xsi:type="dc:Point" x="36.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="54.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="54.0" y="338.0"/>
+        <di:waypoint xsi:type="dc:Point" x="72.0" y="338.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="252.0" y="339.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_31" bpmnElement="SequenceFlow_31" sourceElement="_BPMNShape_ScriptTask_113" targetElement="_BPMNShape_ScriptTask_102">
+        <di:waypoint xsi:type="dc:Point" x="628.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="720.0" y="339.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_10" sourceElement="_BPMNShape_ScriptTask_109" targetElement="_BPMNShape_EndEvent_59">
+        <di:waypoint xsi:type="dc:Point" x="2837.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2987.0" y="339.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2987.0" y="344.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3138.0" y="344.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

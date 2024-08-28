@@ -1,0 +1,215 @@
+{
+  "status": {
+    "reqStatus": "SUCCESS",
+    "credentials": "AQIC5wM2LY4Sfcy47PUm1Rkn6wjCLrqiYm3Gixn_9YVZUt0.*AAJTSQACMDEAAlNLABQtMjMxOTk0NzM1MDgzNjUzNDAyNw..*"
+  },
+  "data": {
+    "offer": {
+      "description": "EPG VDC OFFER",
+      "vimZoneType": [
+        "ALL"
+      ],
+      "tenantName": "ALL",
+      "type": "vdc",
+      "offerItems": [
+        {
+          "vdc": {
+            "itemId": "ID-ba8a65da-5a5d-437c-8ba8-ca614854dda7",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-VDC"
+            },
+            "vimZoneName": {
+              "isNull": false,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "TOP_LEVEL"
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-c7ceafc2-d3ad-4eaf-9434-f5f4452bd0a5",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-ba8a65da-5a5d-437c-8ba8-ca614854dda7"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-Payload-VN"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "24"
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            },
+            "parentItemRef": "ID-ba8a65da-5a5d-437c-8ba8-ca614854dda7",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-d0b936fc-b3b8-4662-a065-729dbf95b724",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-ba8a65da-5a5d-437c-8ba8-ca614854dda7"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NFS-VN"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "24"
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            },
+            "parentItemRef": "ID-ba8a65da-5a5d-437c-8ba8-ca614854dda7",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-4483913b-2b3a-45ba-b8d7-c746a4a24741",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-ba8a65da-5a5d-437c-8ba8-ca614854dda7"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-Backplane-VN"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "24"
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            },
+            "parentItemRef": "ID-ba8a65da-5a5d-437c-8ba8-ca614854dda7",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-49dd037f-d12d-4054-9503-724813e471a8",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-ba8a65da-5a5d-437c-8ba8-ca614854dda7"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-Public-VN"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "EPG Public VN"
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": false,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            },
+            "parentItemRef": "ID-ba8a65da-5a5d-437c-8ba8-ca614854dda7",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        }
+      ],
+      "name": "EPGVDCOFFER"
+    }
+  }
+}

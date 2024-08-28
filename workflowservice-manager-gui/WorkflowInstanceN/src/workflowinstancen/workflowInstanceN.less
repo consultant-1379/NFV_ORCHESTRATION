@@ -1,0 +1,166 @@
+.eaWorkflowInstanceN-MainRegion {
+	padding-left: 45px;
+	&-Panel {
+		display: inline-block;
+		padding-top: 5px;
+		padding-bottom: 30px;
+		&-iconHolder {
+			margin-top: 1.2rem;
+			padding: 0.8rem 0;
+			background-color: #E6E6E6;
+			width: 1565px;
+			border-radius: 3px;
+			padding-left: 10px;
+		}
+
+		&-DeleteInstance {
+			display: inline-block;
+			padding-right: 5px;
+			cursor: pointer;
+			cursor: hand;
+		}
+
+		&-DuplicateInstance {
+			display: inline-block;
+			cursor: pointer;   
+			cursor: hand;
+		}
+	}
+
+	&-contentWfInstanceN {
+	  
+	 &-progress{
+	   // font-size: 14px;
+     // margin: 0;
+     // padding: 4px;
+     // display: inline-block;
+     // vertical-align: middle;
+     
+     padding-right: 5px;
+     font-size: 12px;
+     margin: 0;
+     padding: 6px;
+     display: inline-block;
+     vertical-align: middle;
+     text-decoration: none;
+
+	   &-icon{
+	      vertical-align: middle;
+        // width: 3px;
+        padding: 0 4px;
+        background: url("@{resources-url}/workflowinstancen/crumb_arrow.svg") no-repeat 50%;
+	   }
+	 }
+	 
+		&-contentDiagram {
+			padding-left: 310px;
+		}
+
+		&-comments {
+			margin: 10px 0px 0px 0px;
+			width: 550px;
+		}
+
+		&-Buttons {
+			padding: 3px;
+			min-width:40px;
+		}
+
+		&-home {
+			  overflow: hidden;
+			  width: 300px;
+			  
+			  &-UserActivity{
+				display: none;
+			}
+			
+			&-BottomDivider{
+				border-bottom: 1px solid #666666;
+				width: 250px;
+				padding-top: 5px;
+			}
+
+			&-UserActivity2 {
+			  }
+			  
+			  &-UserActivity2{
+				display: block;
+			  }
+			  
+			  &-Section{
+			  	padding-top: 12px;
+				position: absolute;
+				width: 250px;
+				
+				&-Buttons{
+				  padding: 3px;
+				  
+				  &-buttonBack{
+					float: left;
+				  }
+				}
+			}
+
+			&-Completed {
+				padding-top: 5px;
+			  }
+			  
+			&-Completed{
+			  padding-top: 5px;
+			}
+			
+			&-Percentage{
+				padding-top: 20px;
+				padding-bottom: 20px;
+				font-size: 5rem;
+				color: #89ba17;
+			}
+			
+			&-StatusBar{
+			  
+			}
+			
+			  &-Started{
+				padding-top: 20px;
+				padding-bottom: 5px;
+				display: inline-block;
+			}
+
+			&-StartedName {
+				padding-top: 20px;
+				padding-bottom: 5px;
+				display: inline-block;
+			}
+			
+			&-Divider{
+			  border-bottom: 1px solid rgb(102, 102, 102);
+			  width: 1565px;
+			  // height: 280px;
+			  padding-top: 5px;
+			  padding-bottom: 5px;
+			}
+			
+			&-Divider2{
+			  border-bottom: #cccccc solid 1px;
+			  width: 250px;
+			  padding-bottom: 15px;
+			}
+		}
+	}
+}
+
+.elLayouts-TopSection {
+	margin-left: 0px ! important;
+	margin-right: 70px ! important;
+	&-breadcrumb{
+		padding-top: 0px !important;
+	}
+}
+
+.elLayouts-Wrapper {
+	overflow: none ! important;
+}
+
+.eaContainer-applicationHolder{
+  top: 24px !important;
+}

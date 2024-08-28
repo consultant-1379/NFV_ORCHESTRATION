@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		  <groupId>com.ericsson.oss.nfe</groupId>
+         <artifactId>nfv-orchestration</artifactId>
+    	<version>1.0.0</version>
+	</parent> 
+	<artifactId>corbairplistener</artifactId>
+	<name>Corba IRP Listener</name>
+
+	<properties>
+		<version.javax.validation>1.0.0.GA</version.javax.validation>
+		<version.jboss.as>7.2.0.Final</version.jboss.as>
+		
+	</properties>
+
+	<dependencies>
+		<!-- Basic dependency for Corba Jacorb -->
+		
+		<dependency>
+			<groupId>org.jboss.as</groupId>
+			<artifactId>jboss-as-jms-client-bom</artifactId>
+			<version>${version.jboss.as}</version>
+			<type>pom</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jacorb</groupId>
+			<artifactId>jacorb</artifactId>
+			<version>2.3.2-redhat-1</version>
+<!-- 			<scope>provided</scope>
+ -->		</dependency>
+
+		<dependency>
+			<groupId>com.ericsson.oss.nfe</groupId>
+			<artifactId>workflowservice-ext-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.0-801.jdbc4</version>			 
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>			
+			<!-- <scope>provided</scope> -->
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.0.7</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>		
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+			</plugin>
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>com.ericsson.oss.poc.service.RestAdapter</mainClass>
+								</manifest>
+							 </archive>
+							<finalName>ecmrest-client-0.1</finalName>
+							<excludes>
+								<exclude>**/appconfig.properties</exclude>
+							</excludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<filters>
+						<filter>src/assembly/filter.properties</filter>
+					</filters>
+					<descriptors>
+						<descriptor>src/assembly/distribution.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+					 <id>make-assembly</id>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<phase>package</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.0</version>
+					<executions>
+						<execution>
+							<id>default-testCompile</id>
+							<phase>test-compile</phase>
+							<goals>
+								<goal>testCompile</goal>
+							</goals>
+							<configuration>
+								<source>1.7</source>
+								<target>1.7</target>
+							</configuration>
+						</execution>
+						<execution>
+							<id>default-compile</id>
+							<phase>compile</phase>
+							<goals>
+								<goal>compile</goal>
+							</goals>
+							<configuration>
+								<source>1.7</source>
+								<target>1.7</target>
+							</configuration>
+						</execution>
+					</executions>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
+		</plugins>
+	</build>
+	<version>1.0.1</version>
+</project>

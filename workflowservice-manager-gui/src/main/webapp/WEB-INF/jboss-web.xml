@@ -1,0 +1,4 @@
+<jboss-web>
+<context-root>wfs-manager</context-root>
+</jboss-web>
+

@@ -1,0 +1,69 @@
+<configuration debug="true">
+	<contextName>ecm-poc-workflowextn</contextName>
+	<property name="LOG_DIR" value="/opt/nfv_apps/nfv_logs" />
+	 	 
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{DD/MM/YYYY-HH:mm:ss} %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>	   
+	
+	
+	<!-- <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${LOG_DIR}/test.log</file>		 
+	
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>15MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>%d %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="ACTVITYTRACKER" class="ch.qos.logback.core.FileAppender">
+   <file>${LOG_DIR}/activitytracker.log</file> 
+    <append>true</append>
+    
+    <encoder>
+      <pattern>%date{dd-MM-yyyy HH:mm:ss.SSS}  [%thread] %-5level %logger{35} - %msg%n</pattern>
+    </encoder>
+  </appender>
+	
+	
+	<appender name="RESTIO" class="ch.qos.logback.core.FileAppender">
+		<file>${LOG_DIR}/rest.log</file>		 
+	
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>15MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>%d %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	 -->
+	
+   <root level="WARN"> 
+		<appender-ref ref="STDOUT" />	 
+	</root>  
+	<logger name="com.ericsson.oss" level="info" additivity="true">
+		<appender-ref ref="STDOUT" />
+	</logger>
+		
+	
+<!-- 	<logger name="activity-tracker" level="info" additivity="false">
+		<appender-ref ref="ACTVITYTRACKER" />
+	</logger>
+	
+	<logger name="rio" level="info" additivity="false">
+		<appender-ref ref="RESTIO" />
+	</logger>
+	
+	<logger name="com.ericsson.oss" level="info" additivity="true">
+		<appender-ref ref="FILE" />
+	</logger> -->
+</configuration>

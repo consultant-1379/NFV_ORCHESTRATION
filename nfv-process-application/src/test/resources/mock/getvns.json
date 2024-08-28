@@ -1,0 +1,73 @@
+{
+	"status": {
+		"reqStatus": "SUCCESS",
+		"credentials": "AQIC5wM2LY4Sfcw_N0prLjEZ1RDe0lPHU7FwBrWZMLwShfc.*AAJTSQACMDEAAlNLABMzMDM0NzA3MTEzNTY4MDAyOTAx*"
+	},
+	"data": {
+		"vns": [{
+			"createReqNumber": "2600971",
+			"ipAddressRange": "10.10.21.0/24",
+			"dhcpEnabled": true,
+			"ipVersion": "IPv4",
+			"lastModifiedBy": "ecmadmin",
+			"vdc": {
+				"id": "VDC-3616",
+				"name": "EPG-VDC"
+			},
+			"id": "VN-10869",
+			"name": "EPG-NFS-VN",
+			"provisioningStatus": "ACTIVE",
+			"tenantName": "lmioss",
+			"enabled": true
+		},
+		{
+			"createReqNumber": "2600971",
+			"ipAddressRange": "10.10.28.0/24",
+			"dhcpEnabled": true,
+			"ipVersion": "IPv4",
+			"lastModifiedBy": "ecmadmin",
+			"vdc": {
+				"id": "VDC-3616",
+				"name": "EPG-VDC"
+			},
+			"id": "VN-10870",
+			"name": "EPG-Backplane-VN",
+			"provisioningStatus": "ACTIVE",
+			"tenantName": "lmioss",
+			"enabled": true
+		},
+		{
+			"createReqNumber": "2600971",
+			"description": "EPG Public VN",
+			"ipAddressRange": "10.70.249.128/25",
+			"dhcpEnabled": true,
+			"ipVersion": "IPv4",
+			"lastModifiedBy": "ecmadmin",
+			"vdc": {
+				"id": "VDC-3616",
+				"name": "EPG-VDC"
+			},
+			"id": "VN-10871",
+			"name": "EPG-Public-VN",
+			"provisioningStatus": "ACTIVE",
+			"tenantName": "lmioss",
+			"enabled": true
+		},
+		{
+			"createReqNumber": "2600971",
+			"ipAddressRange": "10.10.20.0/24",
+			"dhcpEnabled": true,
+			"ipVersion": "IPv4",
+			"lastModifiedBy": "ecmadmin",
+			"vdc": {
+				"id": "VDC-3616",
+				"name": "EPG-VDC"
+			},
+			"id": "VN-10868",
+			"name": "EPG-Payload-VN",
+			"provisioningStatus": "ACTIVE",
+			"tenantName": "lmioss",
+			"enabled": true
+		}]
+	}
+}

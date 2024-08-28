@@ -1,0 +1,18 @@
+{
+	"modelType": "model1",
+	"submitText": "Acknowledge",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "AlarmViewerLink",
+			"label": "Alarm Viewer link",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "AlarmViewerLink",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	}]
+}

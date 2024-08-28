@@ -1,0 +1,238 @@
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4Sfcykz9eLp11D6f_N02DTLkc6VuiXJ41nQv0.*AAJTSQACMDEAAlNLABMzMTY1Nzg0ODI1OTMxMzYwMTIy*"
+       },
+       "data":
+       {
+           "vms":
+           [
+               {
+                   "createReqNumber": "2493059",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "388686ff-95eb-4fd5-b9ad-05ff3a2a74f2",
+                   "hostId": "d899cdc7b64867df3eaeb466b71fc115c052bdbd43d6e889150500bf",
+                   "adminPassword": "TUsjwvb6PDGG",
+                   "lastModifiedBy": "oss",
+                   "bootSource":
+                   {
+                       "imageName": "MME-Drop5-FS-1.11"
+                   },
+                   "vmhdName": "MME-FS",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-3077",
+                       "name": "MME01"
+                   },
+                   "id": "VM-3078",
+                   "name": "MME-FS-1.11-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2493059",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "7b5a6058-3cef-4195-9d2a-79d7e5d757d2",
+                   "hostId": "3bd29579f59c9f5b1763b0976a3522af127ce6a69bafc8c116ea809a",
+                   "adminPassword": "PSypxWRQC7NJ",
+                   "lastModifiedBy": "oss",
+                   "bootSource":
+                   {
+                       "imageName": "MME-Drop5-NC-1.15"
+                   },
+                   "vmhdName": "MME-NC",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-3077",
+                       "name": "MME01"
+                   },
+                   "id": "VM-3079",
+                   "name": "MME-NC-1.15-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2493059",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "9e5dafec-5849-4cda-930d-149abbb17c33",
+                   "hostId": "3bd29579f59c9f5b1763b0976a3522af127ce6a69bafc8c116ea809a",
+                   "adminPassword": "BuBSib6xZdNd",
+                   "lastModifiedBy": "oss",
+                   "bootSource":
+                   {
+                       "imageName": "MME-Drop5-LB-1.1"
+                   },
+                   "vmhdName": "MME-LB",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-3077",
+                       "name": "MME01"
+                   },
+                   "id": "VM-3080",
+                   "name": "MME-LB-1.1-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2493059",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "f4689999-a659-41da-9266-d9bd86376a2d",
+                   "hostId": "d899cdc7b64867df3eaeb466b71fc115c052bdbd43d6e889150500bf",
+                   "adminPassword": "hhwNMFYPyR5T",
+                   "lastModifiedBy": "oss",
+                   "bootSource":
+                   {
+                       "imageName": "MME-Drop5-LB-1.3"
+                   },
+                   "vmhdName": "MME-LB",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-3077",
+                       "name": "MME01"
+                   },
+                   "id": "VM-3081",
+                   "name": "MME-LB-1.3-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2493059",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "c483701d-9e0e-49bf-80da-ffb94153738f",
+                   "hostId": "0323f1aefe37a6aa0d540c206f6b1020ee11266901670f76b2e4f48d",
+                   "adminPassword": "AB8bekT9LyY3",
+                   "lastModifiedBy": "oss",
+                   "bootSource":
+                   {
+                       "imageName": "MME-Drop5-NC-1.9"
+                   },
+                   "vmhdName": "MME-NC",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-3077",
+                       "name": "MME01"
+                   },
+                   "id": "VM-3082",
+                   "name": "MME-NC-1.9-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2493059",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "bec028b1-ee0a-406d-be1d-87159192cdb9",
+                   "hostId": "0323f1aefe37a6aa0d540c206f6b1020ee11266901670f76b2e4f48d",
+                   "adminPassword": "EpYJyq28RCmK",
+                   "lastModifiedBy": "oss",
+                   "bootSource":
+                   {
+                       "imageName": "MME-Drop5-GP-2.1"
+                   },
+                   "vmhdName": "MME-GP",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-3077",
+                       "name": "MME01"
+                   },
+                   "id": "VM-3083",
+                   "name": "MME-GP-2.1-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2493059",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "bcbf9f5c-073d-498e-8c10-5f37c3fe306c",
+                   "hostId": "d899cdc7b64867df3eaeb466b71fc115c052bdbd43d6e889150500bf",
+                   "adminPassword": "a2eAAtvT6M9u",
+                   "lastModifiedBy": "oss",
+                   "bootSource":
+                   {
+                       "imageName": "MME-Drop5-GP-2.3"
+                   },
+                   "vmhdName": "MME-GP",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-3077",
+                       "name": "MME01"
+                   },
+                   "id": "VM-3084",
+                   "name": "MME-GP-2.3-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               }
+           ]
+       }
+    }
+

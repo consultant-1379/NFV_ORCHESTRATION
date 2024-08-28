@@ -1,0 +1,11 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [{ "controlGroup": { "name": "MO_Name", "label": "MO_Name", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "MO_Name", "readonly": false, "required": true}}
+                ]}}
+        ]
+}

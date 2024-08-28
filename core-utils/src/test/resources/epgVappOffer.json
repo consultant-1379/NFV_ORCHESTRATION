@@ -1,0 +1,2712 @@
+{
+  "status": {
+    "reqStatus": "SUCCESS",
+    "credentials": "AQIC5wM2LY4SfcyMf2D73WxkhZGICuFuO2TWBh7tM48g85U.*AAJTSQACMDEAAlNLABMtOTgyNjcyMzY5MTQ5MzQ0NTI0*"
+  },
+  "data": {
+    "offer": {
+      "description": "vEPG vAPP Offer vEPC Drop C",
+      "vimZoneType": [
+        "ALL"
+      ],
+      "tenantName": "ALL",
+      "type": "vapp",
+      "offerItems": [
+        {
+          "vapp": {
+            "itemId": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vEPG"
+            },
+            "type": {
+              "isNull": true,
+              "isImmutable": true
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "vdc": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false
+              }
+            },
+            "vendor": {
+              "isNull": true,
+              "isImmutable": true
+            },
+            "version": {
+              "isNull": true,
+              "isImmutable": true
+            },
+            "parentItemRef": "TOP_LEVEL"
+          }
+        },
+        {
+          "vm": {
+            "itemId": "ID-31455694-b000-4d64-a1ec-7d68f0b71a28",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false
+              }
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "epg-nfs-vm"
+            },
+            "vmhdName": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NFS"
+            },
+            "vapp": {
+              "itemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+            },
+            "startSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "startDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "affinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "antiaffinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "personalities": [
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "metadata": [
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "bootSource": {
+              "imageName": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-DropD-FS"
+              },
+              "bbsvName": {
+                "isNull": true,
+                "isImmutable": false
+              }
+            },
+            "parentItemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-4bbbdfa4-009b-4bb4-8e0b-b90bc01b7400",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-NFS-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-31455694-b000-4d64-a1ec-7d68f0b71a28"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NFS-NFS-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-31455694-b000-4d64-a1ec-7d68f0b71a28"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-1d4d7ed3-09f6-40bb-9cc0-39b0129a0328",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Admin-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-31455694-b000-4d64-a1ec-7d68f0b71a28"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NFS-Admin-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-31455694-b000-4d64-a1ec-7d68f0b71a28"
+          }
+        },
+        {
+          "vm": {
+            "itemId": "ID-9ba3a523-4478-44cd-8c8b-f2246ccc3ea1",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false
+              }
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "epg-pp1-vm"
+            },
+            "vmhdName": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-PP"
+            },
+            "vapp": {
+              "itemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+            },
+            "startSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "startDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "affinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "antiaffinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "personalities": [
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "metadata": [
+              {
+                "tag": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_vm_type"
+                },
+                "value": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_pp1"
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "bootSource": {
+              "imageName": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-DropD-Base"
+              },
+              "bbsvName": {
+                "isNull": true,
+                "isImmutable": false
+              }
+            },
+            "parentItemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-2b80b244-5234-4e46-883a-b9a359bc0c74",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Backplane-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-9ba3a523-4478-44cd-8c8b-f2246ccc3ea1"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-PP-Backplane-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-9ba3a523-4478-44cd-8c8b-f2246ccc3ea1"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-6793fb3f-c110-4ab2-9166-3eac08b42952",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-NFS-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-9ba3a523-4478-44cd-8c8b-f2246ccc3ea1"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-PP-NFS-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-9ba3a523-4478-44cd-8c8b-f2246ccc3ea1"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-c9eead6a-649a-484e-8fc8-cf0acc483f95",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Payload-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-9ba3a523-4478-44cd-8c8b-f2246ccc3ea1"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-PP-Payload-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-9ba3a523-4478-44cd-8c8b-f2246ccc3ea1"
+          }
+        },
+        {
+          "vm": {
+            "itemId": "ID-a17c18d8-c395-47d1-98e6-84557a3a7eb5",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false
+              }
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "epg-nm-vm"
+            },
+            "vmhdName": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NM"
+            },
+            "vapp": {
+              "itemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+            },
+            "startSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "startDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "affinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "antiaffinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "personalities": [
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "metadata": [
+              {
+                "tag": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_vm_type"
+                },
+                "value": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_nm"
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "bootSource": {
+              "imageName": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-DropD-Base"
+              },
+              "bbsvName": {
+                "isNull": true,
+                "isImmutable": false
+              }
+            },
+            "parentItemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-f898b9cb-5851-4d94-9eca-3fce53ea630d",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Backplane-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-a17c18d8-c395-47d1-98e6-84557a3a7eb5"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NM-Backplane-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-a17c18d8-c395-47d1-98e6-84557a3a7eb5"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-d34451fe-ee30-4d5d-885a-3e4e4570b94c",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-NFS-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-a17c18d8-c395-47d1-98e6-84557a3a7eb5"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NM-NFS-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-a17c18d8-c395-47d1-98e6-84557a3a7eb5"
+          }
+        },
+        {
+          "vm": {
+            "itemId": "ID-309e39ef-13ee-44da-abd1-decddf282362",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false
+              }
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "epg-lb1-vm"
+            },
+            "vmhdName": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-LB"
+            },
+            "vapp": {
+              "itemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+            },
+            "startSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "startDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "affinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "antiaffinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "personalities": [
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "metadata": [
+              {
+                "tag": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_vm_type"
+                },
+                "value": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_lb1"
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "bootSource": {
+              "imageName": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-DropD-Base"
+              },
+              "bbsvName": {
+                "isNull": true,
+                "isImmutable": false
+              }
+            },
+            "parentItemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-458a2eb1-d8ef-45be-964b-0430dc4267ff",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-NFS-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-309e39ef-13ee-44da-abd1-decddf282362"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-LB-NFS-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-309e39ef-13ee-44da-abd1-decddf282362"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-b8075bf9-aa9f-4fda-8744-7876f7fd0c0f",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Backplane-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-309e39ef-13ee-44da-abd1-decddf282362"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-LB-Backplane-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-309e39ef-13ee-44da-abd1-decddf282362"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-57dca32d-99fb-4347-a832-152c092bc0be",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Payload-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-309e39ef-13ee-44da-abd1-decddf282362"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-LB-Payload-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-309e39ef-13ee-44da-abd1-decddf282362"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-810bcfc4-45cf-4168-8875-6fd4c6453fd7",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Public-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-309e39ef-13ee-44da-abd1-decddf282362"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-LB-Public-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-309e39ef-13ee-44da-abd1-decddf282362"
+          }
+        },
+        {
+          "vm": {
+            "itemId": "ID-a7d68ded-74a4-4e7a-9a01-7829003133f7",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false
+              }
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "epg-cp2-vm"
+            },
+            "vmhdName": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-CP"
+            },
+            "vapp": {
+              "itemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+            },
+            "startSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "startDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "affinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "antiaffinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "personalities": [
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "metadata": [
+              {
+                "tag": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_vm_type"
+                },
+                "value": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_cp2"
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "bootSource": {
+              "imageName": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-DropD-Base"
+              },
+              "bbsvName": {
+                "isNull": true,
+                "isImmutable": false
+              }
+            },
+            "parentItemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-42b68875-4135-4d19-83a9-a37bc6ae341d",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Backplane-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-a7d68ded-74a4-4e7a-9a01-7829003133f7"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-GSC-CP-Backplane-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-a7d68ded-74a4-4e7a-9a01-7829003133f7"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-19fcfbf9-2f6f-41b6-87b5-dc5d17f0019b",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-NFS-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-a7d68ded-74a4-4e7a-9a01-7829003133f7"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-GSC-CP-NFS-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-a7d68ded-74a4-4e7a-9a01-7829003133f7"
+          }
+        },
+        {
+          "vm": {
+            "itemId": "ID-a91e6b30-2586-44ae-85f9-76bf23f364ec",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false
+              }
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "epg-cp1-vm"
+            },
+            "vmhdName": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-CP"
+            },
+            "vapp": {
+              "itemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+            },
+            "startSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "startDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "affinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "antiaffinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "personalities": [
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "metadata": [
+              {
+                "tag": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_vm_type"
+                },
+                "value": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_cp1"
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "bootSource": {
+              "imageName": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-DropD-Base"
+              },
+              "bbsvName": {
+                "isNull": true,
+                "isImmutable": false
+              }
+            },
+            "parentItemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-513dfe04-7b55-41f7-926a-f33b401de65c",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Backplane-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-a91e6b30-2586-44ae-85f9-76bf23f364ec"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-GSC-CP-Backplane-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-a91e6b30-2586-44ae-85f9-76bf23f364ec"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-27cf2414-17c0-48c1-8b42-372c926ebc19",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-NFS-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-a91e6b30-2586-44ae-85f9-76bf23f364ec"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-GSC-CP-NFS-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-a91e6b30-2586-44ae-85f9-76bf23f364ec"
+          }
+        },
+        {
+          "vm": {
+            "itemId": "ID-e81bb7cf-a859-486e-995b-ca3d83fea3ed",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false
+              }
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "epg-pp2-vm"
+            },
+            "vmhdName": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-PP"
+            },
+            "vapp": {
+              "itemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+            },
+            "startSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "startDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopSequence": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "stopDelay": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "affinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "antiaffinity": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "personalities": [
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "path": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "contents": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "metadata": [
+              {
+                "tag": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_vm_type"
+                },
+                "value": {
+                  "isNull": false,
+                  "isImmutable": true,
+                  "defaultValue": "epg_pp2"
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              },
+              {
+                "tag": {
+                  "isNull": true,
+                  "isImmutable": false
+                },
+                "value": {
+                  "isNull": true,
+                  "isImmutable": false
+                }
+              }
+            ],
+            "bootSource": {
+              "imageName": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-DropD-Base"
+              },
+              "bbsvName": {
+                "isNull": true,
+                "isImmutable": false
+              }
+            },
+            "parentItemRef": "ID-e91988dd-b2a1-4e3b-945f-0e081bee65ef"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-ff45b875-f864-4b19-8e17-be507abce953",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Backplane-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-e81bb7cf-a859-486e-995b-ca3d83fea3ed"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-PP-Backplane-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-e81bb7cf-a859-486e-995b-ca3d83fea3ed"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-11de9a7e-1275-4c16-b8b0-3790d8f358f6",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-NFS-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-e81bb7cf-a859-486e-995b-ca3d83fea3ed"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-PP-NFS-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-e81bb7cf-a859-486e-995b-ca3d83fea3ed"
+          }
+        },
+        {
+          "vmVnic": {
+            "itemId": "ID-761dfc45-fbb9-4695-a4e6-cd7ef220a333",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vn": {
+              "name": {
+                "isNull": false,
+                "isImmutable": false,
+                "defaultValue": "EPG-Payload-VN"
+              }
+            },
+            "vm": {
+              "itemRef": "ID-e81bb7cf-a859-486e-995b-ca3d83fea3ed"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-PP-Payload-VNIC"
+            },
+            "type": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "STANDARD"
+            },
+            "assignExternalIpAddress": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "internalIpAddresses": [
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              },
+              {
+                "isNull": true,
+                "isImmutable": false
+              }
+            ],
+            "macAddress": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "ID-e81bb7cf-a859-486e-995b-ca3d83fea3ed"
+          }
+        }
+      ],
+      "name": "vEPGvAPPOFFERvEPCDropC"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+			{ "controlGroup": { "name": "EPCName", "label": "EPC Name:", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "EPCName", "readonly": false, "required": true}}
+                ]}},
+                { "controlGroup": { "name": "InstanceSize", "label": "Instance Size", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "instanceSize", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["TINY", "SMALL","BIG"] } }
+                ]}},
+                { "controlGroup": { "name": "FTP", "label": "Auto FTP config for EPG?", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "autoFTPconfig", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["yes", "no"] } }
+                ]}},
+                { "controlGroup": { "name": "addvms", "label": "Auto add all VMs?", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "addvms", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["yes", "no","AskLater"] } }
+                ]}},
+                { "controlGroup": { "name": "extremswitch", "label": "Update extreme switch", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "updateextreme", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["yes", "no"] } }
+                ]}},
+                { "controlGroup": { "name": "deploymentMode", "label": "Running local or remote to OSS", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "deploymentMode", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["remote", "local"] } }
+                ]}},
+                { "controlGroup": { "name": "ipAddressRange", "label": "IP Address Range EPG -SGW", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "ipAddressRangeSGW", "readonly": false, "required": false}}
+                ]}},
+                { "controlGroup": { "name": "ipAddressRange", "label": "IP Address Range EPG -PGW", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "ipAddressRangePGW", "readonly": false, "required": false}}
+                ]}},
+                { "controlGroup": { "name": "ipAddressRange", "label": "IP Address Range MME", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "ipAddressRangeMME", "readonly": false, "required": false}}
+                ]}},
+                { "controlGroup": { "name": "ipAddressRange", "label": "IP Address Range SAPC", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "ipAddressRangeSAPC", "readonly": false, "required": false}}
+                ]}}
+        ]
+}

@@ -1,0 +1,12 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [{ "controlGroup": { "name": "consoleUrl", "label": "Console URL", "type": "textparagraph",
+                "controls": [
+                    { "variable": { "type": "string", "name": "formContent", "readonly": false, "required": true},
+                     "initialValue": { "source": "instance","value": ""} }
+                ]}}
+        ]
+}

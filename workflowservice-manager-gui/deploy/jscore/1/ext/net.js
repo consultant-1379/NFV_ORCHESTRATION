@@ -1,0 +1,3 @@
+/* Copyright (c) Ericsson 2014 */
+
+define("jscore/ext/net",["jscore/core","jscore/base/jquery","jscore/ext/utils/base/underscore"],function(e,t,r){"use strict";var s={};return s.ajax=function(s){s=s||{};var a=function(e){s.success&&s.success.call(this,e)},c=function(t,r,a){s.error&&s.error.call(this,a,new e.XHR(t))},n={success:a,error:c,type:"GET",dataType:"text",url:window.location.host+window.location.pathname};r.extend(n,r.pick(s,"statusCode","processData","cache","data","contentType","dataType","type","url","headers"));var o=t.ajax(n);return new e.XHR(o)},s});

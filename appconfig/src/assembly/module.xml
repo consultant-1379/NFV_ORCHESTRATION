@@ -1,0 +1,6 @@
+<module xmlns="urn:jboss:module:1.0" name="com.ericsson.oss.nfe.poc.core">
+	<resources>
+		<resource-root path="appconfig-1.0.0.jar" />
+	</resources>
+
+</module>

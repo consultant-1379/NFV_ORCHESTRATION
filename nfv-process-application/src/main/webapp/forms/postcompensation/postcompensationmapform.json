@@ -1,0 +1,18 @@
+{
+	"modelType": "model1",
+	"submitText": "Acknowledge",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "MapsLink",
+			"label": "Maps link",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "MapsLink",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	}]
+}

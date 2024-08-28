@@ -1,0 +1,79 @@
+{
+	"status": {
+		"reqStatus": "SUCCESS",
+		"credentials": "AQIC5wM2LY4SfczIbbj6z5s5njChSyQ9m7E51PZcgvYUt3U.*AAJTSQACMDEAAlNLABMxMDg1OTUwOTI4NTQ1OTg1NTk3*"
+	},
+	"data": {
+		"order": {
+			"creationDate": 1405940256000,
+			"completionDate": 1405940259000,
+			"userId": "ecmadmin",
+			"orderItems": [{
+				"createVdc": {
+					"name": "EPG-VDC-TEST",
+					"description": "Created by NFE Automation application",
+					"vimZoneName": "vEPC02"
+				}
+			},
+			{
+				"createVn": {
+					"vdc": {
+						"name": "EPG-VDC-TEST"
+					},
+					"name": "EPG-Payload-VN",
+					"description": null,
+					"ipVersion": "IPv4",
+					"cidrSize": "24",
+					"ipAddressRange": null,
+					"dhcpEnabled": true,
+					"enabled": true
+				}
+			},
+			{
+				"createVn": {
+					"vdc": {
+						"name": "EPG-VDC-TEST"
+					},
+					"name": "EPG-NFS-VN",
+					"description": null,
+					"ipVersion": "IPv4",
+					"cidrSize": "24",
+					"ipAddressRange": null,
+					"dhcpEnabled": true,
+					"enabled": true
+				}
+			},
+			{
+				"createVn": {
+					"vdc": {
+						"name": "EPG-VDC-TEST"
+					},
+					"name": "EPG-Backplane-VN",
+					"description": null,
+					"ipVersion": "IPv4",
+					"cidrSize": "24",
+					"ipAddressRange": null,
+					"dhcpEnabled": true,
+					"enabled": true
+				}
+			},
+			{
+				"createVn": {
+					"vdc": {
+						"name": "EPG-VDC-TEST"
+					},
+					"name": "EPG-Public-VN",
+					"description": "EPG Public VN",
+					"ipVersion": "IPv4",
+					"cidrSize": null,
+					"ipAddressRange": "10.70.249.128/25",
+					"dhcpEnabled": true,
+					"enabled": true
+				}
+			}],
+			"id": "2603803",
+			"tenantName": "lmioss",
+			"orderReqStatus": "COM"
+		}
+	}
+}

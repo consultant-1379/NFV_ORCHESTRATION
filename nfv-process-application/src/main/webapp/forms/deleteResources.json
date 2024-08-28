@@ -1,0 +1,45 @@
+{
+	"modelType": "model1",
+	"submitText": "Submit",
+	"cancelText": "Cancel",
+	"controlGroups": [
+	{
+		"controlGroup": {
+			"name": "ResourceType",
+			"label": "Resource Type",
+			"type": "select",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "resourceType",
+					"readonly": false
+				},
+				"initialValue": { "source": "local", "values": ["EPG", "MME","SAPC"] }
+			}]
+		}
+	},
+	 { "controlGroup": { "name": "deploymentMode", "label": "Running local or remote to OSS", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "deploymentMode", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["remote", "local"] } }
+                ]}},
+	{
+		"controlGroup": {
+			"name": "DeleteExtreme",
+			"label": "Remove from Extreme?",
+			"type": "select",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "doXtreme",
+					"readonly": false
+				},
+				"initialValue": {
+					"source": "local",
+					"values": ["no","yes"]
+				}
+			}]
+		}
+	}
+	]
+}

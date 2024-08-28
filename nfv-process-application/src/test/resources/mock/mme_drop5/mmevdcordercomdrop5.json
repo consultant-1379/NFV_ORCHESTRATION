@@ -1,0 +1,112 @@
+
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfcwfeolUPW4_ZJPvJQdP2qJmq0-KY1KD_QI.*AAJTSQACMDEAAlNLABM3NjEzMTM5NTc5NDM5NDM1ODM3*"
+       },
+       "data":
+       {
+           "order":
+           {
+               "creationDate": 1411651481000,
+               "completionDate": 1411651512000,
+               "userId": "ecmadmin",
+               "orderItems":
+               [
+                   {
+                       "createVdc":
+                       {
+                           "name": "MME-VDC-D5",
+                           "vimZoneName": "myVzId",
+                           "description": "Drop 5 MME-VDC"
+                       }
+                   },
+                   {
+                       "createVn":
+                       {
+                           "vdc":
+                           {
+                               "name": "MME-VDC-D5"
+                           },
+                           "name": "MME-External-VN",
+                           "category": "L2",
+                           "enabled": true
+                       }
+                   },
+                   {
+                       "createVn":
+                       {
+                           "vdc":
+                           {
+                               "name": "MME-VDC-D5"
+                           },
+                           "name": "MME-Internal-VN",
+                           "category": "L2",
+                           "enabled": true
+                       }
+                   },
+                   {
+                       "createVn":
+                       {
+                           "vdc":
+                           {
+                               "name": "MME-VDC-D5"
+                           },
+                           "name": "MME-Internal-2-VN",
+                           "category": "L2",
+                           "enabled": true
+                       }
+                   },
+                   {
+                       "createVn":
+                       {
+                           "vdc":
+                           {
+                               "name": "MME-VDC-D5"
+                           },
+                           "name": "MME-Admin-VN",
+                           "ipVersion": "IPv4",
+                           "cidrSize": "24",
+                           "dhcpEnabled": true,
+                           "category": "L3",
+                           "enabled": true
+                       }
+                   },
+                   {
+                       "createVrf":
+                       {
+                           "name": "MME-Admin-VRF",
+                           "vdc":
+                           {
+                               "name": "MME-VDC-D5"
+                           },
+                           "isExternallyConnected": true
+                       }
+                   },
+                   {
+                       "createVrfVnic":
+                       {
+                           "name": "MME-Admin-VRFVNIC",
+                           "vrf":
+                           {
+                               "name": "MME-Admin-VRF"
+                           },
+                           "vn":
+                           {
+                               "name": "MME-Admin-VN"
+                           },
+                           "vdc":
+                           {
+                               "name": "MME-VDC-D5"
+                           }
+                       }
+                   }
+               ],
+               "id": "2259996",
+               "tenantName": "lmioss",
+               "orderReqStatus": "COM"
+           }
+       }
+    }
+

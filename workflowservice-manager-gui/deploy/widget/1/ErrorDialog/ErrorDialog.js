@@ -1,0 +1,3 @@
+/* Copyright (c) Ericsson 2015 */
+
+define("widget/ErrorDialog/ErrorDialog",["jscore/core","widgets/Dialog"],function(e,o){return e.Widget.extend({onViewReady:function(){var e=this.options.title,t=this.options.message,n=new o({header:e,type:"error",content:t,showPrimaryButton:!1,secondaryButtonCaption:"Close",visible:!0});n.show(),n.getSecondaryButton().addEventHandler("click",function(){n.hide()}.bind(this)),console.log(e+": "+t)}})});

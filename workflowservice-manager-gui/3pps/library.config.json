@@ -1,0 +1,13 @@
+{
+	"exports": {
+		"3pps/wfs/WfCountsClient": "3pps/wfs/WfCountsClient",
+		"3pps/wfs/WfClientCommon": "3pps/wfs/WfClientCommon",
+		"3pps/wfs/WfProgressClient": "3pps/wfs/WfProgressClient",
+		"3pps/wfs/WfDefinitionClient": "3pps/wfs/WfDefinitionClient",
+		"3pps/wfs/WfUsertaskClient": "3pps/wfs/WfUsertaskClient",
+		"3pps/wfs/WfInstanceClient": "3pps/wfs/WfInstanceClient",
+		"3pps/bpmn/Bpmn": "3pps/bpmn/Bpmn",
+		"3pps/bpmn/Renderer": "3pps/bpmn/Renderer",
+		"3pps/bpmn/Transformer": "3pps/bpmn/Transformer"
+	}
+}

@@ -1,0 +1,307 @@
+
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4Sfcwz8I_5fTrmTBpt-xFenn9lviSCZsuZbMM.*AAJTSQACMDEAAlNLABMyODMzMTI2Njk5NjIzNjkyNjM0*"
+       },
+       "data":
+       {
+           "offer":
+           {
+               "description": "vMME VDC Offer vEPC Drop C",
+               "vimZoneType":
+               [
+                   "ALL"
+               ],
+               "tenantName": "ALL",
+               "type": "vdc",
+               "offerItems":
+               [
+                   {
+                       "vdc":
+                       {
+                           "itemId": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-VDC"
+                           },
+                           "vimZoneName":
+                           {
+                               "isNull": false,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "TOP_LEVEL"
+                       }
+                   },
+                   {
+                       "vn":
+                       {
+                           "itemId": "ID-e5ad8097-64e7-4baf-af83-4bfc71dcc6cb",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "itemRef": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-External-VN"
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "segmentationId":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "useEcmSegmentationId":
+                           {
+                               "isNull": false,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb",
+                           "enabled":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "true"
+                           },
+                           "category":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "L2"
+                           }
+                       }
+                   },
+                   {
+                       "vn":
+                       {
+                           "itemId": "ID-33d9587b-399f-4af7-89ed-4fac07fe3c4a",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "itemRef": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-VN"
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "segmentationId":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "useEcmSegmentationId":
+                           {
+                               "isNull": false,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb",
+                           "enabled":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "true"
+                           },
+                           "category":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "L2"
+                           }
+                       }
+                   },
+                   {
+                       "vn":
+                       {
+                           "itemId": "ID-64740d49-7f41-42db-8421-10df2b8fef1e",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "itemRef": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-2-VN"
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "segmentationId":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "useEcmSegmentationId":
+                           {
+                               "isNull": false,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb",
+                           "enabled":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "true"
+                           },
+                           "category":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "L2"
+                           }
+                       }
+                   },
+                   {
+                       "vn":
+                       {
+                           "itemId": "ID-f004fd53-84cc-4964-b35d-c311941dd4ff",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "itemRef": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Admin-VN"
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "ipVersion":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "IPv4"
+                           },
+                           "ipAddressRange":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "cidrSize":
+                           {
+                               "isNull": true,
+                               "isImmutable": false,
+                               "defaultValue": "24"
+                           },
+                           "dhcpEnabled":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "true"
+                           },
+                           "segmentationId":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "useEcmSegmentationId":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "parentItemRef": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb",
+                           "enabled":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "true"
+                           },
+                           "category":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "L3"
+                           }
+                       }
+                   },
+                   {
+                       "vrf":
+                       {
+                           "itemId": "ID-3e2e3978-764b-4bb6-a24f-b402a120c4a3",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "itemRef": "ID-efd9e693-3d77-408e-b731-d2d4e134c9cb"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Admin-VRF"
+                           },
+                           "parentItemRef": "ID-f004fd53-84cc-4964-b35d-c311941dd4ff",
+                           "isExternallyConnected":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "true"
+                           }
+                       }
+                   },
+                   {
+                       "vrfVnic":
+                       {
+                           "itemId": "ID-4c2ab3dc-b4f3-4a65-b3e0-ee83a91277ab",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Admin-VRFVNIC"
+                           },
+                           "vn":
+                           {
+                               "itemRef": "ID-f004fd53-84cc-4964-b35d-c311941dd4ff"
+                           },
+                           "vrf":
+                           {
+                               "itemRef": "ID-3e2e3978-764b-4bb6-a24f-b402a120c4a3"
+                           },
+                           "parentItemRef": "ID-3e2e3978-764b-4bb6-a24f-b402a120c4a3"
+                       }
+                   }
+               ],
+               "name": "vMMEVDCOFFERvEPCDropC"
+           }
+       }
+    }
+

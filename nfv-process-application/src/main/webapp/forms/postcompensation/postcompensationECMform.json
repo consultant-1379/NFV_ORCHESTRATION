@@ -1,0 +1,18 @@
+{
+	"modelType": "model1",
+	"submitText": "Acknowledge",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "ECMLink",
+			"label": "ECM link",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "ECMLink",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	}]
+}

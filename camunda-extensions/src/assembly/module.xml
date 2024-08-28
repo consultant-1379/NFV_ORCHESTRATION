@@ -1,0 +1,16 @@
+<module xmlns="urn:jboss:module:1.0" name="com.ericsson.oss.services.wfs.extension">
+	<resources>
+		<resource-root path="props" />	
+		<resource-root path="camunda-extensions-1.0.1.jar" />	
+	</resources>
+	<dependencies>
+		<module name="com.google.simplejson" />
+		<module name="org.camunda.bpm.camunda-engine" />
+		<module name="javax.api" />
+		<module name="javax.jms.api" />
+		<module name="org.slf4j" />
+		<module name="org.jboss.as.remoting" />
+		<module name="org.jboss.remote-naming" />
+		<module name="org.apache.commons.lang"/>
+	</dependencies>
+</module>

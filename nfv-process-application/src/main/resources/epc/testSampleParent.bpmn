@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_5gXzQEI_EeSnldkX-Yy3sg" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="ParentProcessTest" name="zDummyParent" isExecutable="true">
+   <bpmn2:documentation>Workflow for testing parent child</bpmn2:documentation>  
+    <bpmn2:extensionElements>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.ActivityEntryExitListener" event="start"/>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.ActivityEntryExitListener" event="end"/>
+    </bpmn2:extensionElements>
+    <bpmn2:callActivity id="ChildOne__prg__p50" name="Child 1" calledElement="ChildProcessTest">
+      <bpmn2:extensionElements>
+        <camunda:in variables="all"/>
+        <camunda:in source="sumVar" target="sumNewChildVar"/>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:callActivity>
+    <bpmn2:endEvent id="EndEvent_1__prg__p100" name="End">
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:callActivity id="CallActivity_2__prg__p90" name="Child 2" calledElement="ChildProcessTest">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+    </bpmn2:callActivity>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="CallActivity_2__prg__p90" targetRef="EndEvent_1__prg__p100"/>
+    <bpmn2:userTask id="UserTask_1" camunda:formKey="embedded:app:json:model1:forms/blank_input.json" name="Dummy Task">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="ChildOne__prg__p50" targetRef="UserTask_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="UserTask_1" targetRef="CallActivity_2__prg__p90"/>
+    <bpmn2:startEvent id="StartEvent_1__prg__p0" name="Start">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:scriptTask id="ScriptTask_1" name="setvars" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:script>execution.setVariable('sumVar','OK value');</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent_1__prg__p0" targetRef="ScriptTask_1"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="ScriptTask_1" targetRef="ChildOne__prg__p50"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ParentProcessTest">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_9" bpmnElement="StartEvent_1__prg__p0">
+        <dc:Bounds height="36.0" width="36.0" x="156.0" y="233.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="34.0" x="157.0" y="274.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_CallActivity_2" bpmnElement="ChildOne__prg__p50">
+        <dc:Bounds height="80.0" width="100.0" x="408.0" y="206.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_25" bpmnElement="EndEvent_1__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="890.0" y="229.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="29.0" x="894.0" y="270.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_6" sourceElement="_BPMNShape_CallActivity_14" targetElement="_BPMNShape_EndEvent_25">
+        <di:waypoint xsi:type="dc:Point" x="808.0" y="247.0"/>
+        <di:waypoint xsi:type="dc:Point" x="890.0" y="247.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="780.0" y="248.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_CallActivity_14" bpmnElement="CallActivity_2__prg__p90">
+        <dc:Bounds height="80.0" width="100.0" x="708.0" y="207.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_8" bpmnElement="UserTask_1">
+        <dc:Bounds height="80.0" width="100.0" x="558.0" y="206.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_CallActivity_2" targetElement="_BPMNShape_UserTask_8">
+        <di:waypoint xsi:type="dc:Point" x="508.0" y="246.0"/>
+        <di:waypoint xsi:type="dc:Point" x="558.0" y="246.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_UserTask_8" targetElement="_BPMNShape_CallActivity_14">
+        <di:waypoint xsi:type="dc:Point" x="658.0" y="246.0"/>
+        <di:waypoint xsi:type="dc:Point" x="683.0" y="246.0"/>
+        <di:waypoint xsi:type="dc:Point" x="683.0" y="247.0"/>
+        <di:waypoint xsi:type="dc:Point" x="708.0" y="247.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_98" bpmnElement="ScriptTask_1">
+        <dc:Bounds height="80.0" width="100.0" x="242.0" y="211.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_9" targetElement="_BPMNShape_ScriptTask_98">
+        <di:waypoint xsi:type="dc:Point" x="192.0" y="251.0"/>
+        <di:waypoint xsi:type="dc:Point" x="242.0" y="251.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ScriptTask_98" targetElement="_BPMNShape_CallActivity_2">
+        <di:waypoint xsi:type="dc:Point" x="342.0" y="251.0"/>
+        <di:waypoint xsi:type="dc:Point" x="375.0" y="251.0"/>
+        <di:waypoint xsi:type="dc:Point" x="375.0" y="246.0"/>
+        <di:waypoint xsi:type="dc:Point" x="408.0" y="246.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

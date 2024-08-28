@@ -1,0 +1,55 @@
+{
+  "modelType": "model1",
+  "submitText": "Submit",
+  "cancelText": "Cancel",
+  "controlGroups": [
+    {
+		"controlGroup": {
+			"name": "VDCNameAlarm",
+			"label": "VDC Name & Alarm Details",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "alarmdetails",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	},  
+    {
+      "controlGroup": {
+        "name": "Scale Out",
+        "label": "Scale Out?",
+        "type": "select",
+        "controls": [
+          {
+            "variable": {
+              "type": "string",
+              "name": "yesscaleout",
+              "readonly": false
+            },
+            "initialValue": {"source": "local","values": ["yes","no"] }
+          }
+        ]
+      }
+    },
+    {
+      "controlGroup": {
+        "name": "AutoAckAlarm",
+        "label": "Acknowledge Alarm ?",
+        "type": "check",
+        "controls": [
+          {
+            "variable": {
+              "type": "string",
+              "name": "ackalarm",
+              "readonly": false
+            },
+            "initialValue": {"source": "local","value": false }
+          }
+        ]
+      }
+    }
+  ]
+}

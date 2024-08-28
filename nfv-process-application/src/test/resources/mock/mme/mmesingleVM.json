@@ -1,0 +1,122 @@
+{
+	"status": {
+		"reqStatus": "SUCCESS",
+		"credentials": "AQIC5wM2LY4Sfcz08COMSp2DqqoDDjl-vN22inb-bHE_2uE.*AAJTSQACMDEAAlNLABQtNTQzOTI0ODAxNjg1OTc5MDY4OQ..*"
+	},
+	"data": {
+		"vm": {
+			"createReqNumber": "2600994",
+			"vimZone": {
+				"name": "vEPC02",
+				"type": "OPENSTACK"
+			},
+			"vimObjectId": "d351e55b-e79f-47ae-90f7-81d2b10f381a",
+			"hostId": "9110fae87d9b3b8b511e882f89702a4e1b9cbd9ea5cc1a62522d7393",
+			"adminPassword": "Jo8c9MEXyBqB",
+			"lastModifiedBy": "ecmadmin",
+			"imageName": "MME-Drop4-FS-1.11",
+			"vmhdName": "MME-FS",
+			"vdc": {
+				"id": "VDC-10627",
+				"name": "TEST-MME-VDC-OSS"
+			},
+			"id": "VM-7648",
+			"name": "MME-FS-1.11-VM",
+			"provisioningStatus": "ACTIVE",
+			"tenantName": "lmioss",
+			"operationalStatus": "ACTIVE",
+			"vmVnics": [{
+				"macAddress": "fa:16:3e:f6:51:15",
+				"privateIpAddress": "10.10.21.2",
+				"vimObjectId": "74c1bcc6-a70b-4f34-937c-f36dca092a88",
+				"vn": {
+					"id": "VN-10869",
+					"name": "MME-NFS-VN"
+				},
+				"id": "VNIC-VM-10873",
+				"name": "MME-NFS-NFS-VNIC"
+			},
+			{
+				"macAddress": "fa:16:3e:85:2e:f9",
+				"privateIpAddress": "10.70.249.130",
+				"vimObjectId": "42341c3c-10a0-41c0-b386-7267d8c013c4",
+				"vn": {
+					"id": "VN-10871",
+					"name": "MME-Public-VN"
+				},
+				"id": "VNIC-VM-10875",
+				"name": "MME-NFS-Public-VNIC"
+			},
+			{
+               "createReqNumber": "2159968",
+               "vimZone":
+               {
+                   "name": "myVzId",
+                   "type": "OPENSTACK"
+               },
+               "vimObjectId": "edb5a9a4-e948-419d-82eb-afa0d6f28ce7",
+               "hostId": "f1cd168ea1c5f361cdf4db29ff513b6a3cb540918f2d6846dc646044",
+               "adminPassword": "Krz3k8AaxWCm",
+               "lastModifiedBy": "oss",
+               "imageName": "MME-Drop4-LB-1.1",
+               "vmhdName": "MME-LB",
+               "vdc":
+               {
+                   "id": "VDC-7640",
+                   "name": "MME-VDC"
+               },
+               "vapp":
+               {
+                   "id": "VAPP-7647",
+                   "name": "vMME"
+               },
+               "id": "VM-7651",
+               "name": "MME-LB-1.1-VM",
+               "provisioningStatus": "ACTIVE",
+               "tenantName": "lmioss",
+               "operationalStatus": "ACTIVE",
+               "vmVnics":
+               [
+                   {
+                       "macAddress": "fa:16:3e:b9:76:97",
+                       "privateIpAddress": "10.10.2.5",
+                       "vimObjectId": "85fa06fd-06bd-4540-aa58-619b05001186",
+                       "vn":
+                       {
+                           "id": "VN-7642",
+                           "name": "MME-Internal-VN"
+                       },
+                       "id": "VNIC-VM-7665",
+                       "name": "MME-Internal-VNIC"
+                   },
+                   {
+                       "macAddress": "fa:16:3e:23:cd:11",
+                       "privateIpAddress": "10.10.3.5",
+                       "vimObjectId": "a801d39c-c57b-4803-af66-8c0ca29a3afd",
+                       "vn":
+                       {
+                           "id": "VN-7643",
+                           "name": "MME-Internal-2-VN"
+                       },
+                       "id": "VNIC-VM-7666",
+                       "name": "MME-Internal-2-VNIC"
+                   },
+                   {
+                       "macAddress": "fa:16:3e:e2:27:71",
+                       "privateIpAddress": "10.10.1.2",
+                       "vimObjectId": "1072a7ed-de06-4b9d-971a-dbe60abf3e72",
+                       "vn":
+                       {
+                           "id": "VN-7641",
+                           "name": "MME-External-VN"
+                       },
+                       "id": "VNIC-VM-7667",
+                       "name": "MME-External-VNIC"
+                   }
+               ]
+           }
+       }
+			
+
+
+}

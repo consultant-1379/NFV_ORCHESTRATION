@@ -1,0 +1,12 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+        	{ "controlGroup": { "name": "enmCommand", "label": "ENM Command ", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "enmCommand", "readonly": false, "required": true}}
+                ]}}
+        ]
+}

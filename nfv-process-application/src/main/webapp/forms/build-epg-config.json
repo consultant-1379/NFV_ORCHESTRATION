@@ -1,0 +1,41 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups": [
+        {
+            "controlGroup": {
+                "name": "networkplan-id",
+                "label": "networkplan-id",
+                "type": "text",
+                "controls": [
+                    {
+                        "variable": {
+                            "type": "string",
+                            "name": "networkplan-id",
+                            "readonly": false,
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "controlGroup": {
+                "name": "EPGMgmt",
+                "label": "EPG Mgmt IP Address",
+                "type": "text",
+                "controls": [
+                    {
+                        "variable": {
+                            "type": "string",
+                            "name": "epg-mgmt-IP",
+                            "readonly": false,
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,619 @@
+
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfcyqLfRRN15ltTEEHzWbXInhmfwMcKVrIwE.*AAJTSQACMDEAAlNLABQtNTQ3MTM4OTkwNjM3MjIxNDgyMw..*"
+       },
+       "data":
+       {
+           "order":
+           {
+               "creationDate": 1411653871000,
+               "completionDate": 1411654018000,
+               "userId": "ecmadmin",
+               "orderItems":
+               [
+                   {
+                       "createVm":
+                       {
+                           "name": "MME-FS-1.11-VM",
+                           "bootSource":
+                           {
+                               "imageName": "MME-Drop5-FS-1.11"
+                           },
+                           "vmhdName": "MME-FS",
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "vapp":
+                           {
+                               "name": "vMME",
+                               "vappAttributes":
+                               {
+                                   "startSequence": 1,
+                                   "startDelay": 0,
+                                   "stopSequence": 1,
+                                   "stopDelay": 0
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "createVm":
+                       {
+                           "name": "MME-NC-1.15-VM",
+                           "bootSource":
+                           {
+                               "imageName": "MME-Drop5-NC-1.15"
+                           },
+                           "vmhdName": "MME-NC",
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "vapp":
+                           {
+                               "name": "vMME",
+                               "vappAttributes":
+                               {
+                                   "startSequence": 1,
+                                   "startDelay": 0,
+                                   "stopSequence": 1,
+                                   "stopDelay": 0
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "createVm":
+                       {
+                           "name": "MME-LB-1.1-VM",
+                           "bootSource":
+                           {
+                               "imageName": "MME-Drop5-LB-1.1"
+                           },
+                           "vmhdName": "MME-LB",
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "vapp":
+                           {
+                               "name": "vMME",
+                               "vappAttributes":
+                               {
+                                   "startSequence": 1,
+                                   "startDelay": 0,
+                                   "stopSequence": 1,
+                                   "stopDelay": 0
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "createVm":
+                       {
+                           "name": "MME-LB-1.3-VM",
+                           "bootSource":
+                           {
+                               "imageName": "MME-Drop5-LB-1.3"
+                           },
+                           "vmhdName": "MME-LB",
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "antiaffinity":
+                           {
+                               "vms":
+                               [
+                                   {
+                                       "name": "MME-LB-1.1-VM"
+                                   }
+                               ]
+                           },
+                           "vapp":
+                           {
+                               "name": "vMME",
+                               "vappAttributes":
+                               {
+                                   "startSequence": 1,
+                                   "startDelay": 0,
+                                   "stopSequence": 1,
+                                   "stopDelay": 0
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "createVm":
+                       {
+                           "name": "MME-NC-1.9-VM",
+                           "bootSource":
+                           {
+                               "imageName": "MME-Drop5-NC-1.9"
+                           },
+                           "vmhdName": "MME-NC",
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "antiaffinity":
+                           {
+                               "vms":
+                               [
+                                   {
+                                       "name": "MME-NC-1.15-VM"
+                                   }
+                               ]
+                           },
+                           "vapp":
+                           {
+                               "name": "vMME",
+                               "vappAttributes":
+                               {
+                                   "startSequence": 1,
+                                   "startDelay": 0,
+                                   "stopSequence": 1,
+                                   "stopDelay": 0
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "createVm":
+                       {
+                           "name": "MME-GP-2.1-VM",
+                           "bootSource":
+                           {
+                               "imageName": "MME-Drop5-GP-2.1"
+                           },
+                           "vmhdName": "MME-GP",
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "vapp":
+                           {
+                               "name": "vMME",
+                               "vappAttributes":
+                               {
+                                   "startSequence": 1,
+                                   "startDelay": 0,
+                                   "stopSequence": 1,
+                                   "stopDelay": 0
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "createVm":
+                       {
+                           "name": "MME-GP-2.3-VM",
+                           "bootSource":
+                           {
+                               "imageName": "MME-Drop5-GP-2.3"
+                           },
+                           "vmhdName": "MME-GP",
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "vapp":
+                           {
+                               "name": "vMME",
+                               "vappAttributes":
+                               {
+                                   "startSequence": 1,
+                                   "startDelay": 0,
+                                   "stopSequence": 1,
+                                   "stopDelay": 0
+                               }
+                           }
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3623",
+                               "name": "MME-Internal-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-FS-1.11-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-2-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3624",
+                               "name": "MME-Internal-2-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-FS-1.11-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Admin-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3625",
+                               "name": "MME-Admin-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-FS-1.11-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3623",
+                               "name": "MME-Internal-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-NC-1.15-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-2-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3624",
+                               "name": "MME-Internal-2-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-NC-1.15-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3623",
+                               "name": "MME-Internal-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-LB-1.1-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-2-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3624",
+                               "name": "MME-Internal-2-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-LB-1.1-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-External-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3622",
+                               "name": "MME-External-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-LB-1.1-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3623",
+                               "name": "MME-Internal-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-LB-1.3-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-2-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3624",
+                               "name": "MME-Internal-2-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-LB-1.3-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-External-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3622",
+                               "name": "MME-External-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-LB-1.3-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3623",
+                               "name": "MME-Internal-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-NC-1.9-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-2-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3624",
+                               "name": "MME-Internal-2-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-NC-1.9-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3623",
+                               "name": "MME-Internal-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-GP-2.1-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-2-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3624",
+                               "name": "MME-Internal-2-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-GP-2.1-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3623",
+                               "name": "MME-Internal-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-GP-2.3-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVmVnic":
+                       {
+                           "name": "MME-Internal-2-VNIC",
+                           "vn":
+                           {
+                               "id": "VN-3624",
+                               "name": "MME-Internal-2-VN"
+                           },
+                           "vm":
+                           {
+                               "name": "MME-GP-2.3-VM"
+                           },
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "assignExternalIpAddress": false,
+                           "type": "standard"
+                       }
+                   },
+                   {
+                       "createVapp":
+                       {
+                           "name": "vMME",
+                           "vdc":
+                           {
+                               "id": "VDC-3621",
+                               "name": "MME-VDC-D5"
+                           },
+                           "productInfo":
+                           {
+                           }
+                       }
+                   }
+               ],
+               "id": "2260047",
+               "tenantName": "lmioss",
+               "orderReqStatus": "COM"
+           }
+       }
+    }
+

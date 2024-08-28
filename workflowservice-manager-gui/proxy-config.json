@@ -1,0 +1,28 @@
+{
+    "mappings": [{
+        "source": "/engine-rest",
+        "dest": "/engine-rest"
+    }, {
+        "source": "/WorkflowService",
+        "dest": "/WorkflowService"
+    } ,{
+        "source": "/workflowservice-ext",
+        "dest": "/workflowservice-ext"
+    },{
+    	"source": "/wfs-intro-tutorial",
+    	"dest": "/wfs-intro-tutorial"
+    },{
+    	"source": "/nfv-process-application-1.0.0"
+    },{
+    	"source": "/ecm_orchestration_processapp-1.0",
+        "dest": "/ecm_orchestration_processapp-1.0"
+    },{
+    	"source": "/proctest",
+        "dest": "/proctest"
+    }],
+    "host": "localhost",
+    "port": 8080,
+    "headers": {
+        "X-Custom-Header": "cdt"
+    }
+}

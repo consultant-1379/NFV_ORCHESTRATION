@@ -1,0 +1,24 @@
+{
+"tenantName": "${tenantName}",
+     "vdc": {
+      "id": "${vdc}"
+     },
+"ovfPackage": {
+    "vm": [{  
+      "id":"VRP-21",
+	  "configDrive":false,
+       "configFiles": [ { 
+          "fileId": "config",
+          "fileContent": "${basicCFG}"
+        } ]
+      },
+	  {  
+      "id":"VRP-22",
+	  "configDrive":false,
+       "configFiles": [ { 
+         "fileId": "config",
+        "fileContent": "${basicCFG}"
+        } ]
+      }]
+    }
+  }

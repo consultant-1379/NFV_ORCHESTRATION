@@ -1,0 +1,18 @@
+{
+	"modelType": "model1",
+	"submitText": "Continue",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "ENMlink",
+			"label": "Press link to launch Alarm Monitor ",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "ENMlink",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	}]
+}

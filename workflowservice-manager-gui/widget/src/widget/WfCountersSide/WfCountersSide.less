@@ -1,0 +1,90 @@
+.eaWorkflowManager-WfCountersSide {
+	&-Heading {
+		padding: 0px;
+	}
+
+	&-WorkflowOverviewSection {
+		&-SideDivider {
+			border-bottom: #cccccc solid 1px;
+			padding-top: 35px;
+		}
+
+		&-WorkflowDefinitions {
+			color: black;
+			padding-top: 40px;
+			padding-left: 7px;
+		}
+
+		&-WorkflowInstance {
+			color: #00a9d4;
+			padding-top: 50px;
+			padding-left: 7px;
+			cursor: pointer;
+		}
+
+		&-ActiveTasks {
+			color: #89ba17;
+			padding-top: 55px;
+			padding-left: 7px;
+			cursor: pointer;
+		}
+	}
+
+	&-DividerBottom {
+		border-bottom: 1px solid rgb(102, 102, 102);
+		height: 40px;
+	}
+
+	&-Panel {
+		display: inline-block;
+		padding-top: 5px;
+		&-iconHolder {
+			margin-top: 1.2rem;
+			padding: 0.8rem 0;
+			width: 115% ! important;
+			border-radius: 3px;
+		}
+
+		&-CreateNewDefinition {
+			display: inline-block;
+			cursor: pointer;
+			cursor: hand;
+			&-separator {
+				display: inline-block;
+				border-left: 1px solid #CCCCCC;
+				margin: 0 10px;
+				height: 2rem;
+				padding-left: 10px;
+				vertical-align: middle;
+			}
+		}
+
+		&-AllActiveTasks {
+			padding-left: 15px;
+		}
+	}
+
+	&-WfCountersSide-home {
+		height: 750px;
+		padding-right: 45px;
+		&-Overview {
+			width: 240px ! important;
+			padding-top: 8px ! important;
+			height: 50px;
+			float: left;
+			display: inline-block;
+			padding-right: 20px;
+		}
+	}
+}
+
+.elLayouts-SlidingPanels-leftContents {
+	padding-top: 8px ! important;
+	position: relative;
+	height: 100%;
+	margin-right: 3.6rem;
+	width: 240px ! important;
+	transition: 0.3s margin-left ease-in-out;
+	margin-left: calc(-250px - 3.6rem);
+}
+

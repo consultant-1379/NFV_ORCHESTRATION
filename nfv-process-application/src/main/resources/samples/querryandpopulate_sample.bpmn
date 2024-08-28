@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_ZEl3cBwXEeWt3MsFExKrOA" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="querryandpopulate_sample" name="querryandpopulate_sample" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent__prg__p0" name="start">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:scriptTask id="SetVar__prg__p10" name="Set VDCName Variable" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent__prg__p0" targetRef="SetVar__prg__p10"/>
+    <bpmn2:serviceTask id="QuerryTask__prg__p60" camunda:class="com.ericsson.oss.nfe.poc.tasks.QuerryAndPopulateOrderItems" name="Task to QuerryAndPopulateOrderItems for VDC">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="SetVar__prg__p10" targetRef="QuerryTask__prg__p60"/>
+    <bpmn2:scriptTask id="PrintVar__prg__p90" name="Print VM's and VN's" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def ecmNameIdMap = execution.getVariable('ECM_NAMEID_MAP');
+vars.each{ k, v -> println "${k}:${v}" } ]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="QuerryTask__prg__p60" targetRef="PrintVar__prg__p90"/>
+    <bpmn2:endEvent id="EndEvent__prg__p100" name="end">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="PrintVar__prg__p90" targetRef="EndEvent__prg__p100"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="querryandpopulate_sample">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_12" bpmnElement="StartEvent__prg__p0">
+        <dc:Bounds height="36.0" width="36.0" x="57.0" y="227.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_129" bpmnElement="SetVar__prg__p10">
+        <dc:Bounds height="80.0" width="100.0" x="143.0" y="205.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_12" targetElement="_BPMNShape_ScriptTask_129">
+        <di:waypoint xsi:type="dc:Point" x="93.0" y="245.0"/>
+        <di:waypoint xsi:type="dc:Point" x="143.0" y="245.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_66" bpmnElement="QuerryTask__prg__p60">
+        <dc:Bounds height="80.0" width="100.0" x="293.0" y="205.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ScriptTask_129" targetElement="_BPMNShape_ServiceTask_66">
+        <di:waypoint xsi:type="dc:Point" x="243.0" y="245.0"/>
+        <di:waypoint xsi:type="dc:Point" x="293.0" y="245.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_130" bpmnElement="PrintVar__prg__p90">
+        <dc:Bounds height="80.0" width="100.0" x="443.0" y="205.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ServiceTask_66" targetElement="_BPMNShape_ScriptTask_130">
+        <di:waypoint xsi:type="dc:Point" x="393.0" y="245.0"/>
+        <di:waypoint xsi:type="dc:Point" x="443.0" y="245.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_72" bpmnElement="EndEvent__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="593.0" y="227.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_ScriptTask_130" targetElement="_BPMNShape_EndEvent_72">
+        <di:waypoint xsi:type="dc:Point" x="543.0" y="245.0"/>
+        <di:waypoint xsi:type="dc:Point" x="593.0" y="245.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

@@ -1,0 +1,365 @@
+{
+    "offer": {
+      "description": "vEPG VDC Offer vEPC Drop C",
+      "vimZoneType": [
+        "ALL"
+      ],
+      "tenantName": "ALL",
+      "type": "vdc",
+      "offerItems": [
+        {
+          "vdc": {
+            "itemId": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-VDC"
+            },
+            "vimZoneName": {
+              "isNull": false,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "TOP_LEVEL"
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-07ceef14-b084-4712-963c-5077770aef92",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-Admin-VN"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "24"
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            },
+            "segmentationId": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "useEcmSegmentationId": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "true"
+            },
+            "category": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "L3"
+            }
+          }
+        },
+        {
+          "vrf": {
+            "itemId": "ID-d2672ada-0b2a-4929-b39a-0750d5024a14",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-Admin-VRF"
+            },
+            "parentItemRef": "ID-07ceef14-b084-4712-963c-5077770aef92",
+            "isExternallyConnected": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vrfVnic": {
+            "itemId": "ID-93d38fb5-6d1f-4c81-bf6f-6eab66455bfd",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-Admin-VR-VNIC"
+            },
+            "vn": {
+              "itemRef": "ID-07ceef14-b084-4712-963c-5077770aef92"
+            },
+            "vrf": {
+              "itemRef": "ID-d2672ada-0b2a-4929-b39a-0750d5024a14"
+            },
+            "parentItemRef": "ID-d2672ada-0b2a-4929-b39a-0750d5024a14"
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-cd67866e-aff5-496e-a7b8-6406ba2c90af",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-Backplane-VN"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "24"
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            },
+            "segmentationId": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "useEcmSegmentationId": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "true"
+            },
+            "category": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "L3"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-d9c93f20-30da-4bad-98db-983a0f1a3172",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-NFS-VN"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "24"
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "segmentationId": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "useEcmSegmentationId": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "true"
+            },
+            "category": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "L3"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-35f5839f-58e8-4da2-ba58-50344de3e558",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-Payload-VN"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "24"
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "segmentationId": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "useEcmSegmentationId": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "true"
+            },
+            "category": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "L3"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-a366a19c-08ce-43d6-b83d-bdd0bf6533ad",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "EPG-Public-VN"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "vEPG traffic VN"
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "24"
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            },
+            "segmentationId": {
+              "isNull": false,
+              "isImmutable": false
+            },
+            "useEcmSegmentationId": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-7576a82c-9abd-4c6d-ab35-98df8fa3a6a9",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "true"
+            },
+            "category": {
+              "isNull": false,
+              "isImmutable": true,
+              "defaultValue": "L3"
+            }
+          }
+        }
+      ],
+      "name": "vEPGVDCOFFERvEPCDropC"
+    }
+  }

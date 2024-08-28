@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="processEngineConfiguration"
+		class="org.camunda.bpm.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+
+		<property name="customPostBPMNParseListeners">
+			<list>
+				<bean
+					class="org.camunda.bpm.engine.impl.bpmn.parser.FoxFailedJobParseListener" />
+			</list>
+		</property>
+
+		<property name="processEnginePlugins">
+			<list>
+				<bean class="com.ericsson.oss.nfe.wfs.extn.bpmnparser.CustomBPMNParseListenerPlugin" />
+			</list>
+		</property>
+	</bean>
+
+
+</beans>

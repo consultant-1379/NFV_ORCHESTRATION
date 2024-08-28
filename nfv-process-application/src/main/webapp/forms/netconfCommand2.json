@@ -1,0 +1,17 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+        	{ "controlGroup": { "name": "command", "label": "Netconf command", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "command", "readonly": false, "required": true}}
+                ]}}
+                ,
+			{ "controlGroup": {	"name": "netconfFilter", "label": "Netconf Command Filter",	"type": "text",
+				"controls": [
+				{ "variable": {	"type": "string", "name": "netconfFilter", "readonly": false, "required": true}}
+				]}}
+        ]
+}

@@ -1,0 +1,4 @@
+INFO     > Generating configs for w5p1vepg3
+WARNING  > Could not generate x670_config.cfg. Details: The VDC id/name is needed to find the vApp in ECM
+INFO     > Saving /home/vfduser/vfd/w5p1vepg3/initial_config.cfg
+ERROR    > [Errno 13] Permission denied: u'/home/vfduser/vfd/w5p1vepg3/initial_config.cfg'

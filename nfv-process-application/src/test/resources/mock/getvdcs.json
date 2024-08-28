@@ -1,0 +1,18 @@
+{
+    "status": {
+        "reqStatus": "SUCCESS",
+        "credentials": "ZWNtYWRtaW46MTM5NjUxMzcxNDU2OA=="
+    },
+    "data": {
+        "vdcs": [
+            {
+                "description": "EPG-VDC",
+                "vimZoneName": "myVzId",
+                "id": "VDC-3616",
+                "name": "EPG-VDC",
+                "provisioningStatus": "ACTIVE",
+                "tenantName": "lmioss"
+            }
+        ]
+    }
+}

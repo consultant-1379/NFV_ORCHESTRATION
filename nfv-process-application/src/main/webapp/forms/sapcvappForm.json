@@ -1,0 +1,11 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [{ "controlGroup": { "name": "VDCName", "label": "VDCName", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "VDCName", "readonly": false, "required": true}}
+                ]}}
+        ]
+}

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:fox="http://www.camunda.com/fox" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_uXmlwbjcEeOim7PPlSVgsw" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/DropC">
+  <bpmn2:process id="sapc_createVDC" name="vSAPC Create VDC" isExecutable="true">
+    <bpmn2:extensionElements>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.AppConfigLoadListener" event="start"/>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.ActivityEntryExitListener" event="start"/>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.ActivityEntryExitListener" event="end"/>
+    </bpmn2:extensionElements>
+    <bpmn2:intermediateCatchEvent id="sapcWait__prg_50" name="Wait 30 Seconds">
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+      <bpmn2:timerEventDefinition id="TimerEventDefinition_1">
+        <bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression">PT5S</bpmn2:timeDuration>
+      </bpmn2:timerEventDefinition>
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" name="" sourceRef="sapcWait__prg_50" targetRef="sapc_order_status_verification__prg__p60"/>
+    <bpmn2:serviceTask id="sapc_order_status_verification__prg__p60" camunda:class="com.ericsson.oss.nfe.poc.tasks.VerifyOrderStatus" camunda:async="true" name="Verfiy Order Status">
+      <bpmn2:extensionElements>
+        <camunda:field name="inputcreateOrderResponse">
+          <camunda:expression>${postvdccreate}</camunda:expression>
+        </camunda:field>
+        <fox:failedJobRetryTimeCycle>R4/PT30S</fox:failedJobRetryTimeCycle>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="sapcPostTheVDCRequest__prg__p40" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericECMRESTInvoker" name="Post the Request">
+      <bpmn2:extensionElements>
+        <camunda:field name="method" stringValue="POST"/>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${appConfigProps['CREATE_VDC_ORDER']}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="outPutVariable">
+          <camunda:string>postvdccreate</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:expression>${sapcPostRequest}</camunda:expression>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="sapcPostTheVDCRequest__prg__p40" targetRef="sapcWait__prg_50"/>
+    <bpmn2:serviceTask id="sapcBuildVDCPostRequest__prg__p25" camunda:class="com.ericsson.oss.nfe.poc.tasks.OffertoRequestBuilder" name="Build VDC POST Request">
+      <bpmn2:extensionElements>
+        <camunda:field name="outPutVariable">
+          <camunda:string>sapcPostRequest</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestTemplate">
+          <camunda:expression>${sapcvdcofferoutput}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="vdcName">
+          <camunda:expression>${VDCName}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="vimZoneName">
+          <camunda:expression>${vimZoneName}</camunda:expression>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:serviceTask id="sapcVDCOfferQuery__prg__p20" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericECMRESTInvoker" name="GetVDC Offer">
+      <bpmn2:extensionElements>
+        <camunda:field name="method" stringValue="GET"/>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${appConfigProps['GET_SAPC_VDC_OFFER']}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="outPutVariable">
+          <camunda:string>sapcvdcofferoutput</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:string>--</camunda:string>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>vdcnamePresent</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="sapcVDCOfferQuery__prg__p20" targetRef="sapcBuildVDCPostRequest__prg__p25"/>
+    <bpmn2:boundaryEvent id="BoundaryEvent_1" name="" attachedToRef="sapc_order_status_verification__prg__p60">
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+      <bpmn2:errorEventDefinition id="ErrorEventDefinition_1" errorRef="Error_2"/>
+    </bpmn2:boundaryEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="sapcBuildVDCPostRequest__prg__p25" targetRef="sapcPostTheVDCRequest__prg__p40"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="BoundaryEvent_1" targetRef="sapcLogError__prg__p90"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" name="" sourceRef="sapc_order_status_verification__prg__p60" targetRef="sapcPrintDetails__prg__p90"/>
+    <bpmn2:endEvent id="end_sapc_vdc_create_in_success__prg__p100" name="Success vdc create End">
+      <bpmn2:incoming>SequenceFlow_7</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:scriptTask id="sapcPrintDetails__prg__p90" name="Print Order Details" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_7</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger("com.ericsson.oss.nfe.poc.tasks"); 
+logger.info(' Order creation of VDC Successful '+execution.getVariable('orderId'));
+execution.removeVariable("postvdccreate");
+execution.removeVariable("sapcvdcofferoutput");
+
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_7" name="" sourceRef="sapcPrintDetails__prg__p90" targetRef="end_sapc_vdc_create_in_success__prg__p100"/>
+    <bpmn2:endEvent id="sapc_error_end__prg__p100" name="sapc vdc create error end">
+      <bpmn2:incoming>end_sapc_create_vdc_flow_in_error</bpmn2:incoming>
+      <bpmn2:errorEventDefinition id="_ErrorEventDefinition_3" errorRef="Error_1"/>
+    </bpmn2:endEvent>
+    <bpmn2:scriptTask id="sapcLogError__prg__p90" name="log error" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>end_sapc_create_vdc_flow_in_error</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger("com.ericsson.oss.nfe.poc.tasks"); 
+logger.info( '------------------------------------ ~~ Error happened creating SAPC-VDC ~~----------------------------------');]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="end_sapc_create_vdc_flow_in_error" name="" sourceRef="sapcLogError__prg__p90" targetRef="sapc_error_end__prg__p100"/>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1__prg" name="Check VDC Name" default="vdcnamePresent">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+      <bpmn2:outgoing>vdcnamePresent</bpmn2:outgoing>
+      <bpmn2:outgoing>noVDCName</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="vdcnamePresent" name="" sourceRef="ExclusiveGateway_1__prg" targetRef="sapcVDCOfferQuery__prg__p20"/>
+    <bpmn2:sequenceFlow id="noVDCName" name="NO VDC Name" sourceRef="ExclusiveGateway_1__prg" targetRef="sapc_VDC_name__prg__p10">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression"><![CDATA[${execution.getVariable("VDCName")==null }]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:startEvent id="StartEvent__prg__p0" camunda:formKey="embedded:app:json:model1:forms/sapcvdcForm.json" name="startProcess">
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" name="" sourceRef="StartEvent__prg__p0" targetRef="ExclusiveGateway_1__prg"/>
+    <bpmn2:scriptTask id="sapc_VDC_name__prg__p10" name="Set Default VDC Name" scriptFormat="groovy">
+      <bpmn2:incoming>noVDCName</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[println("Script task to set the VDC name -----------------------------------------------------------------------------------");
+def vdc = execution.getVariable('appConfigProps')['default.VDCName']
+if(vdc!=null)
+	execution.setVariable("VDCName",vdc);
+else
+	execution.setVariable("VDCName","SAPC-DEFAULT-VDC");]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_12" name="" sourceRef="sapc_VDC_name__prg__p10" targetRef="sapcVDCOfferQuery__prg__p20"/>
+  </bpmn2:process>
+  <bpmn2:error id="Error_1" errorCode="BPMN_BUSINESS_ERROR" name="org.camunda.bpm.engine.delegate.BpmnError"/>
+  <bpmn2:error id="Error_2" errorCode="failedJobError" name="failedJobError"/>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="createVDC">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent__prg__p0">
+        <dc:Bounds height="36.0" width="36.0" x="96.0" y="276.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="80.0" x="80.0" y="314.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_2" bpmnElement="sapcVDCOfferQuery__prg__p20">
+        <dc:Bounds height="80.0" width="100.0" x="336.0" y="254.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_3" bpmnElement="sapcBuildVDCPostRequest__prg__p25">
+        <dc:Bounds height="80.0" width="100.0" x="504.0" y="254.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ServiceTask_2" targetElement="_BPMNShape_ServiceTask_3">
+        <di:waypoint xsi:type="dc:Point" x="436.0" y="294.0"/>
+        <di:waypoint xsi:type="dc:Point" x="504.0" y="294.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="458.0" y="294.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_4" bpmnElement="sapcPostTheVDCRequest__prg__p40">
+        <dc:Bounds height="80.0" width="100.0" x="660.0" y="254.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_5" bpmnElement="sapcPrintDetails__prg__p90">
+        <dc:Bounds height="80.0" width="100.0" x="1103.0" y="254.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_3" bpmnElement="end_sapc_vdc_create_in_success__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="1283.0" y="276.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="147.0" x="1228.0" y="317.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="SequenceFlow_7" sourceElement="_BPMNShape_ServiceTask_5" targetElement="_BPMNShape_EndEvent_3">
+        <di:waypoint xsi:type="dc:Point" x="1203.0" y="294.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1283.0" y="294.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="935.0" y="401.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_IntermediateCatchEvent_2" bpmnElement="sapcWait__prg_50">
+        <dc:Bounds height="36.0" width="36.0" x="828.0" y="276.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="106.0" x="793.0" y="317.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_5" sourceElement="_BPMNShape_ServiceTask_4" targetElement="_BPMNShape_IntermediateCatchEvent_2">
+        <di:waypoint xsi:type="dc:Point" x="760.0" y="294.0"/>
+        <di:waypoint xsi:type="dc:Point" x="828.0" y="294.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="802.0" y="294.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_10" bpmnElement="sapc_order_status_verification__prg__p60">
+        <dc:Bounds height="80.0" width="100.0" x="936.0" y="254.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_6" sourceElement="_BPMNShape_IntermediateCatchEvent_2" targetElement="_BPMNShape_ServiceTask_10">
+        <di:waypoint xsi:type="dc:Point" x="864.0" y="294.0"/>
+        <di:waypoint xsi:type="dc:Point" x="936.0" y="294.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="897.0" y="294.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_29" bpmnElement="sapcLogError__prg__p90">
+        <dc:Bounds height="80.0" width="100.0" x="1103.0" y="357.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_29" bpmnElement="sapc_error_end__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="1271.0" y="379.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="152.0" x="1213.0" y="420.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="end_sapc_create_vdc_flow_in_error" sourceElement="_BPMNShape_ScriptTask_29" targetElement="_BPMNShape_EndEvent_29">
+        <di:waypoint xsi:type="dc:Point" x="1203.0" y="397.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1271.0" y="397.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="1240.0" y="490.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_40" bpmnElement="sapc_VDC_name__prg__p10">
+        <dc:Bounds height="80.0" width="100.0" x="181.0" y="380.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="noVDCName" sourceElement="_BPMNShape_ExclusiveGateway_12" targetElement="_BPMNShape_ScriptTask_40">
+        <di:waypoint xsi:type="dc:Point" x="230.0" y="319.0"/>
+        <di:waypoint xsi:type="dc:Point" x="231.0" y="380.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="94.0" x="175.0" y="337.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ExclusiveGateway_12" bpmnElement="ExclusiveGateway_1__prg" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="205.0" y="269.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="112.0" x="175.0" y="230.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_10" sourceElement="_BPMNShape_StartEvent_2" targetElement="_BPMNShape_ExclusiveGateway_12">
+        <di:waypoint xsi:type="dc:Point" x="132.0" y="294.0"/>
+        <di:waypoint xsi:type="dc:Point" x="205.0" y="294.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="166.0" y="294.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="vdcnamePresent" sourceElement="_BPMNShape_ExclusiveGateway_12" targetElement="_BPMNShape_ServiceTask_2">
+        <di:waypoint xsi:type="dc:Point" x="255.0" y="294.0"/>
+        <di:waypoint xsi:type="dc:Point" x="336.0" y="294.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="304.0" y="294.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="SequenceFlow_12" sourceElement="_BPMNShape_ScriptTask_40" targetElement="_BPMNShape_ServiceTask_2">
+        <di:waypoint xsi:type="dc:Point" x="281.0" y="420.0"/>
+        <di:waypoint xsi:type="dc:Point" x="385.0" y="420.0"/>
+        <di:waypoint xsi:type="dc:Point" x="386.0" y="334.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="382.0" y="393.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_BoundaryEvent_2" bpmnElement="BoundaryEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="968.0" y="316.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_ServiceTask_3" targetElement="_BPMNShape_ServiceTask_4">
+        <di:waypoint xsi:type="dc:Point" x="604.0" y="294.0"/>
+        <di:waypoint xsi:type="dc:Point" x="660.0" y="294.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="629.0" y="294.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_BoundaryEvent_2" targetElement="_BPMNShape_ScriptTask_29">
+        <di:waypoint xsi:type="dc:Point" x="986.0" y="352.0"/>
+        <di:waypoint xsi:type="dc:Point" x="986.0" y="397.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1103.0" y="397.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="1093.0" y="395.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="SequenceFlow_9" sourceElement="_BPMNShape_ServiceTask_10" targetElement="_BPMNShape_ServiceTask_5">
+        <di:waypoint xsi:type="dc:Point" x="1036.0" y="294.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1103.0" y="294.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="1067.0" y="294.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

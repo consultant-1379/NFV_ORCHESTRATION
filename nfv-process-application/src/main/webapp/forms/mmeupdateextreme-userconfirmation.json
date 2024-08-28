@@ -1,0 +1,33 @@
+{
+	"modelType": "model1",
+	"submitText": "Submit",
+	"cancelText": "Cancel",
+	"controlGroups": [{	
+		"controlGroup": {
+			"name": "extremeLogin",
+			"label": "Extreme Switch Login",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "exSwitchlogin",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}	
+	},
+	{
+		"controlGroup": {
+			"name": "extremeCommand",
+			"label": "Extreme Switch Command",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "exSwitchcommand",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	}]
+}

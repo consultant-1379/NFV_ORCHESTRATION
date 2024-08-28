@@ -1,0 +1,30 @@
+{
+	"orderItems": [{
+		"orderItemId": "0",
+		"createVm": {
+			"vdc": {
+				"id": "${vdcId}"
+			},
+			"bootSource": {
+				"imageName": "${imageName}"
+			},
+			"vmhdName": "${vmhd}",
+			"name": "${VMName}"
+		}
+	},
+	{
+		"orderItemId": "1",
+		"createVmVnic": {
+			"vm": {
+				"orderItemRef": "0"
+			},
+			"assignExternalIpAddress": "true",
+			"type": "STANDARD",
+			"vn": {
+				"id": "${vnId}"
+			},
+			"name": "NIC_001"
+		}
+	}],
+	"tenantName": "vepc"
+}

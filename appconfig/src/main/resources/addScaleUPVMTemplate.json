@@ -1,0 +1,46 @@
+{
+    "orderItems": [
+      {
+        "createVm": {
+	"bootSource":{
+	 "imageName": "EPG-DropC-Base"
+	},         
+          "name": "epg-cp3-vm",
+          "vdc": {
+            "id": "${vdcId}"
+          },
+          "vmhdName": "EPG-CP"
+        },
+        "orderItemId": "vm1"
+      },
+      {
+        "createVmVnic": {
+          "assignExternalIpAddress": false,
+          "name": "EPG-gSC-CPB1-Backplane-VNIC",
+	  "type": "standard",
+          "vm": {
+            "orderItemRef": "vm1"
+          },
+          "vn": {
+            "id": "${EPGBackplaneVN}"
+          }
+        },
+        "orderItemId": "vmVnic1"
+      },
+      {
+        "createVmVnic": {
+          "assignExternalIpAddress": false,
+	   "type": "standard",
+          "name": "EPG-GSC-CP-NFS-VNIC",
+          "vm": {
+            "orderItemRef": "vm1"
+          },
+          "vn": {
+            "id": "${EPGPublicVN}"
+          }
+        },
+        "orderItemId": "vmVnic2"
+      }
+    ],
+    "tenantName": "${tenantName}"
+  }

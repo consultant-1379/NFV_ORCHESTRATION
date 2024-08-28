@@ -1,0 +1,96 @@
+
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfcyAbkwJO43HPK-sdTgizy5rrB6Xgiu6zOs.*AAJTSQACMDEAAlNLABQtMTUyNjA3NDE5NzI1NjAxNDgwNg..*"
+       },
+       "data":
+       {
+           "vns":
+           [
+               {
+                   "ipAddressRange": "30.30.7.0/24",
+                   "dhcpEnabled": false,
+                   "ipVersion": "IPv4",
+                   "category": "L3",
+                   "networkType": "vlan",
+                   "physicalNetwork": "physnet2",
+                   "segmentationId": "1005",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "id": "VN-3071",
+                   "name": "MME-External-VN",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "enabled": true
+               },
+               {
+                   "ipAddressRange": "30.30.8.0/24",
+                   "dhcpEnabled": false,
+                   "ipVersion": "IPv4",
+                   "category": "L3",
+                   "networkType": "vlan",
+                   "physicalNetwork": "physnet2",
+                   "segmentationId": "1006",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "id": "VN-3072",
+                   "name": "MME-Internal-VN",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "enabled": true
+               },
+               {
+                   "ipAddressRange": "30.30.13.0/24",
+                   "dhcpEnabled": false,
+                   "ipVersion": "IPv4",
+                   "category": "L3",
+                   "networkType": "vlan",
+                   "physicalNetwork": "physnet2",
+                   "segmentationId": "1007",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "id": "VN-3073",
+                   "name": "MME-Internal-2-VN",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "enabled": true
+               },
+               {
+                   "ipAddressRange": "30.30.20.0/24",
+                   "dhcpEnabled": true,
+                   "ipVersion": "IPv4",
+                   "category": "L3",
+                   "networkType": "vlan",
+                   "physicalNetwork": "physnet2",
+                   "segmentationId": "1008",
+                   "vdc":
+                   {
+                       "id": "VDC-3070",
+                       "name": "MME01-VDC"
+                   },
+                   "vrf":
+                   {
+                       "id": "VRF-3075",
+                       "name": "MME-Admin-VRF"
+                   },
+                   "id": "VN-3074",
+                   "name": "MME-Admin-VN",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "enabled": true
+               }
+           ]
+       }
+    }
+

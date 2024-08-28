@@ -1,0 +1,23 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+            { "controlGroup": { "name": "TenantName", "label": "Tenant Name", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "TenantName", "readonly": false},
+                      "initialValue": { "source": "local", "value": "" } }
+                ]}},
+            { "controlGroup": { "name": "UserName", "label": "User Name", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "UserName", "readonly": false},
+                      "initialValue": { "source": "local", "values": "" } }
+                ]}},
+            { "controlGroup": { "name": "Password", "label": "Password", "type": "text",
+            "controls": [
+                { "variable": { "type": "string", "name": "Password", "readonly": false},
+                  "initialValue": { "source": "local", "values": "" } }
+            ]}}
+        ]
+}

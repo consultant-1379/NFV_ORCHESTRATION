@@ -1,0 +1,16 @@
+{
+    "tenantName": "${tenantName}",
+        "vdc": {
+               "id": "${vdc}"
+              },
+       "ovfPackage":{
+    "vm": [{  
+      "id":"FSB-1.11",
+	  "configDrive":false,
+          "configFiles": [{ 
+             "fileId": "cloud-init-data",
+             "fileContent": "${basicCFG}"
+          }]
+      }]
+    }
+  }

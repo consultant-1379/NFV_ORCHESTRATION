@@ -1,0 +1,15 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [ { "controlGroup": { "name": "ExtremeCMD", "label": "Extreme Command", "type": "textparagraph",
+                "controls": [
+                    { "variable": { "type": "string", "name": "configCmdStr", "readonly": true, "required": true},"initialValue": { "source": "instance" }}
+                ]}},
+             { "controlGroup": { "name": "ExtremeCMDOutput", "label": "Extreme Command Output", "type": "textparagraph",
+                "controls": [
+                    { "variable": { "type": "string", "name": "cliout", "readonly": true, "required": true },"initialValue": { "source": "instance" }}
+                ]}} 
+        ]
+}

@@ -1,0 +1,35 @@
+{
+	"modelType": "model1",
+	"submitText": "Submit",
+	"cancelText": "Cancel",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "enmFDN",
+			"label": "ENM FDN Name ",
+			"type": "text",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "enmFDN",
+					"readonly": false,
+					"required": false
+				}
+			}]
+		}
+	},
+	{
+		"controlGroup": {
+			"name": "ipAddressENM",
+			"label": "ENM ipAddress",
+			"type": "text",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "ipAddressENM",
+					"readonly": false,
+					"required": false
+				}
+			}]
+		}
+	}]
+}

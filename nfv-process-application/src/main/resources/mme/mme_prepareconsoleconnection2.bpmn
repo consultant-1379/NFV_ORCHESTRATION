@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:fox="http://www.camunda.com/fox" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_GSEGkFt6EeSxUKVHHFh6Fw" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/DropC">
+  <bpmn2:process id="mme_consoleconnection2" name="vMME Prepare Console Connection C5_2.1 _2" isExecutable="true">
+    <bpmn2:documentation>Sub-workflow to prepare console connection for E2E vMME</bpmn2:documentation>
+    <bpmn2:extensionElements>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.ActivityEntryExitListener" event="start"/>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.ActivityEntryExitListener" event="end"/>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.AppConfigLoadListener" event="start"/>
+    </bpmn2:extensionElements>
+    <bpmn2:userTask id="Show_Password_Setting_Commands__prg__p40" camunda:formKey="embedded:app:json:model1:forms/mmeconsole-showURL_setPasswords.json" name="Show Password Setting Commands">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" name="" sourceRef="Show_Password_Setting_Commands__prg__p40" targetRef="execute_set_passwords_on_ncvm__prg__p50"/>
+    <bpmn2:scriptTask id="Extract_Console_URL__prg__p30" name="Extract Console URL" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def respSTR = execution.getVariable('getNCVMResp')
+def slurper = new groovy.json.JsonSlurper()
+def respJson = slurper.parseText(respSTR)
+def url =  respJson.vmConsole.url
+println ' Got NC VM Console URL----------------------> '+url
+if(url!=null)
+{
+	println ' Got the Public url  -->'+url
+	execution.setVariable('URL',  url)
+	def map = [:]
+	map.put("URL", url)
+	execution.setVariable('templateMap',map)
+	println ' templateMap set with the key URL ----------------------> '+map.get("URL")
+}
+else {
+	throw new RuntimeException('NC VM URL is not found')
+}
+execution.removeVariable('getNCVMResp')]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="Extract_Console_URL__prg__p30" targetRef="Build_Form_For_Passwords__prg__p35"/>
+    <bpmn2:scriptTask id="Build_Form_For_Passwords__prg__p35" name="Build Form For Password Setting" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def consoleURL= execution.getVariable('URL');
+println ' Build Password Form script got URL= ----------------------> '+consoleURL
+def passwordSetURL='<a href='+consoleURL+'>Visit MME-NC-1.15-VM Console</a><br><br>'
+def passwordSetCommand='connect as root user and set final password for root user to ossPass123<br>'
+passwordSetCommand+='then set temporary passwords for coreUser and om_admin users to ossTemp123<br>'
+passwordSetCommand+='logout and login again as coreUser to set final password to ossPass123<br>'
+passwordSetCommand+='logout and login again as om_admin user to set final password to ossPass123<br>'
+passwordSetCommand+='gsh add_sm_user -ui sysadm<br>'
+passwordSetCommand+='gsh set_sm_roleToUser -ui sysadm -role SysAdmRole<br>'
+passwordSetCommand+='passwd sysadm<br>'
+passwordSetCommand+='set temporary password for sysadm user to ossTemp123<br>'
+passwordSetCommand+='logout and login again as sysadm user and set final password to ossPass123'
+execution.setVariable('passwordSetURL',passwordSetURL);
+execution.setVariable('passwordSetCommand',passwordSetCommand);]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="Build_Form_For_Passwords__prg__p35" targetRef="Show_Password_Setting_Commands__prg__p40"/>
+    <bpmn2:serviceTask id="Query_NC_VM__prg__p25" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericECMRESTInvoker" camunda:async="true" name="Query NC VM">
+      <bpmn2:extensionElements>
+        <camunda:field name="outPutVariable">
+          <camunda:string>getNCVMResp</camunda:string>
+        </camunda:field>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${getNCVMURL}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="method">
+          <camunda:string>GET</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:string>--</camunda:string>
+        </camunda:field>
+        <fox:failedJobRetryTimeCycle>R3/PT45S</fox:failedJobRetryTimeCycle>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_18</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_5</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_5" name="" sourceRef="Query_NC_VM__prg__p25" targetRef="Extract_Console_URL__prg__p30"/>
+    <bpmn2:manualTask id="execute_set_passwords_on_ncvm__prg__p50" name="Execute Set Password Commands on NC VM">
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_19</bpmn2:outgoing>
+    </bpmn2:manualTask>
+    <bpmn2:userTask id="Show_Delete_Routes__prg__p70" camunda:formKey="embedded:app:json:model1:forms/mmeconsole-deleteRoutes.json" name="Show Form Delete Routes">
+      <bpmn2:incoming>SequenceFlow_12</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_15</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_15" name="" sourceRef="Show_Delete_Routes__prg__p70" targetRef="Execute_Delete_Routes_Command__prg__p75"/>
+    <bpmn2:manualTask id="Execute_Delete_Routes_Command__prg__p75" name="Execute Delete Route Command on FS VM">
+      <bpmn2:incoming>SequenceFlow_15</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_14</bpmn2:outgoing>
+    </bpmn2:manualTask>
+    <bpmn2:scriptTask id="Build_Form_Delete_Routes__prg__p65" name="Build Form Delete Routes" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_22</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_12</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def consoleURL= execution.getVariable('FSVMConsoleURL');
+println ' Delete Routes Form script got URL= ----------------------> '+consoleURL
+def deleteRouteURL='<a href='+consoleURL+'>Visit MME-FS-1.11-VM Console</a><br><br>'
+def deleteRouteCommand='connect as root user and then <br>run the command:<br>route del default dev remux0'
+execution.setVariable('deleteRouteURL',deleteRouteURL);
+execution.setVariable('deleteRouteCommand',deleteRouteCommand);]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_12" name="" sourceRef="Build_Form_Delete_Routes__prg__p65" targetRef="Show_Delete_Routes__prg__p70"/>
+    <bpmn2:serviceTask id="Query_FS_VM__prg__p55" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericECMRESTInvoker" name="Query FS VM">
+      <bpmn2:extensionElements>
+        <camunda:field name="outPutVariable">
+          <camunda:string>getFSVMConsoleResp</camunda:string>
+        </camunda:field>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${getFSVMConsoleURL}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="method">
+          <camunda:string>GET</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:string>--</camunda:string>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_19</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_21</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_19" name="" sourceRef="execute_set_passwords_on_ncvm__prg__p50" targetRef="Query_FS_VM__prg__p55"/>
+    <bpmn2:scriptTask id="Extract_FS_VM__Console_URL__prg__p60" name="Extract FS VM Console URL" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_21</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_22</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def respSTR = execution.getVariable('getFSVMConsoleResp')
+def slurper = new groovy.json.JsonSlurper()
+def respJson = slurper.parseText(respSTR)
+def url =  respJson.vmConsole.url
+println ' Got FS VM Console URL----------------------> '+url
+if(url!=null)
+{
+	println ' Got the Public url  -->'+url
+	execution.setVariable('FSVMConsoleURL',  url)
+	def map = [:]
+	map.put("FSVMConsoleURL", url)
+	execution.setVariable('templateMap',map)
+	println ' templateMap set with the key FSVMConsoleURL ----------------------> '+map.get("FSVMConsoleURL")
+}
+else {
+	throw new RuntimeException('FS VM Console URL is not found')
+}
+execution.removeVariable('getFSVMConsoleResp')]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_21" name="" sourceRef="Query_FS_VM__prg__p55" targetRef="Extract_FS_VM__Console_URL__prg__p60"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_22" name="" sourceRef="Extract_FS_VM__Console_URL__prg__p60" targetRef="Build_Form_Delete_Routes__prg__p65"/>
+    <bpmn2:serviceTask id="Get_Order_Details_ForPrepareConnection__prg__p5" camunda:class="com.ericsson.oss.nfe.poc.tasks.QuerryAndPopulateOrderItems" name="Get Order Details">
+      <bpmn2:incoming>getOrderDetails_ForPrepareConnection__prg__p10</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="Get_Order_Details_ForPrepareConnection__prg__p5" targetRef="Get_NC_VM_URL_for_Console_Connection_Preperation__prg__p10"/>
+    <bpmn2:serviceTask id="QueryFSVMVNIC__prg__p15" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericECMRESTInvoker" name="Query FS VM VNICs">
+      <bpmn2:extensionElements>
+        <camunda:field name="outPutVariable">
+          <camunda:string>getFSVMResp</camunda:string>
+        </camunda:field>
+        <camunda:field name="endpointURL">
+          <camunda:expression>${getFSVMURL}</camunda:expression>
+        </camunda:field>
+        <camunda:field name="method">
+          <camunda:string>GET</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:string>--</camunda:string>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_11</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_13</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_13" name="" sourceRef="QueryFSVMVNIC__prg__p15" targetRef="ParseFSVMExternalIP__prg__p20"/>
+    <bpmn2:startEvent id="StartEvent_1__prg__p0" camunda:formKey="embedded:app:json:model1:forms/vdcInputForm.json" name="Start">
+      <bpmn2:outgoing>getOrderDetails_ForPrepareConnection__prg__p10</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="getOrderDetails_ForPrepareConnection__prg__p10" name="" sourceRef="StartEvent_1__prg__p0" targetRef="Get_Order_Details_ForPrepareConnection__prg__p5"/>
+    <bpmn2:scriptTask id="ParseFSVMExternalIP__prg__p20" name="Parse FS VM External IP" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_13</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_17</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def respSTR = execution.getVariable('getFSVMResp')
+def slurper = new groovy.json.JsonSlurper()
+def respJson = slurper.parseText(respSTR)
+
+def adminVNIC=null
+ respJson.vm.vmVnics.each { item ->
+ 	if(item.vn.name=='MME-Admin-VN')
+	{	
+		adminVNIC = item;
+		
+	}
+}
+println ' Got ----------------------> '+adminVNIC
+if(adminVNIC!=null)
+{
+	println ' Got the Admin VNIC Vnic.externalIpAddress Vnic -->'+adminVNIC.externalIpAddress
+	execution.setVariable('externalIP',   adminVNIC.externalIpAddress)
+}
+else {
+	throw new RuntimeException('MME-Admin-VN vnic not defined')
+}
+execution.removeVariable('getFSVMResp')
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:scriptTask id="Get_NC_VM_URL_for_Console_Connection_Preperation__prg__p10" name="Get NC VM URL &amp; FS VM" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_11</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[def MME_NC_VM_Name=execution.getVariable('appConfigProps')['MME-NC-NAME']
+def MME_FS_VM_Name=execution.getVariable('appConfigProps')['MME-FS-NAME']
+def vmId=execution.getVariable('ECM_NAMEID_MAP') [MME_NC_VM_Name]
+def getNCVMURL = execution.getVariable('appConfigProps')['QUERY_VM_BY_ID']+vmId+ '/console'
+println 'NC VM Console URL : '+getNCVMURL
+execution.setVariable('getNCVMURL',getNCVMURL);
+
+def fsVmId=execution.getVariable('ECM_NAMEID_MAP')[MME_FS_VM_Name]
+def getFSVMConsoleURL  = execution.getVariable('appConfigProps')['QUERY_VM_BY_ID']+fsVmId+'/console'
+def getFSVMURL = execution.getVariable('appConfigProps')['QUERY_VM_BY_ID']+fsVmId+'?$expand=vmvnics'
+println 'FS VM vmvnics URL : '+getFSVMURL;
+execution.setVariable('getFSVMURL',getFSVMURL);
+println 'FS VM Console URL: ' + getFSVMConsoleURL;
+execution.setVariable('getFSVMConsoleURL',getFSVMConsoleURL);
+]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_11" name="" sourceRef="Get_NC_VM_URL_for_Console_Connection_Preperation__prg__p10" targetRef="QueryFSVMVNIC__prg__p15"/>
+    <bpmn2:intermediateCatchEvent id="IntermediateCatchEvent__prg" name="Wait for 30s for console to be accessible">
+      <bpmn2:incoming>SequenceFlow_17</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_18</bpmn2:outgoing>
+      <bpmn2:timerEventDefinition id="TimerEventDefinition_1">
+        <bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression">PT30S</bpmn2:timeDuration>
+      </bpmn2:timerEventDefinition>
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_17" name="" sourceRef="ParseFSVMExternalIP__prg__p20" targetRef="IntermediateCatchEvent__prg"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_18" name="" sourceRef="IntermediateCatchEvent__prg" targetRef="Query_NC_VM__prg__p25"/>
+    <bpmn2:boundaryEvent id="BoundaryEvent_1" name="" attachedToRef="Query_NC_VM__prg__p25">
+      <bpmn2:outgoing>SequenceFlow_20</bpmn2:outgoing>
+      <bpmn2:errorEventDefinition id="ErrorEventDefinition_1" errorRef="Error_1"/>
+    </bpmn2:boundaryEvent>
+    <bpmn2:scriptTask id="Log_Error__prg__p90" name="Log Error" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_20</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_23</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger("com.ericsson.oss.nfe.poc.tasks"); 
+logger.info( '------------------------------------ ~~ Error retrieving console URL for NC VM ~~----------------------------------');]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_20" name="" sourceRef="BoundaryEvent_1" targetRef="Log_Error__prg__p90"/>
+    <bpmn2:endEvent id="EndEvent__prg__p100" name="End Error">
+      <bpmn2:incoming>SequenceFlow_23</bpmn2:incoming>
+      <bpmn2:errorEventDefinition id="ErrorEventDefinition_2" errorRef="Error_2"/>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_23" sourceRef="Log_Error__prg__p90" targetRef="EndEvent__prg__p100"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_14" name="" sourceRef="Execute_Delete_Routes_Command__prg__p75" targetRef="EndEvent____prg__p100"/>
+    <bpmn2:endEvent id="EndEvent____prg__p100" name="End">
+      <bpmn2:incoming>SequenceFlow_14</bpmn2:incoming>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmn2:error id="Error_1" errorCode="failedJobError" name="failedJobError"/>
+  <bpmn2:error id="Error_2" errorCode="BPMN_BUSINESS_ERROR" name="org.camunda.bpm.engine.delegate.BpmnError"/>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="mme_prepareconsoleconnection2">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_17" bpmnElement="StartEvent_1__prg__p0">
+        <dc:Bounds height="36.0" width="36.0" x="10.0" y="266.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="34.0" x="11.0" y="307.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_71" bpmnElement="Get_Order_Details_ForPrepareConnection__prg__p5">
+        <dc:Bounds height="80.0" width="100.0" x="96.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="getOrderDetails_ForPrepareConnection__prg__p10" sourceElement="_BPMNShape_StartEvent_17" targetElement="_BPMNShape_ServiceTask_71">
+        <di:waypoint xsi:type="dc:Point" x="46.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="96.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="31.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_66" bpmnElement="Get_NC_VM_URL_for_Console_Connection_Preperation__prg__p10">
+        <dc:Bounds height="80.0" width="100.0" x="246.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ServiceTask_71" targetElement="_BPMNShape_ScriptTask_66">
+        <di:waypoint xsi:type="dc:Point" x="196.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="246.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="181.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_72" bpmnElement="Query_NC_VM__prg__p25">
+        <dc:Bounds height="80.0" width="100.0" x="756.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_67" bpmnElement="Extract_Console_URL__prg__p30">
+        <dc:Bounds height="80.0" width="100.0" x="906.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_5" sourceElement="_BPMNShape_ServiceTask_72" targetElement="_BPMNShape_ScriptTask_67">
+        <di:waypoint xsi:type="dc:Point" x="856.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="906.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="878.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_48" bpmnElement="EndEvent____prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="2244.0" y="266.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="29.0" x="2248.0" y="307.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_75" bpmnElement="Build_Form_For_Passwords__prg__p35">
+        <dc:Bounds height="80.0" width="100.0" x="1056.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_ScriptTask_67" targetElement="_BPMNShape_ScriptTask_75">
+        <di:waypoint xsi:type="dc:Point" x="1006.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1056.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="1028.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_12" bpmnElement="Show_Password_Setting_Commands__prg__p40">
+        <dc:Bounds height="80.0" width="100.0" x="1206.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ScriptTask_75" targetElement="_BPMNShape_UserTask_12">
+        <di:waypoint xsi:type="dc:Point" x="1156.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1206.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="1346.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ManualTask_5" bpmnElement="execute_set_passwords_on_ncvm__prg__p50">
+        <dc:Bounds height="80.0" width="100.0" x="1343.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="SequenceFlow_10" sourceElement="_BPMNShape_UserTask_12" targetElement="_BPMNShape_ManualTask_5">
+        <di:waypoint xsi:type="dc:Point" x="1306.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1343.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="1322.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_74" bpmnElement="QueryFSVMVNIC__prg__p15">
+        <dc:Bounds height="80.0" width="100.0" x="396.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="SequenceFlow_11" sourceElement="_BPMNShape_ScriptTask_66" targetElement="_BPMNShape_ServiceTask_74">
+        <di:waypoint xsi:type="dc:Point" x="346.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="396.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="331.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_76" bpmnElement="ParseFSVMExternalIP__prg__p20">
+        <dc:Bounds height="80.0" width="100.0" x="546.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_14" bpmnElement="SequenceFlow_13" sourceElement="_BPMNShape_ServiceTask_74" targetElement="_BPMNShape_ScriptTask_76">
+        <di:waypoint xsi:type="dc:Point" x="496.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="546.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="518.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_77" bpmnElement="Build_Form_Delete_Routes__prg__p65">
+        <dc:Bounds height="80.0" width="100.0" x="1764.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_UserTask_13" bpmnElement="Show_Delete_Routes__prg__p70">
+        <dc:Bounds height="80.0" width="100.0" x="1908.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="SequenceFlow_12" sourceElement="_BPMNShape_ScriptTask_77" targetElement="_BPMNShape_UserTask_13">
+        <di:waypoint xsi:type="dc:Point" x="1864.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1908.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="1883.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ManualTask_6" bpmnElement="Execute_Delete_Routes_Command__prg__p75">
+        <dc:Bounds height="80.0" width="100.0" x="2058.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="SequenceFlow_15" sourceElement="_BPMNShape_UserTask_13" targetElement="_BPMNShape_ManualTask_6">
+        <di:waypoint xsi:type="dc:Point" x="2008.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2058.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="2030.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_76" bpmnElement="Query_FS_VM__prg__p55">
+        <dc:Bounds height="80.0" width="100.0" x="1493.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="SequenceFlow_19" sourceElement="_BPMNShape_ManualTask_5" targetElement="_BPMNShape_ServiceTask_76">
+        <di:waypoint xsi:type="dc:Point" x="1443.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1493.0" y="284.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_78" bpmnElement="Extract_FS_VM__Console_URL__prg__p60">
+        <dc:Bounds height="80.0" width="100.0" x="1643.0" y="244.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_22" bpmnElement="SequenceFlow_21" sourceElement="_BPMNShape_ServiceTask_76" targetElement="_BPMNShape_ScriptTask_78">
+        <di:waypoint xsi:type="dc:Point" x="1593.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1643.0" y="284.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="SequenceFlow_22" sourceElement="_BPMNShape_ScriptTask_78" targetElement="_BPMNShape_ScriptTask_77">
+        <di:waypoint xsi:type="dc:Point" x="1743.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1764.0" y="284.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_IntermediateCatchEvent_6" bpmnElement="IntermediateCatchEvent__prg">
+        <dc:Bounds height="36.0" width="36.0" x="696.0" y="266.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="242.0" x="593.0" y="336.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_18" bpmnElement="SequenceFlow_17" sourceElement="_BPMNShape_ScriptTask_76" targetElement="_BPMNShape_IntermediateCatchEvent_6">
+        <di:waypoint xsi:type="dc:Point" x="646.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="696.0" y="284.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_19" bpmnElement="SequenceFlow_18" sourceElement="_BPMNShape_IntermediateCatchEvent_6" targetElement="_BPMNShape_ServiceTask_72">
+        <di:waypoint xsi:type="dc:Point" x="732.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="756.0" y="284.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_BoundaryEvent_38" bpmnElement="BoundaryEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="777.0" y="306.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_92" bpmnElement="Log_Error__prg__p90">
+        <dc:Bounds height="80.0" width="100.0" x="863.0" y="384.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_21" bpmnElement="SequenceFlow_20" sourceElement="_BPMNShape_BoundaryEvent_38" targetElement="_BPMNShape_ScriptTask_92">
+        <di:waypoint xsi:type="dc:Point" x="795.0" y="342.0"/>
+        <di:waypoint xsi:type="dc:Point" x="795.0" y="424.0"/>
+        <di:waypoint xsi:type="dc:Point" x="863.0" y="424.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_53" bpmnElement="EndEvent__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="1013.0" y="406.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_24" bpmnElement="SequenceFlow_23" sourceElement="_BPMNShape_ScriptTask_92" targetElement="_BPMNShape_EndEvent_53">
+        <di:waypoint xsi:type="dc:Point" x="963.0" y="424.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1013.0" y="424.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="SequenceFlow_14" sourceElement="_BPMNShape_ManualTask_6" targetElement="_BPMNShape_EndEvent_48">
+        <di:waypoint xsi:type="dc:Point" x="2158.0" y="284.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2244.0" y="284.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="2198.0" y="284.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

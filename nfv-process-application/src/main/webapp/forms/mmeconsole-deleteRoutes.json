@@ -1,0 +1,33 @@
+{
+	"modelType": "model1",
+	"submitText": "Submit",
+	"cancelText": "Cancel",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "fsvmlogin",
+			"label": "FS VM Console Login",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "deleteRouteURL",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	},
+	{
+		"controlGroup": {
+			"name": "fsvmcommand",
+			"label": "FS VM Commands",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "deleteRouteCommand",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	}]
+}

@@ -1,0 +1,17 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [             
+           
+           { "controlGroup": { "name": "nwelementid", "label": "Network Element Name", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "nwelementid", "readonly": false,"required":true}}
+                ]}},
+                { "controlGroup": { "name": "collectionname", "label": "Collection Name", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "collectionname", "readonly": false, "required": true}}
+                ]}}
+        ]
+}

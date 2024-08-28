@@ -1,0 +1,76 @@
+{
+"status": {
+    "reqStatus": "SUCCESS",
+    "credentials": "AQIC5wM2LY4SfcxJJ98yjDSrTLr8pvRrUQ97_IdVxwvOfTc.*AAJTSQACMDEAAlNLABMtNTgyOTc5MjM1MDEzMTQyMTg5*"
+  },
+  "data": {
+    "vm": {
+      "createReqNumber": "2200000",
+      "vimZone": {
+        "name": "vEPC01",
+        "type": "OPENSTACK"
+      },
+      "vimObjectId": "36d64208-6a1d-4a85-8b68-73ea4f6481ce",
+      "hostId": "052245211afaa4bb11b0692ec5164467244dc216e0eae7652963d05d",
+      "adminPassword": "Thbs123!",
+      "lastModifiedBy": "ecmadmin",
+      "imageName": "EPG-LB",
+      "vmhdName": "EPG-LB1",
+      "vdc": {
+        "id": "VDC-8122",
+        "name": "EPG-VDC"
+      },
+      "id": "VM-8174",
+      "name": "epg-nfs-vm",
+      "provisioningStatus": "ACTIVE",
+      "tenantName": "vepc",
+      "operationalStatus": "ACTIVE",
+      "vmVnics": [
+        {
+          "macAddress": "fa:16:3e:57:6e:98",
+          "privateIpAddress": "10.10.1.2",
+          "vimObjectId": "d1416dc0-9320-4231-8e86-c913dbbee69d",
+          "vn": {
+            "id": "VN-8124",
+            "name": "EPG-NFS-VN"
+          },
+          "id": "VNIC-VM-8176",
+          "name": "EPG-LB-NFS-VNIC"
+        },
+        {
+          "macAddress": "fa:16:3e:4f:91:f3",
+          "privateIpAddress": "10.10.2.2",
+          "vimObjectId": "51039261-8b23-455e-b7cc-c56187445384",
+          "vn": {
+            "id": "VN-8125",
+            "name": "EPG-Backplane-VN"
+          },
+          "id": "VNIC-VM-8178",
+          "name": "EPG-LB-Backplane-VNIC"
+        },
+        {
+          "macAddress": "fa:16:3e:18:eb:52",
+          "privateIpAddress": "10.10.0.2",
+          "vimObjectId": "80f7911c-b2af-493d-a1a0-c94b891c94db",
+          "vn": {
+            "id": "VN-8123",
+            "name": "EPG-Payload-VN"
+          },
+          "id": "VNIC-VM-8180",
+          "name": "EPG-LB-Payload-VNIC"
+        },
+        {
+          "macAddress": "fa:16:3e:24:62:be",
+          "privateIpAddress": "159.107.219.247",
+          "vimObjectId": "97148026-d3d4-414f-b492-70162e2935b6",
+          "vn": {
+            "id": "VN-8126",
+            "name": "EPG-Public-VN"
+          },
+          "id": "VNIC-VM-8182",
+          "name": "EPG-LB-Public-VNIC"
+        }
+      ]
+    }
+  }
+}

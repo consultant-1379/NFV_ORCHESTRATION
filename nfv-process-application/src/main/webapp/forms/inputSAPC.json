@@ -1,0 +1,33 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+        	{ "controlGroup": { "name": "VDCName", "label": "VDCName", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "VDCName", "readonly": false, "required": true}}
+                ]}},
+                { "controlGroup": { "name": "sapcExtreme", "label": "Auto update extreme switch ", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "sapcExtreme", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["no", "yes"] } }
+                ]}},
+                { "controlGroup": { "name": "deploymentMode", "label": "Running local or remote to OSS", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "deploymentMode", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["remote", "local"] } }
+                ]}},
+				{ "controlGroup": { "name": "ipAddressRange", "label": "IP Address Range", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "ipAddressRangeInput", "readonly": false, "required": false},
+                      "initialValue": { "source": "local", "values": [${sapcInputRanges}]}}
+                ]}},
+                 { "controlGroup": { "name": "vimZone", "label": "vimZone", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "vimZoneName", "readonly": false},
+                      "initialValue": { "source": "local", "values": [${VIMZONES}] } }
+                ]}} 
+                
+        ]
+}

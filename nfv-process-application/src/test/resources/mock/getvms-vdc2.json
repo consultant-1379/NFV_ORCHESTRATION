@@ -1,0 +1,29 @@
+ {
+ "status": {
+    "reqStatus": "SUCCESS",
+    "credentials": "AQIC5wM2LY4SfcwKjB3xAtgCYdfuDWcTde-be0tDDsmETBk.*AAJTSQACMDEAAlNLABQtMzAyNzcxNzQxMzg4MjA1NDQ0MQ..*"
+  },
+  "data": {
+    "vms": [
+      {
+        "actReqNumber": "2200000",
+        "createReqNumber": "2200000",
+        "vimZone": {
+          "name": "vEPC01",
+          "type": "OPENSTACK"
+        },
+        "lastModifiedBy": "ecmadmin",
+        "imageName": "EPG-LB",
+        "vmhdName": "EPG-LB1",
+        "vdc": {
+          "id": "VDC-8122",
+          "name": "EPG-VDC"
+        },
+        "id": "VM-8174",
+        "name": "epg-nfs-vm",
+        "provisioningStatus": "ACTIVE",
+        "tenantName": "vepc"
+      }
+    ]
+  }
+}

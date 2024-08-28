@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.ericsson.com/custom" 
+xmlns:tns="http://www.ericsson.com/custom" elementFormDefault="qualified">
+    <element name="processTriggers" type="tns:triggers">
+    	<annotation>
+    		<documentation>An list of triggers.</documentation>
+    	</annotation></element>
+
+    <complexType name="trigger">
+        <annotation>
+        	<documentation>An base Element for Trigger,containing the trigger name,version and type.</documentation>
+        </annotation>
+        <sequence>
+    		<element name="triggerName" type="string" maxOccurs="1"
+    			minOccurs="1" />
+    		<element name="filterString" type="string" maxOccurs="1"
+    			minOccurs="0" />
+    	</sequence>
+    	<attribute name="triggerType" type="tns:triggerType" />
+    	<attribute name="schemaVersion" type="string"></attribute>
+    </complexType>
+
+    <complexType name="triggers">
+    	<sequence>
+    		<element name="trigger" type="tns:trigger" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <simpleType name="triggerType">
+    	<restriction base="string">
+    		<enumeration value="FMAlarms"></enumeration>
+    		<enumeration value="PMEvents"></enumeration>
+    	</restriction>
+    </simpleType>
+</schema>

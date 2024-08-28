@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:q0="http://pct.ericsson.com/"
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<soapenv:Header>
+	</soapenv:Header>
+	<soapenv:Body>
+		<q0:getHelloWorld>
+			<arg0>Vigss </arg0>
+		</q0:getHelloWorld>
+	</soapenv:Body>
+</soapenv:Envelope> 

@@ -1,0 +1,13 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [             
+           
+           { "controlGroup": { "name": "ipAddressRange", "label": "IP AddressRange", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "ipAddressRange", "readonly": false,"required":true}}
+                ]}} 
+        ]
+}

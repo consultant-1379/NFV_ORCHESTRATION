@@ -1,0 +1,3 @@
+/* Copyright (c) Ericsson 2014 */
+define('text',{load:function(e){throw new Error('Dynamic load not allowed: '+e)}});define('styles',{load:function(e){throw new Error('Dynamic load not allowed: '+e)}});define('template',{load:function(e){throw new Error('Dynamic load not allowed: '+e)}});define('json',{load:function(e){throw new Error('Dynamic load not allowed: '+e)}});
+define("widgets/utils/parserUtils",[],function(){"use strict";return{parseInt:function(t){return/^\-?([0-9]+|Infinity)$/.test(t)?Number(t):0/0}}});

@@ -1,0 +1,12 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+        	{ "controlGroup": { "name": "wfname", "label": "Workflow Name ", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "wfname", "readonly": false, "required": true}}
+                ]}}
+        ]
+}

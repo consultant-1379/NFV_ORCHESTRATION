@@ -1,0 +1,18 @@
+{
+	"modelType": "model1",
+	"submitText": "Acknowledge",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "LogViewerLink",
+			"label": "Log Viewer link",
+			"type": "textparagraph",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "LogViewerLink",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	}]
+}

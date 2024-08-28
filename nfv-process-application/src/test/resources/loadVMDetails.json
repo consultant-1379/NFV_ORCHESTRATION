@@ -1,0 +1,51 @@
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfczGbd6B71RzAAnI7iuj8UtuCaS_loek19U.*AAJTSQACMDEAAlNLABMxMDYwNjEzMzc3NzcwMDE1OTA5*"
+       },
+       "data":
+       {
+           "vm":
+           {
+               "createReqNumber": "2159968",
+               "vimZone":
+               {
+                   "name": "myVzId",
+                   "type": "OPENSTACK"
+               },
+               "vimObjectId": "043dbca2-a009-4ca3-add3-c284f95b6dd1",
+               "hostId": "b9f2aae02c4e6769216cd246ed4839e28f3e0cd2870c548e284ff35e",
+               "adminPassword": "ecmAdmin123",
+               "lastModifiedBy": "ecmadmin",
+               "imageName": "MME-Drop4-NC-1.15",
+               "vmhdName": "MME-NC",
+               "vdc":
+               {
+                   "id": "VDC-7640",
+                   "name": "MME-VDC"
+               },
+               "vapp":
+               {
+                   "id": "VAPP-7647",
+                   "name": "vMME"
+               },
+               "id": "VM-7653",
+               "name": "MME-NC-1.15-VM",
+               "provisioningStatus": "ACTIVE",
+               "tenantName": "lmioss",
+               "operationalStatus": "ACTIVE",
+               "vmVnics":
+               [
+                   {
+                       "id": "VNIC-VM-7672",
+                       "name": "MME-Internal-VNIC"
+                   },
+                   {
+                       "id": "VNIC-VM-7673",
+                       "name": "MME-Internal-2-VNIC"
+                   }
+               ]
+           }
+       }
+    }

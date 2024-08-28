@@ -1,0 +1,13 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+                 { "controlGroup": { "name": "deploymentMode", "label": "Running local or remote to OSS", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "deploymentMode", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["local", "remote"] } }
+                ]}}
+         ]
+}

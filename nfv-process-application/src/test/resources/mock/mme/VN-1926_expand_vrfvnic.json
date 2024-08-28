@@ -1,0 +1,47 @@
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfcxUGU0V8VXrRiXXmYr0sI-ARpr5zBWtISg.*AAJTSQACMDEAAlNLABQtMzA4NDI4NDk0Mzk4Mjk5ODc2OA..*"
+       },
+       "data":
+       {
+           "vn":
+           {
+               "createReqNumber": "2219858",
+               "ipAddressRange": "30.30.4.0/24",
+               "dhcpEnabled": true,
+               "ipVersion": "IPv4",
+               "category": "L3",
+               "networkType": "vlan",
+               "physicalNetwork": "default",
+               "segmentationId": "373",
+               "lastModifiedBy": "ecmadmin",
+               "vdc":
+               {
+                   "id": "VDC-1922",
+                   "name": "MME-VDC"
+               },
+               "vrf":
+               {
+                   "id": "VRF-1927",
+                   "name": "MME-Admin-VRF"
+               },
+               "vrfVnic":
+               {
+                   "id": "VNIC-VRF-1928",
+                   "name": "MME-Admin-VRFVNIC",
+                   "provisioningStatus": "ACTIVE",
+                   "ipAddress": "30.30.4.1",
+                   "macAddress": "fa:16:3e:8b:4f:16",
+                   "vimObjectId": "38dd7beb-fe47-4052-bc07-19d8ee613295"
+               },
+               "id": "VN-1926",
+               "name": "MME-Admin-VN",
+               "provisioningStatus": "ACTIVE",
+               "tenantName": "lmioss",
+               "enabled": true
+           }
+       }
+    }
+

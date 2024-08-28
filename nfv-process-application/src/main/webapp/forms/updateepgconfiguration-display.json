@@ -1,0 +1,21 @@
+{
+	"modelType": "model1",
+	"submitText": "Submit",
+	"cancelText": "Cancel",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "sshfiles",
+			"label": "Success: ",
+			"type": "textparagraph",
+			"toolTip": "update configuration",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "disStringFTP",
+					"readonly": true
+				}, "initialValue": { "source": "instance" }
+			}]
+		}
+	}
+	]
+}

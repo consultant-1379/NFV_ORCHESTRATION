@@ -1,0 +1,436 @@
+{
+  "status": {
+    "reqStatus": "SUCCESS",
+    "credentials": "AQIC5wM2LY4Sfcy9fJQ06YxrgPp3TLQqft-igwuX5QdYBLw.*AAJTSQACMDEAAlNLABMzNTk5MzA3NjY4NTUyODIwMjYy*"
+  },
+  "data": {
+    "offer": {
+      "description": "vSAPC VDC (vEPC PoC Drop B)",
+      "vimZoneType": [
+        "ALL"
+      ],
+      "tenantName": "ALL",
+      "type": "vdc",
+      "offerItems": [
+        {
+          "vdc": {
+            "itemId": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPC-VDC"
+            },
+            "vimZoneName": {
+              "isNull": false,
+              "isImmutable": false
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "parentItemRef": "TOP_LEVEL"
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-6c6ec77a-2f01-4f2b-b956-16141efe06f3",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPCmt-PA1-Pxe"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "172.16.250.0/24"
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-34f8eb5f-5cde-43a6-aed2-2d3bae157857",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPCmt-PA1-Internal0"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "172.16.100.0/24"
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-081495f9-3678-49d6-86d6-ee6200889e0b",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPCmt-PA1-Internal1"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "24"
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-c8b5cf03-c7b8-4553-af0a-e5847841039d",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPCmt-PA1-OamVip0"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "172.16.213.0/29"
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-17006d78-ed09-4593-a01c-d0cdd34eb8f8",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPCmt-PA1-OamVip1"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "172.16.213.8/29"
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-1deeeecc-60a8-4723-b541-414b080423ba",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPCmt-PA1-TrafficVip0"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "172.16.113.0/29"
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-c49666a7-2cda-4424-a5c2-cfb41d2ba827",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPCmt-PA1-TrafficVip1"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "172.16.113.8/29"
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-00c51b08-771e-460a-9b76-e5b72635af00",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPCmt-PA1-ExtOAM"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "10.41.30.224/29"
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        },
+        {
+          "vn": {
+            "itemId": "ID-e59142de-e646-4cf0-9329-c4805fb3364d",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "vdc": {
+              "itemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b"
+            },
+            "name": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "vSAPCmt-PA1-ExtTraffic"
+            },
+            "description": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "ipVersion": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "IPv4"
+            },
+            "ipAddressRange": {
+              "isNull": true,
+              "isImmutable": false,
+              "defaultValue": "10.41.70.224/29"
+            },
+            "cidrSize": {
+              "isNull": true,
+              "isImmutable": false
+            },
+            "dhcpEnabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "false"
+            },
+            "parentItemRef": "ID-b3959697-8003-43fa-8fca-8a269c20437b",
+            "enabled": {
+              "isNull": false,
+              "isImmutable": false,
+              "defaultValue": "true"
+            }
+          }
+        }
+      ],
+      "name": "vSAPCmtPA1vDCOffer"
+    }
+  }
+}

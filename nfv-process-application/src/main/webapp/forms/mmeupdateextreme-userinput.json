@@ -1,0 +1,17 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [             
+           
+           { "controlGroup": { "name": "ipAddressRange", "label": "IP AddressRange", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "ipAddressRange", "readonly": false,"required":true}}
+                ]}},
+                { "controlGroup": { "name": "IVDCName", "label": "IVDCName", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "VDCName", "readonly": false, "required": true}}
+                ]}}   
+        ]
+}

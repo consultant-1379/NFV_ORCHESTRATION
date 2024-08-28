@@ -1,0 +1,15 @@
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfcxEvHI5OVzepsoBI2Oeqcr_7KpmWMExUng.*AAJTSQACMDEAAlNLABM2MDA2MDcxOTMwMTkwMzQzODA4*"
+       },
+       "data":
+       {
+           "vmConsole":
+           {
+               "url": "http://10.51.216.34:6080/vnc_auto.html?token=124b1934-d08c-4b87-92cb-6269f29d9508"
+           }
+       }
+    }
+

@@ -1,0 +1,20 @@
+{
+	"modelType": "model1",
+	"submitText": "Submit",
+	"cancelText": "Cancel",
+	"controlGroups": [{
+		"controlGroup": {
+			"name": "enmFDN",
+			"label": "ENM FDN Name ",
+			"type": "text",
+			"controls": [{
+				"variable": {
+					"type": "string",
+					"name": "enmFDN",
+					"readonly": false,
+					"required": true
+				}
+			}]
+		}
+	}]
+}

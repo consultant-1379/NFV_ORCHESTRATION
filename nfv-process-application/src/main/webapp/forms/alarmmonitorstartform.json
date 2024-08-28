@@ -1,0 +1,17 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [             
+           
+           { "controlGroup": { "name": "moid", "label": "MO ID", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "moid", "readonly": false,"required":true}}
+                ]}},
+                { "controlGroup": { "name": "collectionname", "label": "Collection Name", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "collectionname", "readonly": false, "required": true}}
+                ]}}
+        ]
+}

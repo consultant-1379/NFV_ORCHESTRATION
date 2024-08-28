@@ -1,0 +1,129 @@
+.eaWorkflowsInstances-InstancesCounters {
+	&-Title {
+		font-size: 3rem;
+		padding-top: 8px;
+		padding-bottom: 5px;
+	}
+
+	&-Heading {
+		padding: 0px;
+	}
+
+	&-Breadcrumb {
+		margin-top: 1.2rem;
+	}
+
+	&-DividerBottom {
+		border-bottom: 1px solid rgb(102, 102, 102);
+		height: 20px;
+	}
+
+	&-ActiveInstancesIcon {
+		display: inline-block;
+		vertical-align: middle;
+		background: url('@{current-url}/active_icon_24px.svg');
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 50%;
+		padding-left: 22px;
+	}
+
+	&-CancelledInstancesIcon {
+		display: inline-block;
+		vertical-align: middle;
+		background: url('@{current-url}/cancelled_icon_24px.svg');
+		background-repeat: no-repeat;
+		height: 40px;
+		width: 25px;
+		padding-left: 22px;
+	}
+
+	&-WorkflowInstancesName {
+		padding-left: 110px;
+		padding-top: 15px;
+	}
+
+	&-WorkflowInstances {
+		padding-top: 35px;
+		padding-left: 22px;
+	}
+
+	&-ActiveInstancesName {
+		padding-left: 110px;
+		padding-top: 15px;
+	}
+
+	&-ActiveInstances {
+		padding-top: 35px;
+	}
+
+	&-InactiveInstancesName {
+		padding-left: 110px;
+		padding-top: 15px;
+	}
+
+	&-InactiveInstances {
+		padding-bottom: 30px;
+	}
+
+	&-PausedInstancesName {
+		padding-left: 110px;
+		padding-top: 15px;
+	}
+
+	&-PausedInstances {
+		padding-bottom: 30px;
+	}
+
+	&-CancelledInstancesName {
+		padding-left: 110px;
+		padding-top: 25px;
+	}
+
+	&-CancelledInstances {
+		padding-top: 35px;
+	}
+
+	&-WorkflowInstancesDivider {
+		border-bottom: #cccccc solid 1px;
+		padding-top: 25px;
+		padding-bottom: 5px;
+	}
+
+	&-ActiveInstancesDivider {
+		border-bottom: #cccccc solid 1px;
+		padding-top: 25px;
+		padding-bottom: 5px;
+	}
+
+	&-Panel {
+		display: inline-block;
+		padding-top: 5px;
+		&-iconHolder {
+			&-CreateInstancesButtonHolder {
+				width: 150px;
+			}
+		}
+
+		&-CreateNewDefinition {
+			display: inline-block;
+			cursor: pointer;
+			cursor: hand;
+		}
+	}
+
+	&-contentWfInstances-home {
+		height: 750px;
+	}
+}
+
+.elLayouts-SlidingPanels-leftContents {
+	padding-top: 8px ! important;
+	position: relative;
+	height: 100%;
+	margin-right: 3.6rem;
+	width: 260px ! important;
+	transition: 0.3s margin-left ease-in-out;
+	margin-left: calc(-250px - 3.6rem);
+}
+

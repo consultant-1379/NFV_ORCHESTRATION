@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ericsson.oss.nfe</groupId>
+		<artifactId>nfv-orchestration</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>workflowservice-ext-ejb</artifactId>
+	<packaging>ejb</packaging>
+
+	<name>[${project.parent.artifactId}] EJB module</name>
+
+	<properties>
+		<version.maven-ejb-plugin>2.3</version.maven-ejb-plugin>
+		<camunda-bpm-version>7.1.6-ee</camunda-bpm-version>
+		
+	</properties>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- This plugin generates J2EE Enterprise Javabean (EJB) file as well 
+				as the associated client jar. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<version>${version.maven-ejb-plugin}</version>
+				<configuration>
+					<ejbVersion>${version.ejb}</ejbVersion>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jboss.as.plugins</groupId>
+				<artifactId>jboss-as-maven-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+	<!--  Inter module dependencies -->
+    	<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>core-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>appconfig</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>	
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>core-utils</artifactId>
+			<version>${project.version}</version>
+		</dependency>    
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>workflowservice-ext-api</artifactId>
+			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+	          		<groupId>org.jboss.as</groupId>
+					<artifactId>jboss-as-jms-client-bom</artifactId>
+        		</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!--dependency> <groupId>javax.persistence</groupId> <artifactId>persistence-api</artifactId> 
+			<version>1.0</version> </dependency -->
+
+		<!-- Basic dependency for JEE applications, as defined in Java EE Specification 
+			APIs -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.apache.openejb</groupId> <artifactId>javaee-api</artifactId> 
+			<version>6.0-1</version> <scope>test</scope> </dependency> -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.0-801.jdbc4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.0.7</version>
+		</dependency>
+
+ 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+
+		<!-- Workflow Service Dependencies -->
+		
+		<dependency>
+			<groupId>org.camunda.bpm</groupId>
+			<artifactId>camunda-engine</artifactId>
+			<version>${camunda-bpm-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<artifactId>wfs-api</artifactId>
+			<groupId>com.ericsson.oss.services.wfs</groupId>
+			<version>2.1.9</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>wfs-jee-remote-api</artifactId>
+			<groupId>com.ericsson.oss.services.wfs</groupId>
+			<version>2.1.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ericsson.oss.itpf.sdk</groupId>
+			<artifactId>sdk-config-api</artifactId>
+			<scope>provided</scope>
+			<!-- no need to specify version if imported Service Framework JBoss BOM -->
+		</dependency>
+		
+
+		<!-- Dependencies to Service Framework API modules (like sdk-xxx-api) can 
+			be added here for compilation purpose only. Only add those Service Framework 
+			API dependencies which are used in this project module, and they must be 
+			marked as "provided" scope. -->
+		<!-- Dependencies to Service Framework implementation modules (like sdk-xxx) 
+			must not be added here. -->
+
+	</dependencies>
+
+	<!-- <repositories> <repository> <id>prototype</id> <url>http://eselivm2v238l.lmera.ericsson.se:8081/nexus/content/repositories/releases</url> 
+		</repository> </repositories> -->
+</project>

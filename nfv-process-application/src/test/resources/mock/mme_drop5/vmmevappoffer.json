@@ -1,0 +1,3152 @@
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfczT3WNXSL-QKy8tUAGvCnmKaDakFJKlW7Y.*AAJTSQACMDEAAlNLABM1MjQxMzg5MDQ0MDE1MzcxMDkw*"
+       },
+       "data":
+       {
+           "offer":
+           {
+               "description": "vMME vAPP Offer vEPC Drop C",
+               "vimZoneType":
+               [
+                   "ALL"
+               ],
+               "tenantName": "ALL",
+               "type": "vapp",
+               "offerItems":
+               [
+                   {
+                       "vapp":
+                       {
+                           "itemId": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "vMME"
+                           },
+                           "type":
+                           {
+                               "isNull": true,
+                               "isImmutable": true
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "vdc":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false
+                               }
+                           },
+                           "vendor":
+                           {
+                               "isNull": true,
+                               "isImmutable": true
+                           },
+                           "version":
+                           {
+                               "isNull": true,
+                               "isImmutable": true
+                           },
+                           "parentItemRef": "TOP_LEVEL"
+                       }
+                   },
+                   {
+                       "vm":
+                       {
+                           "itemId": "ID-26be6550-39c7-4f68-998d-a2fec6667714",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false
+                               }
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-FS-1.11-VM"
+                           },
+                           "vmhdName":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-FS"
+                           },
+                           "vapp":
+                           {
+                               "itemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                           },
+                           "startSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "startDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "affinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "antiaffinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "personalities":
+                           [
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "metadata":
+                           [
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "bootSource":
+                           {
+                               "imageName":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Drop5-FS-1.11"
+                               },
+                               "bbsvName":
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           },
+                           "parentItemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-a42ab533-ce36-41d2-b13a-951dabf1b381",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-26be6550-39c7-4f68-998d-a2fec6667714"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-26be6550-39c7-4f68-998d-a2fec6667714"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-417c7e7f-789c-44bd-95c1-fd4256ba63de",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-2-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-26be6550-39c7-4f68-998d-a2fec6667714"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-2-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-26be6550-39c7-4f68-998d-a2fec6667714"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-39ee0d96-7bf8-45a4-891b-73f190174404",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Admin-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-26be6550-39c7-4f68-998d-a2fec6667714"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Admin-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-26be6550-39c7-4f68-998d-a2fec6667714"
+                       }
+                   },
+                   {
+                       "vm":
+                       {
+                           "itemId": "ID-8857ba59-5654-42a9-8795-35bfa90f205f",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false
+                               }
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-NC-1.15-VM"
+                           },
+                           "vmhdName":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-NC"
+                           },
+                           "vapp":
+                           {
+                               "itemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                           },
+                           "startSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "startDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "affinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "antiaffinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "personalities":
+                           [
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "metadata":
+                           [
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "bootSource":
+                           {
+                               "imageName":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Drop5-NC-1.15"
+                               },
+                               "bbsvName":
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           },
+                           "parentItemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-296d877e-227b-4cca-b682-7921cfe19483",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-8857ba59-5654-42a9-8795-35bfa90f205f"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-8857ba59-5654-42a9-8795-35bfa90f205f"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-2d52ed53-ac47-43de-9286-ee4ff16ae343",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-2-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-8857ba59-5654-42a9-8795-35bfa90f205f"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-2-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-8857ba59-5654-42a9-8795-35bfa90f205f"
+                       }
+                   },
+                   {
+                       "vm":
+                       {
+                           "itemId": "ID-b7ab72bc-0b9b-43e4-baa5-6c97ebeadc94",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false
+                               }
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-LB-1.1-VM"
+                           },
+                           "vmhdName":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-LB"
+                           },
+                           "vapp":
+                           {
+                               "itemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                           },
+                           "startSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "startDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "affinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "antiaffinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "personalities":
+                           [
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "metadata":
+                           [
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "bootSource":
+                           {
+                               "imageName":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Drop5-LB-1.1"
+                               },
+                               "bbsvName":
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           },
+                           "parentItemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-c096fdaf-9f92-474f-aeef-aaba6f0bc51b",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-b7ab72bc-0b9b-43e4-baa5-6c97ebeadc94"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-b7ab72bc-0b9b-43e4-baa5-6c97ebeadc94"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-4d4893a3-f873-4fcc-8f59-4e30d0b4947f",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-2-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-b7ab72bc-0b9b-43e4-baa5-6c97ebeadc94"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-2-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-b7ab72bc-0b9b-43e4-baa5-6c97ebeadc94"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-d43f369c-7dec-4fdb-b90e-6a02fe3ce74c",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-External-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-b7ab72bc-0b9b-43e4-baa5-6c97ebeadc94"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-External-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-b7ab72bc-0b9b-43e4-baa5-6c97ebeadc94"
+                       }
+                   },
+                   {
+                       "vm":
+                       {
+                           "itemId": "ID-ede99004-da0b-4940-9657-96097c56781d",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false
+                               }
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-LB-1.3-VM"
+                           },
+                           "vmhdName":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-LB"
+                           },
+                           "vapp":
+                           {
+                               "itemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                           },
+                           "startSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "startDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "affinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "antiaffinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false,
+                               "defaultValue": "MME-LB-1.1-VM"
+                           },
+                           "personalities":
+                           [
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "metadata":
+                           [
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "bootSource":
+                           {
+                               "imageName":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Drop5-LB-1.3"
+                               },
+                               "bbsvName":
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           },
+                           "parentItemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-03bdd403-1850-4ea9-8787-992f93f77b29",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-ede99004-da0b-4940-9657-96097c56781d"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-ede99004-da0b-4940-9657-96097c56781d"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-44c65856-4f72-45c8-8f04-d8bfd5af2195",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-2-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-ede99004-da0b-4940-9657-96097c56781d"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-2-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-ede99004-da0b-4940-9657-96097c56781d"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-b6698426-13f5-448d-9a7b-92179343b02e",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-External-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-ede99004-da0b-4940-9657-96097c56781d"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-External-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-ede99004-da0b-4940-9657-96097c56781d"
+                       }
+                   },
+                   {
+                       "vm":
+                       {
+                           "itemId": "ID-51b8bdac-4829-4266-a514-ce5999882c8c",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false
+                               }
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-NC-1.9-VM"
+                           },
+                           "vmhdName":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-NC"
+                           },
+                           "vapp":
+                           {
+                               "itemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                           },
+                           "startSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "startDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "affinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "antiaffinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false,
+                               "defaultValue": "MME-NC-1.15-VM"
+                           },
+                           "personalities":
+                           [
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "metadata":
+                           [
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "bootSource":
+                           {
+                               "imageName":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Drop5-NC-1.9"
+                               },
+                               "bbsvName":
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           },
+                           "parentItemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-3c0596bc-e4e8-4960-8642-ec109b0b4418",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-51b8bdac-4829-4266-a514-ce5999882c8c"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-51b8bdac-4829-4266-a514-ce5999882c8c"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-d3f1cb9d-9056-4f30-a019-05f2fd188d5d",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-2-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-51b8bdac-4829-4266-a514-ce5999882c8c"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-2-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-51b8bdac-4829-4266-a514-ce5999882c8c"
+                       }
+                   },
+                   {
+                       "vm":
+                       {
+                           "itemId": "ID-59821c9b-2913-4f21-a18d-49600324d1d1",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false
+                               }
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-GP-2.1-VM"
+                           },
+                           "vmhdName":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-GP"
+                           },
+                           "vapp":
+                           {
+                               "itemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                           },
+                           "startSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "startDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "affinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "antiaffinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "personalities":
+                           [
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "metadata":
+                           [
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "bootSource":
+                           {
+                               "imageName":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Drop5-GP-2.1"
+                               },
+                               "bbsvName":
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           },
+                           "parentItemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-f8e14874-aba4-4a39-98dd-1b201295d437",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-59821c9b-2913-4f21-a18d-49600324d1d1"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-59821c9b-2913-4f21-a18d-49600324d1d1"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-28832416-6c61-4e6e-b7f1-a3bb0232c369",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-2-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-59821c9b-2913-4f21-a18d-49600324d1d1"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-2-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-59821c9b-2913-4f21-a18d-49600324d1d1"
+                       }
+                   },
+                   {
+                       "vm":
+                       {
+                           "itemId": "ID-212080cc-4f12-471f-b652-1c4f501e4896",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vdc":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false
+                               }
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-GP-2.3-VM"
+                           },
+                           "vmhdName":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-GP"
+                           },
+                           "vapp":
+                           {
+                               "itemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                           },
+                           "startSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "startDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopSequence":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "stopDelay":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "affinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "antiaffinity":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "personalities":
+                           [
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "path":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "contents":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "metadata":
+                           [
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               },
+                               {
+                                   "tag":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   },
+                                   "value":
+                                   {
+                                       "isNull": true,
+                                       "isImmutable": false
+                                   }
+                               }
+                           ],
+                           "bootSource":
+                           {
+                               "imageName":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Drop5-GP-2.3"
+                               },
+                               "bbsvName":
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           },
+                           "parentItemRef": "ID-6b9024b5-2ecb-47b3-87a2-b364d9136d28"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-773007a2-d5e9-45b0-9990-ebf7b7d2d044",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-212080cc-4f12-471f-b652-1c4f501e4896"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-212080cc-4f12-471f-b652-1c4f501e4896"
+                       }
+                   },
+                   {
+                       "vmVnic":
+                       {
+                           "itemId": "ID-6e26ebeb-f346-4241-bd2f-386c7e4102d8",
+                           "maxCardinality": 1,
+                           "minCardinality": 1,
+                           "vn":
+                           {
+                               "name":
+                               {
+                                   "isNull": false,
+                                   "isImmutable": false,
+                                   "defaultValue": "MME-Internal-2-VN"
+                               }
+                           },
+                           "vm":
+                           {
+                               "itemRef": "ID-212080cc-4f12-471f-b652-1c4f501e4896"
+                           },
+                           "name":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "MME-Internal-2-VNIC"
+                           },
+                           "type":
+                           {
+                               "isNull": false,
+                               "isImmutable": true,
+                               "defaultValue": "STANDARD"
+                           },
+                           "assignExternalIpAddress":
+                           {
+                               "isNull": false,
+                               "isImmutable": false,
+                               "defaultValue": "false"
+                           },
+                           "internalIpAddresses":
+                           [
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               },
+                               {
+                                   "isNull": true,
+                                   "isImmutable": false
+                               }
+                           ],
+                           "macAddress":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "description":
+                           {
+                               "isNull": true,
+                               "isImmutable": false
+                           },
+                           "parentItemRef": "ID-212080cc-4f12-471f-b652-1c4f501e4896"
+                       }
+                   }
+               ],
+               "name": "vMMEvAPPOFFERvEPCDropC"
+           }
+       }
+    }
+

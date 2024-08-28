@@ -1,0 +1,12 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+        	{ "controlGroup": { "name": "filename", "label": "File Name ", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "filename", "readonly": false, "required": true}}
+                ]}}
+        ]
+}

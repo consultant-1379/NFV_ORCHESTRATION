@@ -1,0 +1,45 @@
+{
+   "order":{
+      "orderItems":[
+         {
+            "orderItemId":"0",
+            "createVm":{
+               "vdc":{
+                  "id":"${vdc}"
+               },
+               "vmhdName":"EPG-NFS",
+               "imageName":"EPG-NFS",
+               "description":"Created by NFE Automation application",
+               "name":"epg-nfs-vm"
+            }
+         },
+         {
+            "orderItemId":"1",
+            "createVmVnic":{
+               "vm":{
+                  "orderItemRef":"0"
+               },
+               "vn":{
+                  "id":"${EPG-NFS-VN}"
+               },
+               "assignPublicIpAddress":"false",
+               "name":"EPG-NFS-NFS-VNIC"
+            }
+         },
+         {
+            "orderItemId":"2",
+            "createVmVnic":{
+               "vm":{
+                  "orderItemRef":"0"
+               },
+               "vn":{
+                  "id":"${EPG-Public-VN}"
+               },
+               "assignPublicIpAddress":"false",
+               "name":"EPG-NFS-Public-VNIC"
+            }
+         }
+      ],
+      "tenantName":"${tenantName}"
+   }
+}

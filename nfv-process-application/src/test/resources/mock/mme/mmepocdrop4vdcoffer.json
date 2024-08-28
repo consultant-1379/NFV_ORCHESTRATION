@@ -1,0 +1,309 @@
+{
+   "status":
+   {
+       "reqStatus": "SUCCESS",
+       "credentials": "AQIC5wM2LY4SfcwSoUjQau-12tXos917nGjUKmYCM2tDwWw.*AAJTSQACMDEAAlNLABM0MjMxNTg0OTQxMTU4NTA4MzIz*"
+   },
+   "data":
+   {
+       "offer":
+       {
+           "description": "vMME VDC (vEPC PoC Drop B)",
+           "vimZoneType":
+           [
+               "ALL"
+           ],
+           "tenantName": "ALL",
+           "type": "vdc",
+           "offerItems":
+           [
+               {
+                   "vdc":
+                   {
+                       "itemId": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764",
+                       "maxCardinality": 1,
+                       "minCardinality": 1,
+                       "name":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "MME-VDC"
+                       },
+                       "vimZoneName":
+                       {
+                           "isNull": false,
+                           "isImmutable": false
+                       },
+                       "description":
+                       {
+                           "isNull": true,
+                           "isImmutable": false
+                       },
+                       "parentItemRef": "TOP_LEVEL"
+                   }
+               },
+               {
+                   "vn":
+                   {
+                       "itemId": "ID-af8403ae-cc9f-41b8-9654-3073131a9b23",
+                       "maxCardinality": 1,
+                       "minCardinality": 1,
+                       "vdc":
+                       {
+                           "itemRef": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764"
+                       },
+                       "name":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "MME-External-VN"
+                       },
+                       "description":
+                       {
+                           "isNull": true,
+                           "isImmutable": false
+                       },
+                       "ipVersion":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "IPv4"
+                       },
+                       "ipAddressRange":
+                       {
+                           "isNull": true,
+                           "isImmutable": false
+                       },
+                       "cidrSize":
+                       {
+                           "isNull": true,
+                           "isImmutable": false,
+                           "defaultValue": "24"
+                       },
+                       "dhcpEnabled":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "false"
+                       },
+                       "parentItemRef": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764",
+                       "enabled":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "true"
+                       }
+                   }
+               },
+               {
+                   "vn":
+                   {
+                       "itemId": "ID-2a831f78-4fe6-4744-81ab-43de7dd9b765",
+                       "maxCardinality": 1,
+                       "minCardinality": 1,
+                       "vdc":
+                       {
+                           "itemRef": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764"
+                       },
+                       "name":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "MME-Internal-VN"
+                       },
+                       "description":
+                       {
+                           "isNull": true,
+                           "isImmutable": false
+                       },
+                       "ipVersion":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "IPv4"
+                       },
+                       "ipAddressRange":
+                       {
+                           "isNull": true,
+                           "isImmutable": false
+                       },
+                       "cidrSize":
+                       {
+                           "isNull": true,
+                           "isImmutable": false,
+                           "defaultValue": "24"
+                       },
+                       "dhcpEnabled":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "false"
+                       },
+                       "parentItemRef": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764",
+                       "enabled":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "true"
+                       }
+                   }
+               },
+               {
+                   "vn":
+                   {
+                       "itemId": "ID-0e848159-bd9a-454f-869c-2bd7af67526d",
+                       "maxCardinality": 1,
+                       "minCardinality": 1,
+                       "vdc":
+                       {
+                           "itemRef": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764"
+                       },
+                       "name":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "MME-Internal-2-VN"
+                       },
+                       "description":
+                       {
+                           "isNull": true,
+                           "isImmutable": false
+                       },
+                       "ipVersion":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "IPv4"
+                       },
+                       "ipAddressRange":
+                       {
+                           "isNull": true,
+                           "isImmutable": false
+                       },
+                       "cidrSize":
+                       {
+                           "isNull": true,
+                           "isImmutable": false,
+                           "defaultValue": "24"
+                       },
+                       "dhcpEnabled":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "false"
+                       },
+                       "parentItemRef": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764",
+                       "enabled":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "true"
+                       }
+                   }
+               },
+               {
+                   "vn":
+                   {
+                       "itemId": "ID-3ab348ab-fb48-450a-a8f8-41393518d2f9",
+                       "maxCardinality": 1,
+                       "minCardinality": 1,
+                       "vdc":
+                       {
+                           "itemRef": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764"
+                       },
+                       "name":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "MME-Admin-VN"
+                       },
+                       "description":
+                       {
+                           "isNull": true,
+                           "isImmutable": false
+                       },
+                       "ipVersion":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "IPv4"
+                       },
+                       "ipAddressRange":
+                       {
+                           "isNull": true,
+                           "isImmutable": false
+                       },
+                       "cidrSize":
+                       {
+                           "isNull": true,
+                           "isImmutable": false,
+                           "defaultValue": "24"
+                       },
+                       "dhcpEnabled":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "true"
+                       },
+                       "parentItemRef": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764",
+                       "enabled":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "true"
+                       }
+                       }
+               },
+               {
+                   "vrf":
+                   {
+                       "itemId": "ID-086307b2-395d-4300-8bfd-5a27e7b85149",
+                       "maxCardinality": 1,
+                       "minCardinality": 1,
+                       "vdc":
+                       {
+                           "itemRef": "ID-86143f26-e8b0-45f2-a6bd-9ea309e33764"
+                       },
+                       "name":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "MME-Admin-VRF"
+                       },
+                       "externallyConnected":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "true"
+                       },
+                       "parentItemRef": "ID-3ab348ab-fb48-450a-a8f8-41393518d2f9"
+                   }
+               },
+               {
+                   "vrfVnic":
+                   {
+                       "itemId": "ID-4db09256-9f9b-40fa-bba8-60a72c23f22e",
+                       "maxCardinality": 1,
+                       "minCardinality": 1,
+                       "name":
+                       {
+                           "isNull": false,
+                           "isImmutable": false,
+                           "defaultValue": "MME-Admin-VRFVNIC"
+                       },
+                       "vn":
+                       {
+                           "itemRef": "ID-3ab348ab-fb48-450a-a8f8-41393518d2f9"
+                       },
+                       "vrf":
+                       {
+                           "itemRef": "ID-086307b2-395d-4300-8bfd-5a27e7b85149"
+                       },
+                       "parentItemRef": "ID-086307b2-395d-4300-8bfd-5a27e7b85149"
+                   }
+               }
+           ],
+           "name": "MMEPOCDROP4VDCOFFER"
+       }
+   }
+}

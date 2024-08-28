@@ -1,0 +1,25 @@
+{
+    "parent": "$(parentJson)/library.json",
+    "defaultPhase": "package",
+    "properties": {
+        "package": "3pps",
+        "name": "3pps",
+        "version": "1.0.0",
+        "skeleton": "2.0.22",
+        "skeletonType": "library"
+    },
+    "phases": {
+        "package": {
+            "depends": [
+                "clean",
+                "compile",
+                "compress"
+            ]
+        }
+    },
+    "dependencies": {
+        "jscore": "1.3.3",
+        "widgets": "1.4.2",
+        "assets": "1.4.0"
+    }
+}

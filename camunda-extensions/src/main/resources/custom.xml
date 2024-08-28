@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:processTriggers xmlns:tns="http://www.ericsson.com/custom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ericsson.com/custom custom.xsd ">
+  <tns:trigger triggerType="FMAlarms" schemaVersion="14B">
+    <tns:triggerName>tns:triggerName</tns:triggerName>
+ 	<tns:filterString>ass</tns:filterString>
+   </tns:trigger>
+</tns:processTriggers>

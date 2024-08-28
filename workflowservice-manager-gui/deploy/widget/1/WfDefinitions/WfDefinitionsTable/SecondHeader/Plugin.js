@@ -1,0 +1,3 @@
+/* Copyright (c) Ericsson 2015 */
+
+define("widget/WfDefinitions/WfDefinitionsTable/SecondHeader/Plugin",["jscore/core"],function(t){var e=function(t){this.options=t||{},this.init.apply(this,arguments)};return e.prototype.init=function(){},e.prototype.getOptions=function(){return this.options},e.prototype.getTable=function(){return this._table},e.prototype.injections={before:{},after:{},newMethods:{}},e.extend=t.extend,e});

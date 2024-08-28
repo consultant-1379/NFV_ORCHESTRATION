@@ -1,0 +1,217 @@
+
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfcyKmkdR2L6zSh9evbpVhD9hbBXkScv08Cs.*AAJTSQACMDEAAlNLABQtNzk1OTQwMTQyMzc5Mzc1MjAwMA..*"
+       },
+       "data":
+       {
+           "vms":
+           [
+               {
+                   "createReqNumber": "2159968",
+                   "vimZone":
+                   {
+                       "name": "myVzId",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "de147bed-8b6f-4615-bcd4-a29ab1f67b9c",
+                   "hostId": "320182ca943d7658870c69cb6694326607a353cea8234a5ddff99e13",
+                   "adminPassword": "jgMRKr3kA23n",
+                   "lastModifiedBy": "oss",
+                   "imageName": "MME-Drop4-FS-1.11",
+                   "vmhdName": "MME-FS",
+                   "vdc":
+                   {
+                       "id": "VDC-7640",
+                       "name": "MME-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-7647",
+                       "name": "vMME"
+                   },
+                   "id": "VM-7648",
+                   "name": "MME-FS-1.11-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2159968",
+                   "vimZone":
+                   {
+                       "name": "myVzId",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "f8c18454-a229-401f-a2f1-97186a701f6e",
+                   "hostId": "b9f2aae02c4e6769216cd246ed4839e28f3e0cd2870c548e284ff35e",
+                   "adminPassword": "DwkcozBFEX7X",
+                   "lastModifiedBy": "oss",
+                   "imageName": "MME-Drop4-GP-2.1",
+                   "vmhdName": "MME-GP",
+                   "vdc":
+                   {
+                       "id": "VDC-7640",
+                       "name": "MME-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-7647",
+                       "name": "vMME"
+                   },
+                   "id": "VM-7649",
+                   "name": "MME-GP-2.1-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2159968",
+                   "vimZone":
+                   {
+                       "name": "myVzId",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "5f6c4cc4-79fd-4eba-9949-6aa8acc72781",
+                   "hostId": "24848f0b8dbd5a7ebc3578525abc5542752230dab5e3ab2bd32c9b88",
+                   "adminPassword": "NdkYet2C7hFv",
+                   "lastModifiedBy": "oss",
+                   "imageName": "MME-Drop4-GP-2.3",
+                   "vmhdName": "MME-GP",
+                   "vdc":
+                   {
+                       "id": "VDC-7640",
+                       "name": "MME-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-7647",
+                       "name": "vMME"
+                   },
+                   "id": "VM-7650",
+                   "name": "MME-GP-2.3-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2159968",
+                   "vimZone":
+                   {
+                       "name": "myVzId",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "edb5a9a4-e948-419d-82eb-afa0d6f28ce7",
+                   "hostId": "f1cd168ea1c5f361cdf4db29ff513b6a3cb540918f2d6846dc646044",
+                   "adminPassword": "Krz3k8AaxWCm",
+                   "lastModifiedBy": "oss",
+                   "imageName": "MME-Drop4-LB-1.1",
+                   "vmhdName": "MME-LB",
+                   "vdc":
+                   {
+                       "id": "VDC-7640",
+                       "name": "MME-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-7647",
+                       "name": "vMME"
+                   },
+                   "id": "VM-7651",
+                   "name": "MME-LB-1.1-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2159968",
+                   "vimZone":
+                   {
+                       "name": "myVzId",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "e63c67b2-7d5f-49f5-b525-d62c05145d25",
+                   "hostId": "320182ca943d7658870c69cb6694326607a353cea8234a5ddff99e13",
+                   "adminPassword": "ReMjFv6nuent",
+                   "lastModifiedBy": "oss",
+                   "imageName": "MME-Drop4-LB-1.3",
+                   "vmhdName": "MME-LB",
+                   "vdc":
+                   {
+                       "id": "VDC-7640",
+                       "name": "MME-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-7647",
+                       "name": "vMME"
+                   },
+                   "id": "VM-7652",
+                   "name": "MME-LB-1.3-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2159968",
+                   "vimZone":
+                   {
+                       "name": "myVzId",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "043dbca2-a009-4ca3-add3-c284f95b6dd1",
+                   "hostId": "b9f2aae02c4e6769216cd246ed4839e28f3e0cd2870c548e284ff35e",
+                   "adminPassword": "Sa2tNWjRpzf3",
+                   "lastModifiedBy": "oss",
+                   "imageName": "MME-Drop4-NC-1.15",
+                   "vmhdName": "MME-NC",
+                   "vdc":
+                   {
+                       "id": "VDC-7640",
+                       "name": "MME-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-7647",
+                       "name": "vMME"
+                   },
+                   "id": "VM-7653",
+                   "name": "MME-NC-1.15-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               },
+               {
+                   "createReqNumber": "2159968",
+                   "vimZone":
+                   {
+                       "name": "myVzId",
+                       "type": "OPENSTACK"
+                   },
+                   "vimObjectId": "16f8d464-bcc8-480b-8d74-3d43cb13b78b",
+                   "hostId": "24848f0b8dbd5a7ebc3578525abc5542752230dab5e3ab2bd32c9b88",
+                   "adminPassword": "nMFi6mKj3Py3",
+                   "lastModifiedBy": "oss",
+                   "imageName": "MME-Drop4-NC-1.9",
+                   "vmhdName": "MME-NC",
+                   "vdc":
+                   {
+                       "id": "VDC-7640",
+                       "name": "MME-VDC"
+                   },
+                   "vapp":
+                   {
+                       "id": "VAPP-7647",
+                       "name": "vMME"
+                   },
+                   "id": "VM-7654",
+                   "name": "MME-NC-1.9-VM",
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss",
+                   "operationalStatus": "ACTIVE"
+               }
+           ]
+       }
+    }

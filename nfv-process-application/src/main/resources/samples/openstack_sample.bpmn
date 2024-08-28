@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_Qev7QB5BEeWuPvE1Sy83pw" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="opstack_sample" name="opstack_sample" isExecutable="false">
+    <bpmn2:extensionElements>
+      <camunda:executionListener class="com.ericsson.oss.nfe.poc.listeners.AppConfigLoadListener" event="start"/>
+    </bpmn2:extensionElements>
+    <bpmn2:startEvent id="StartEvent__prg__p0" name="start">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:serviceTask id="AuthOpenstack__prg__p25" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericOpenStackAuthenticator" name="Authenticate Openstack">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent__prg__p0" targetRef="AuthOpenstack__prg__p25"/>
+    <bpmn2:serviceTask id="InvokeOpenStack__prg__p70" camunda:class="com.ericsson.oss.nfe.poc.tasks.GenericOpenStackRESTInvoker" name="Invoke Get Openstack REST (Get Tenants)">
+      <bpmn2:extensionElements>
+        <camunda:field name="method">
+          <camunda:string>GET</camunda:string>
+        </camunda:field>
+        <camunda:field name="endPointURL">
+          <camunda:string>http://10.70.250.150:4000/v2.0/tenants</camunda:string>
+        </camunda:field>
+        <camunda:field name="outPutVariable">
+          <camunda:string>getTenantsOutput</camunda:string>
+        </camunda:field>
+        <camunda:field name="requestString">
+          <camunda:string>--</camunda:string>
+        </camunda:field>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="AuthOpenstack__prg__p25" targetRef="InvokeOpenStack__prg__p70"/>
+    <bpmn2:scriptTask id="ScriptTask__prg__p85" name="Log Openstack REST &#xA;Output" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="InvokeOpenStack__prg__p70" targetRef="ScriptTask__prg__p85"/>
+    <bpmn2:endEvent id="EndEvent__prg__p100" name="end">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="ScriptTask__prg__p85" targetRef="EndEvent__prg__p100"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="opstack_sample">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_21" bpmnElement="StartEvent__prg__p0">
+        <dc:Bounds height="36.0" width="36.0" x="119.0" y="213.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_107" bpmnElement="AuthOpenstack__prg__p25">
+        <dc:Bounds height="80.0" width="100.0" x="205.0" y="191.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_21" targetElement="_BPMNShape_ServiceTask_107">
+        <di:waypoint xsi:type="dc:Point" x="155.0" y="231.0"/>
+        <di:waypoint xsi:type="dc:Point" x="205.0" y="231.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_108" bpmnElement="InvokeOpenStack__prg__p70">
+        <dc:Bounds height="80.0" width="100.0" x="355.0" y="191.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ServiceTask_107" targetElement="_BPMNShape_ServiceTask_108">
+        <di:waypoint xsi:type="dc:Point" x="305.0" y="231.0"/>
+        <di:waypoint xsi:type="dc:Point" x="355.0" y="231.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_132" bpmnElement="ScriptTask__prg__p85">
+        <dc:Bounds height="80.0" width="100.0" x="505.0" y="191.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ServiceTask_108" targetElement="_BPMNShape_ScriptTask_132">
+        <di:waypoint xsi:type="dc:Point" x="455.0" y="231.0"/>
+        <di:waypoint xsi:type="dc:Point" x="505.0" y="231.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_74" bpmnElement="EndEvent__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="655.0" y="213.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_ScriptTask_132" targetElement="_BPMNShape_EndEvent_74">
+        <di:waypoint xsi:type="dc:Point" x="605.0" y="231.0"/>
+        <di:waypoint xsi:type="dc:Point" x="655.0" y="231.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

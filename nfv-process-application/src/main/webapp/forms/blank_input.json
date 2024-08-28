@@ -1,0 +1,13 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+        	{ "controlGroup": { "name": "test", "label": "Dummy Input", "type": "select",
+                "controls": [
+                    { "variable": { "type": "string", "name": "tor-user-id-new", "readonly": false},
+                      "initialValue": { "source": "local", "values": ["sum user 1", "sum user 2","sum user 3"] } }
+                ]}}
+        ]
+}

@@ -1,0 +1,55 @@
+    {
+       "status":
+       {
+           "reqStatus": "SUCCESS",
+           "credentials": "AQIC5wM2LY4SfcwFzsuH0BFClE8VxcrNLvjU_sY_IDdzjzg.*AAJTSQACMDEAAlNLABQtMTc5NjI4NDI1MzU3NzQ0NTg0Mw..*"
+       },
+       "data":
+       {
+           "vdcs":
+           [
+               {
+                   "id": "VDC-3070",
+                   "name": "MME01-VDC",
+                   "createReqNumber": "2493008",
+                   "description": "vMME VDC used by OSS -ejosarm 7-11-14",
+                   "lastModifiedBy": "oss",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss"
+               },
+               {
+                   "id": "VDC-3211",
+                   "name": "EPG08-VDC",
+                   "createReqNumber": "2536387",
+                   "description": "Created by NFV Automation application ",
+                   "lastModifiedBy": "oss",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss"
+               },
+               {
+                   "id": "VDC-2676",
+                   "name": "EPG-VDC",
+                   "createReqNumber": "2439830",
+                   "lastModifiedBy": "oss",
+                   "vimZone":
+                   {
+                       "name": "vEPC04",
+                       "type": "OPENSTACK"
+                   },
+                   "provisioningStatus": "ACTIVE",
+                   "tenantName": "lmioss"
+               }
+           ]
+       }
+    }
+

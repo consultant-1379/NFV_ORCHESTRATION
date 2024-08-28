@@ -1,0 +1,14 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cfg="urn:xapi/cfgmgmt/cfgmgr">
+<soapenv:Header>
+   <ns1:hdr
+   xmlns:ns1="http://www.extremenetworks.com/XMLSchema/xos/common">
+   <reqId>${reqCounter}</reqId>
+   <sessionId>${sessionID}</sessionId>
+   </ns1:hdr>
+   </soapenv:Header>
+   <soapenv:Body>
+      <cfg:execCli>
+         <command>${commandPlcholder}</command>
+      </cfg:execCli>
+   </soapenv:Body>
+</soapenv:Envelope>

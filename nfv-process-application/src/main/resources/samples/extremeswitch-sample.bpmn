@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://activiti.org/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" id="_U1dc0B5BEeWuPvE1Sy83pw" exporter="camunda modeler" exporterVersion="2.6.0" targetNamespace="http://activiti.org/bpmn">
+  <bpmn2:process id="extremeswitch_sample" name="extremeswitch_sample" isExecutable="false">
+    <bpmn2:extensionElements/>
+    <bpmn2:startEvent id="StartEvent__prg__p0" name="Start">
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1" name="" sourceRef="StartEvent__prg__p0" targetRef="Auth__prg__p25"/>
+    <bpmn2:serviceTask id="Auth__prg__p25" camunda:class="com.ericsson.oss.nfe.poc.tasks.ExtremeSOAPAuthenticator" name="Authentice Extreme Switch">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_2" name="" sourceRef="Auth__prg__p25" targetRef="ExecCli__prg__p75"/>
+    <bpmn2:serviceTask id="ExecCli__prg__p75" camunda:class="com.ericsson.oss.nfe.poc.tasks.ExtremeSOAPCLIInvoker" name="Execute Extreme Command">
+      <bpmn2:extensionElements>
+        <camunda:field name="cliCommand">
+          <camunda:string>show vlan | include 10.50.241.128/25</camunda:string>
+        </camunda:field>
+        <camunda:field name="commandOutPutVariable">
+          <camunda:string>xtremeCliOut</camunda:string>
+        </camunda:field>
+        <camunda:field/>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" name="" sourceRef="ExecCli__prg__p75" targetRef="LogOP__prg__p90"/>
+    <bpmn2:scriptTask id="LogOP__prg__p90" name="Log Output &#xA;From Extreme Command" scriptFormat="groovy">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+      <bpmn2:script>println ' outout of Extreme command is -->'+execution.getVariable('xtremeCliOut');</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_4" name="" sourceRef="LogOP__prg__p90" targetRef="EndEvent__prg__p100"/>
+    <bpmn2:endEvent id="EndEvent__prg__p100" name="end">
+      <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="extremeswitch_sample">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_20" bpmnElement="StartEvent__prg__p0">
+        <dc:Bounds height="36.0" width="36.0" x="93.0" y="208.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_105" bpmnElement="Auth__prg__p25">
+        <dc:Bounds height="80.0" width="100.0" x="204.0" y="186.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="SequenceFlow_1" sourceElement="_BPMNShape_StartEvent_20" targetElement="_BPMNShape_ServiceTask_105">
+        <di:waypoint xsi:type="dc:Point" x="129.0" y="226.0"/>
+        <di:waypoint xsi:type="dc:Point" x="204.0" y="226.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="151.0" y="226.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ServiceTask_106" bpmnElement="ExecCli__prg__p75">
+        <dc:Bounds height="80.0" width="100.0" x="372.0" y="186.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="_BPMNShape_ServiceTask_105" targetElement="_BPMNShape_ServiceTask_106">
+        <di:waypoint xsi:type="dc:Point" x="304.0" y="226.0"/>
+        <di:waypoint xsi:type="dc:Point" x="372.0" y="226.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="326.0" y="226.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_ScriptTask_131" bpmnElement="LogOP__prg__p90">
+        <dc:Bounds height="80.0" width="100.0" x="564.0" y="186.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="_BPMNShape_ServiceTask_106" targetElement="_BPMNShape_ScriptTask_131">
+        <di:waypoint xsi:type="dc:Point" x="472.0" y="226.0"/>
+        <di:waypoint xsi:type="dc:Point" x="564.0" y="226.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="494.0" y="226.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_EndEvent_73" bpmnElement="EndEvent__prg__p100">
+        <dc:Bounds height="36.0" width="36.0" x="744.0" y="208.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="22.0" width="27.0" x="749.0" y="249.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="_BPMNShape_ScriptTask_131" targetElement="_BPMNShape_EndEvent_73">
+        <di:waypoint xsi:type="dc:Point" x="664.0" y="226.0"/>
+        <di:waypoint xsi:type="dc:Point" x="744.0" y="226.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="6.0" width="6.0" x="686.0" y="226.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

@@ -1,0 +1,12 @@
+{
+    "modelType": "model1",
+    "submitText": "Submit",
+    "cancelText": "Cancel",
+    "controlGroups":
+        [
+        	{ "controlGroup": { "name": "vmname", "label": "OPENSTACK VM Name ", "type": "text",
+                "controls": [
+                    { "variable": { "type": "string", "name": "vmname", "readonly": false, "required": true}}
+                ]}}
+        ]
+}

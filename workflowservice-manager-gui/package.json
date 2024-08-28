@@ -1,0 +1,8 @@
+{
+  "name": "workflowservice-manager-gui",
+  "devDependencies": {
+    "cdt-build": "^2.2.4",
+    "cdt-package": "^2.2.0",
+    "cdt-serve": "^2.1.4"
+  }
+}

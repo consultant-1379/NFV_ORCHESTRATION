@@ -1,0 +1,83 @@
+  {
+  "status":
+   {
+       "reqStatus": "SUCCESS",
+       "credentials": "AQIC5wM2LY4SfcyLlBlI9db2xVOIFkaNahgpHZw6TKUyPgM.*AAJTSQACMDEAAlNLABMtODg5OTkyMzgwMjI1MDgyOTE4*"
+   },
+   "data":
+   {
+       "vm":
+       {
+           "createReqNumber": "2219289",
+           "vimZone":
+           {
+               "name": "myVzId",
+               "type": "OPENSTACK"
+           },
+           "vimObjectId": "642eb3a7-f235-41d1-993e-b3265b4443ca",
+           "hostId": "b34149780f0768995405065098a65825414c28ab46b8b59dd00b7b22",
+           "adminPassword": "Pn77ibZVubPU",
+           "lastModifiedBy": "ecmadmin",
+           "bootSource":
+           {
+               "imageName": "MME-Drop4-LB-1.1"
+           },
+           "vmhdName": "MME-LB",
+           "vdc":
+           {
+               "id": "VDC-1827",
+               "name": "MME-VDC"
+           },
+           "vapp":
+           {
+               "id": "VAPP-1834",
+               "name": "vMME"
+           },
+           "id": "VM-1837",
+           "name": "MME-LB-1.1-VM",
+           "provisioningStatus": "ACTIVE",
+           "tenantName": "lmioss",
+           "operationalStatus": "ACTIVE",
+           "vmVnics":
+           [
+               {
+                   "macAddress": "fa:16:3e:29:0a:e5",
+                   "vimObjectId": "5ded98ff-aeca-41dd-8147-86e0c2b80f8b",
+                   "type": "standard",
+                   "vn":
+                   {
+                       "id": "VN-1829",
+                       "name": "MME-Internal-VN"
+                   },
+                   "id": "VNIC-VM-1847",
+                   "name": "MME-Internal-VNIC"
+               },
+               {
+                   "macAddress": "fa:16:3e:92:09:4d",
+                   "vimObjectId": "a0db4b0b-fdf0-49ca-bd8a-85ce66e0c65c",
+                   "type": "standard",
+                   "vn":
+                   {
+                       "id": "VN-1830",
+                       "name": "MME-Internal-2-VN"
+                   },
+                   "id": "VNIC-VM-1848",
+                   "name": "MME-Internal-2-VNIC"
+               },
+               {
+                   "macAddress": "fa:16:3e:4e:68:e5",
+                   "privateIpAddress": "10.10.1.2",
+                   "vimObjectId": "6c7ea5e9-69ba-4298-b1df-7a18f3194e07",
+                   "type": "standard",
+                   "vn":
+                   {
+                       "id": "VN-1923",
+                       "name": "MME-External-VN"
+                   },
+                   "id": "VNIC-VM-1849",
+                   "name": "MME-External-VNIC"
+               }
+           ]
+       }
+   }
+}

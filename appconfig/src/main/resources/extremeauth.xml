@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="http://www.extremenetworks.com/XMLSchema/xos/common">
+<soapenv:Header/>
+   <soapenv:Body>
+      <com:openSessionRequest>
+         <session com:operation="merge">
+            <appName>EXSTREAM_OPENSTACK_CLIENT</appName>
+            <username>admin</username>
+            <password></password>
+            <timeout>1000</timeout>
+         </session>
+      </com:openSessionRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
